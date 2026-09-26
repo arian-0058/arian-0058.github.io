@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arian | Junior DevOps & Infrastructure Engineer</title>
+  <title>Arian Nourani | Junior DevOps &amp; Infrastructure Engineer</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -91,15 +91,29 @@
           </div>
           
           <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white font-mono" dir="ltr">
-            Arian
+            Arian Nourani
           </h1>
 
           <div class="text-terminalGreen font-mono text-sm sm:text-base font-semibold tracking-wide" dir="ltr">
             Junior DevOps &amp; Infrastructure Engineer
           </div>
+
+          <p class="text-silverChrome text-sm sm:text-base leading-relaxed pt-1">
+            سلام من آرینم . علاقه‌مند به DevOps، لینوکس (Linux) و زیرساخت‌های ابری (Cloud Infrastructure)
+          </p>
+
+          <div class="pt-1">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-xs font-mono text-silverBright" dir="ltr">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminalGreen opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-terminalGreen"></span>
+              </span>
+              <span>Open to: Remote · Full-time · Part-time · Internship</span>
+            </div>
+          </div>
         </div>
 
-        <!-- لینک‌های ارتباطی -->
+        <!-- لینک‌های ارتباطی و دانلود رزومه -->
         <div class="flex flex-wrap gap-2.5 font-mono text-xs self-start lg:self-center" dir="ltr">
           <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" 
              class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
@@ -107,19 +121,22 @@
             <span>GitHub</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer"
-             class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
-            <i class="devicon-linkedin-plain text-base text-[#0a66c2]"></i>
-            <span>LinkedIn</span>
-          </a>
-
-          <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer"
+          <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" 
              class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
             <svg class="w-4 h-4 text-[#229ED9] fill-current" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
             </svg>
             <span>Telegram</span>
           </a>
+
+          <!-- دکمه دانلود هر دو فایل رزومه -->
+          <button onclick="downloadResumes()" type="button"
+             class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright cursor-pointer">
+            <svg class="w-4 h-4 text-terminalGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            <span>Resume (EN &amp; FR)</span>
+          </button>
 
           <a href="mailto:arian.nourani.2005@gmail.com" 
              class="flex items-center space-x-2 px-4 py-2.5 rounded-lg bg-terminalGreen/15 hover:bg-terminalGreen/25 border border-terminalGreen/50 text-terminalGreen font-bold transition-all">
@@ -421,11 +438,29 @@
     <!-- ۵. فوتر -->
     <footer class="border-t border-steelBorder/80 pt-8 pb-12 flex items-center justify-center gap-6 font-sans text-xs">
       <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">گیت‌هاب</a>
-      <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">لینکدین</a>
       <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">تلگرام</a>
       <a href="./incidents.html" class="text-terminalGreen hover:underline font-bold">آزمایشگاه سناریوها</a>
     </footer>
 
   </main>
+
+  <script>
+    function downloadResumes() {
+      const files = [
+        'Arian_Nourani_Resume_(EN).pdf',
+        'Arian_Nourani_Resume_(FR).pdf'
+      ];
+      files.forEach((file, index) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = file;
+          a.download = file;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, index * 250);
+      });
+    }
+  </script>
 </body>
 </html>
