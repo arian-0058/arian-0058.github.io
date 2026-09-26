@@ -42,13 +42,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <style>
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 6px #10b981); }
-      50% { opacity: 0.4; transform: scale(1.1); filter: drop-shadow(0 0 1px #10b981); }
-    }
-    .status-pulse {
-      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
     .metallic-card {
       background: linear-gradient(145deg, #151b23 0%, #0d1117 100%);
       border: 1px solid #30363d;
@@ -84,26 +77,9 @@
 </head>
 <body class="bg-canvas text-silverBright font-sans antialiased min-h-screen selection:bg-terminalGreen selection:text-canvas">
 
-  <!-- Top System Status Banner (موقعیت مکانی حذف شد) -->
-  <div class="border-b border-steelBorder/70 bg-canvasSub/90 backdrop-blur px-4 py-2.5">
-    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3 text-xs font-mono">
-      <div class="flex items-center space-x-2.5 space-x-reverse">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-terminalGreen opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-terminalGreen"></span>
-        </span>
-        <span class="text-terminalGreen font-semibold tracking-wide">SYS_STATUS:</span>
-        <span class="text-silverChrome">Operational &amp; Ready to Deploy</span>
-      </div>
-      <div class="text-steelLight font-mono text-[11px] sm:text-xs" dir="ltr">
-        <span>Linux · Containers · CI/CD · Infrastructure</span>
-      </div>
-    </div>
-  </div>
-
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
 
-    <!-- ۱. هدر و معرفی (کامل، شیک، با لینکدین و تلگرام و فقط نام Arian) -->
+    <!-- ۱. هدر و معرفی -->
     <header class="metallic-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
       <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/40 to-transparent"></div>
       
@@ -123,7 +99,7 @@
           </div>
         </div>
 
-        <!-- لینک‌های ارتباطی (شامل LinkedIn، بدون Instagram) -->
+        <!-- لینک‌های ارتباطی -->
         <div class="flex flex-wrap gap-2.5 font-mono text-xs self-start lg:self-center" dir="ltr">
           <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" 
              class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
@@ -156,7 +132,7 @@
       </div>
     </header>
 
-    <!-- ۲. بخش مهارت‌ها (Skills) - دقیقاً زیر هدر، همراه با کلیه آیکون‌های اصلی Devicon -->
+    <!-- ۲. بخش مهارت‌ها (Skills) -->
     <section class="space-y-5">
       <div class="border-b border-steelBorder/80 pb-3 flex items-center justify-between">
         <h2 class="text-xl font-bold font-mono text-white flex items-center space-x-2 space-x-reverse">
@@ -303,7 +279,7 @@
       </div>
     </section>
 
-    <!-- ۳. بخش آزمایشگاه سناریوها (آمده در بالای پروژه‌ها، با ابعاد بزرگ، استایل شاخص و شیک) -->
+    <!-- ۳. بخش آزمایشگاه سناریوها (بالای پروژه‌ها) -->
     <section class="lab-card rounded-2xl p-6 sm:p-9 relative overflow-hidden transition-all">
       <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-terminalGreen to-transparent"></div>
       
@@ -337,7 +313,7 @@
       </div>
     </section>
 
-    <!-- ۴. بخش پروژه‌ها (تیتر ساده «پروژه‌ها» و بدون متن اضافه) -->
+    <!-- ۴. بخش پروژه‌ها -->
     <section class="space-y-6">
       <div class="border-b border-steelBorder/80 pb-3 flex items-center justify-between">
         <h2 class="text-xl font-bold font-mono text-white flex items-center space-x-2 space-x-reverse">
@@ -442,18 +418,12 @@
       </div>
     </section>
 
-    <!-- ۵. فوتر هماهنگ (با حفظ لینکدین، تلگرام و گیت‌هاب) -->
-    <footer class="border-t border-steelBorder/80 pt-8 pb-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-steelLight">
-      <div>
-        <span>© 2026 Arian — High Availability &amp; SRE Systems</span>
-      </div>
-      
-      <div class="flex items-center space-x-4 space-x-reverse font-sans text-xs">
-        <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">گیت‌هاب</a>
-        <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">لینکدین</a>
-        <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">تلگرام</a>
-        <a href="./incidents.html" class="text-terminalGreen hover:underline font-bold">آزمایشگاه سناریوها</a>
-      </div>
+    <!-- ۵. فوتر -->
+    <footer class="border-t border-steelBorder/80 pt-8 pb-12 flex items-center justify-center gap-6 font-sans text-xs">
+      <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">گیت‌هاب</a>
+      <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">لینکدین</a>
+      <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">تلگرام</a>
+      <a href="./incidents.html" class="text-terminalGreen hover:underline font-bold">آزمایشگاه سناریوها</a>
     </footer>
 
   </main>
