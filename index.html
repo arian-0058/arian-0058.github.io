@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arian | Junior DevOps & Infrastructure Engineer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#090a0f',
+            canvasSub: '#0d1117',
+            panel: '#161b22',
+            borderSubtle: '#30363d',
+            borderMuted: '#484f58',
+            textLight: '#f0f6fc',
+            textDim: '#8b949e',
+            terminalGreen: '#10b981',
+            terminalGreenGlow: '#22c55e',
+            criticalRed: '#ef4444'
+          },
+          fontFamily: {
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Devicon for tool icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <style>
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .status-pulse {
+      animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-textLight font-sans antialiased min-h-screen selection:bg-terminalGreen selection:text-canvas">
+
+  <!-- Top System Status Banner -->
+  <div class="border-b border-borderSubtle bg-canvasSub/80 backdrop-blur px-4 py-2.5">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+      <div class="flex items-center space-x-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-terminalGreen opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-terminalGreen"></span>
+        </span>
+        <span class="text-terminalGreen font-medium">SYS_STATUS:</span>
+        <span class="text-textDim">Operational &amp; Ready to Deploy</span>
+      </div>
+      <div class="text-textDim flex items-center space-x-4">
+        <span>LOC: Global / Remote</span>
+        <span class="hidden sm:inline">STACK: Linux · Docker · CI/CD</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+
+    <!-- Terminal Header Section -->
+    <header class="bg-panel border border-borderSubtle rounded-xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-terminalGreen/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-3">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-canvasSub border border-borderSubtle text-xs font-mono text-terminalGreen">
+            <span>root@infra-node-01:~#</span>
+            <span class="text-textLight">whoami</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-textLight font-mono">
+            Arian <span class="text-textDim text-xl sm:text-2xl font-normal block sm:inline sm:ml-2">/ Junior DevOps &amp; Infrastructure Engineer</span>
+          </h1>
+          <p class="text-textDim max-w-2xl text-sm sm:text-base leading-relaxed">
+            Specialized in system administration, production incident management, resilient containerized workflows, and automated DevSecOps pipelines.
+          </p>
+        </div>
+
+        <!-- Quick Metallic Action Buttons -->
+        <div class="flex flex-wrap gap-2.5 self-start md:self-center font-mono text-xs">
+          <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" 
+             class="flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-canvasSub hover:bg-borderSubtle border border-borderSubtle hover:border-borderMuted text-textLight transition-all">
+            <i class="devicon-github-original text-sm"></i>
+            <span>GitHub Profile</span>
+          </a>
+          <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer"
+             class="flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-canvasSub hover:bg-borderSubtle border border-borderSubtle hover:border-borderMuted text-textLight transition-all">
+            <i class="devicon-linkedin-plain text-sm text-[#0a66c2]"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="mailto:arian.nourani.2005@gmail.com" 
+             class="flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-terminalGreen/10 hover:bg-terminalGreen/20 border border-terminalGreen/40 text-terminalGreen transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Email</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Incident Lab Callout Banner (Featured Gateway) -->
+    <section class="bg-gradient-to-r from-panel via-canvasSub to-panel border-2 border-terminalGreen/40 rounded-xl p-6 sm:p-8 relative shadow-lg">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div class="flex items-center space-x-2 text-xs font-mono text-terminalGreen uppercase tracking-wider">
+            <span class="inline-block w-2 h-2 rounded-full bg-terminalGreen"></span>
+            <span>Interactive Production RCA Lab</span>
+          </div>
+          <h2 class="text-2xl font-bold font-mono text-textLight">DevOps Incident &amp; Troubleshooting Lab</h2>
+          <p class="text-textDim text-sm max-w-xl">
+            Real-world system failures, fault injection simulations, root cause analysis (RCA), and remediation runbooks across Linux, Network, Docker, and CI/CD.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-4 text-xs font-mono text-textDim">
+            <span class="border border-borderSubtle bg-canvas px-2.5 py-1 rounded">⚡ 4 Core Engineering Modules</span>
+            <span class="border border-borderSubtle bg-canvas px-2.5 py-1 rounded">🛡️ 15+ Production Runbooks</span>
+          </div>
+        </div>
+
+        <a href="./incidents.html" 
+           class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-lg bg-terminalGreen hover:bg-terminalGreenGlow text-canvas font-mono font-bold text-sm transition-all shadow-md hover:shadow-terminalGreen/20">
+          <span>Enter Incident &amp; Troubleshooting Lab</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Skills Matrix Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-borderSubtle pb-3">
+        <h2 class="text-xl font-bold font-mono text-textLight flex items-center space-x-2">
+          <span class="text-terminalGreen">#</span>
+          <span>Core Infrastructure &amp; Engineering Skills</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Col 1: Containers & Services -->
+        <div class="bg-panel border border-borderSubtle rounded-lg p-5 space-y-3">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-textDim flex items-center space-x-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terminalGreen"></span>
+            <span>Containers &amp; Web Services</span>
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-docker-plain text-sm text-[#2496ed]"></i>
+              <span>Docker &amp; Multi-stage</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-docker-plain text-sm text-[#2496ed]"></i>
+              <span>Docker Compose</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-nginx-original text-sm text-[#009639]"></i>
+              <span>Nginx Reverse Proxy</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-redis-plain text-sm text-[#dc382d]"></i>
+              <span>Redis Cache</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-mysql-plain text-sm text-[#4479a1]"></i>
+              <span>MySQL / MariaDB</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2: Linux & Scripting -->
+        <div class="bg-panel border border-borderSubtle rounded-lg p-5 space-y-3">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-textDim flex items-center space-x-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terminalGreen"></span>
+            <span>Operating System &amp; Automation</span>
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-linux-plain text-sm"></i>
+              <span>Linux Hardening &amp; Systemd</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-bash-plain text-sm"></i>
+              <span>Bash Shell Scripting</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-git-plain text-sm text-[#f05032]"></i>
+              <span>Git &amp; Version Control</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-ssh-original text-sm"></i>
+              <span>SSH Keys &amp; Least Privilege</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 3: CI/CD & DevSecOps -->
+        <div class="bg-panel border border-borderSubtle rounded-lg p-5 space-y-3">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-textDim flex items-center space-x-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terminalGreen"></span>
+            <span>CI/CD &amp; DevSecOps Delivery</span>
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-githubactions-plain text-sm text-[#2088ff]"></i>
+              <span>GitHub Actions Workflows</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <span class="text-terminalGreen">🛡️</span>
+              <span>Trivy Image Scan</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-docker-plain text-sm"></i>
+              <span>Hadolint Linting</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <i class="devicon-pytest-plain text-sm"></i>
+              <span>Pytest Smoke Testing</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 4: Networking & Security -->
+        <div class="bg-panel border border-borderSubtle rounded-lg p-5 space-y-3">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-textDim flex items-center space-x-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terminalGreen"></span>
+            <span>Networking &amp; Traffic Analysis</span>
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <span>🌐</span>
+              <span>VLSM Subnet Design</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <span>🔍</span>
+              <span>TCP/IP &amp; Packet Flow</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <span>🔒</span>
+              <span>UFW &amp; iptables Firewall</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-textLight">
+              <span>📡</span>
+              <span>DNS Diagnostic &amp; Resolution</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Repositories Section -->
+    <section class="space-y-6">
+      <div class="border-b border-borderSubtle pb-3">
+        <h2 class="text-xl font-bold font-mono text-textLight flex items-center space-x-2">
+          <span class="text-terminalGreen">#</span>
+          <span>Featured Repositories &amp; Infrastructure Projects</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Project 1 -->
+        <div class="bg-panel border border-borderSubtle rounded-xl p-6 flex flex-col justify-between space-y-4 hover:border-borderMuted transition-all">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-terminalGreen uppercase">Production Pipeline</span>
+              <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="text-textDim hover:text-textLight">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold font-mono text-textLight">
+              <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen">
+                automated-ci-cd-pipeline
+              </a>
+            </h3>
+            <p class="text-textDim text-sm leading-relaxed">
+              4-stage GitHub Actions GitOps workflow: Flake8/Hadolint/Pytest, Trivy security audit, multi-stage image build with commit SHA tagging, and mock container smoke testing.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-borderSubtle flex flex-wrap gap-2 text-[11px] font-mono">
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">Nginx + Flask + Redis</span>
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">Multi-stage Docker</span>
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">Trivy Vulnerability Scan</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-panel border border-borderSubtle rounded-xl p-6 flex flex-col justify-between space-y-4 hover:border-borderMuted transition-all">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-terminalGreen uppercase">Systems &amp; Networks</span>
+              <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="text-textDim hover:text-textLight">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold font-mono text-textLight">
+              <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen">
+                cloud_projects_and_practice
+              </a>
+            </h3>
+            <p class="text-textDim text-sm leading-relaxed">
+              Hands-on implementations of Linux hardening, VLSM subnetting, packet analysis, Nginx reverse proxy configurations, and automated cron database backup routines.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-borderSubtle flex flex-wrap gap-2 text-[11px] font-mono">
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">Hardened Linux Server</span>
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">VLSM Subnet Design</span>
+            <span class="px-2 py-0.5 rounded bg-canvasSub text-textDim border border-borderSubtle">Multi-Container Stack</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-borderSubtle pt-8 pb-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-textDim">
+      <div>
+        <span>Designed for high-reliability systems &amp; GitOps workflows.</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="hover:text-textLight">GitHub</a>
+        <a href="https://www.linkedin.com/in/arian-undefined-56b32a43a" target="_blank" rel="noopener noreferrer" class="hover:text-textLight">LinkedIn</a>
+        <a href="./incidents.html" class="hover:text-terminalGreen">Incident Lab</a>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>

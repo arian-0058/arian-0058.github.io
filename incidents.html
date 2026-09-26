@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident &amp; Troubleshooting Runbooks | Arian</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#090a0f',
+            canvasSub: '#0d1117',
+            panel: '#161b22',
+            borderSubtle: '#30363d',
+            borderMuted: '#484f58',
+            textLight: '#f0f6fc',
+            textDim: '#8b949e',
+            terminalGreen: '#10b981',
+            terminalGreenGlow: '#22c55e',
+            criticalRed: '#ef4444'
+          },
+          fontFamily: {
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-canvas text-textLight font-sans antialiased min-h-screen selection:bg-terminalGreen selection:text-canvas">
+
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-borderSubtle bg-canvasSub/90 backdrop-blur sticky top-0 z-50 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between font-mono text-xs">
+      <a href="./index.html" class="flex items-center space-x-2 text-textDim hover:text-textLight transition-colors">
+        <span>←</span>
+        <span>Back to Main Terminal</span>
+      </a>
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-terminalGreen"></span>
+        <span class="text-textLight font-bold">INCIDENT_LAB_VIEWER</span>
+      </div>
+      <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" 
+         class="text-terminalGreen hover:underline hidden sm:inline">
+        View Repo on GitHub ↗
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- Hero / Title -->
+    <div class="space-y-3">
+      <div class="inline-block px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-xs font-mono text-terminalGreen">
+        RUNBOOK_INDEX: 4 Modules
+      </div>
+      <h1 class="text-3xl font-bold font-mono tracking-tight text-textLight">
+        DevOps Incident &amp; Troubleshooting Lab
+      </h1>
+      <p class="text-textDim text-sm sm:text-base max-w-3xl leading-relaxed">
+        Curated real-world failure injections, root cause investigations (RCA), and remediation runbooks. Filter through categories below to inspect each technical report.
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="border-b border-borderSubtle flex space-x-2 overflow-x-auto pb-px font-mono text-xs sm:text-sm">
+      <button onclick="switchCategory('all')" id="tab-all"
+              class="category-tab px-4 py-2.5 border-b-2 border-terminalGreen text-terminalGreen font-bold transition-all whitespace-nowrap">
+        All Scenarios
+      </button>
+      <button onclick="switchCategory('linux')" id="tab-linux"
+              class="category-tab px-4 py-2.5 border-b-2 border-transparent text-textDim hover:text-textLight transition-all whitespace-nowrap">
+        1. Linux System Core
+      </button>
+      <button onclick="switchCategory('networking')" id="tab-networking"
+              class="category-tab px-4 py-2.5 border-b-2 border-transparent text-textDim hover:text-textLight transition-all whitespace-nowrap">
+        2. Networking &amp; Web
+      </button>
+      <button onclick="switchCategory('docker')" id="tab-docker"
+              class="category-tab px-4 py-2.5 border-b-2 border-transparent text-textDim hover:text-textLight transition-all whitespace-nowrap">
+        3. Docker &amp; Containers
+      </button>
+      <button onclick="switchCategory('cicd')" id="tab-cicd"
+              class="category-tab px-4 py-2.5 border-b-2 border-transparent text-textDim hover:text-textLight transition-all whitespace-nowrap">
+        4. CI/CD &amp; Delivery
+      </button>
+    </div>
+
+    <!-- Runbooks Container -->
+    <div id="incidents-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Cards will be injected via JS -->
+      <div class="col-span-full py-12 text-center text-textDim font-mono text-sm">
+        Loading incident database...
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Built-in fallback database to guarantee rendering even without server
+    const fallbackIncidents = [
+      {
+        id: "linux-01",
+        category: "linux",
+        title: "Unlinked Open Files & Disk Leakage",
+        severity: "HIGH",
+        tags: ["lsof", "procfs", "disk-space", "systemd"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+      },
+      {
+        id: "linux-02",
+        category: "linux",
+        title: "Inode Exhaustion with Available Disk Space",
+        severity: "HIGH",
+        tags: ["inodes", "df -i", "find", "filesystem"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+      },
+      {
+        id: "net-01",
+        category: "networking",
+        title: "Nginx 403 Forbidden: Parent Path Permissions",
+        severity: "CRITICAL",
+        tags: ["nginx", "permissions", "www-data", "reverse-proxy"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+      },
+      {
+        id: "net-02",
+        category: "networking",
+        title: "Port Collision & Daemon Locking (80/443)",
+        severity: "MEDIUM",
+        tags: ["ss", "lsof", "fuser", "systemctl"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+      },
+      {
+        id: "docker-01",
+        category: "docker",
+        title: "Container Instant Crash: PID 1 Premature Termination",
+        severity: "CRITICAL",
+        tags: ["docker", "pid-1", "entrypoint", "daemon"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+      },
+      {
+        id: "docker-02",
+        category: "docker",
+        title: "Docker Host-Container Bind Mount Permission Mismatch",
+        severity: "HIGH",
+        tags: ["bind-mount", "chown", "uid-gid", "isolation"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+      },
+      {
+        id: "cicd-01",
+        category: "cicd",
+        title: "Runner Directory Drift & Untracked Tests Failure",
+        severity: "HIGH",
+        tags: ["github-actions", "pytest", "flake8", "git-tracking"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+      },
+      {
+        id: "cicd-02",
+        category: "cicd",
+        title: "Multi-stage Dockerfile Build Context Redundancy",
+        severity: "MEDIUM",
+        tags: ["docker-buildx", "layer-caching", "copy-context"],
+        steps: "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+        github_url: "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+      }
+    ];
+
+    let allIncidents = [];
+    let currentCategory = 'all';
+
+    async function loadData() {
+      try {
+        const res = await fetch('./incidents.json');
+        if (!res.ok) throw new Error("Could not load incidents.json");
+        allIncidents = await res.json();
+      } catch (err) {
+        console.warn("Falling back to pre-packaged incidents data:", err);
+        allIncidents = fallbackIncidents;
+      }
+      renderCards();
+    }
+
+    function switchCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('border-terminalGreen', 'text-terminalGreen', 'font-bold');
+        tab.classList.add('border-transparent', 'text-textDim');
+      });
+      const activeTab = document.getElementById(`tab-${category}`);
+      if (activeTab) {
+        activeTab.classList.add('border-terminalGreen', 'text-terminalGreen', 'font-bold');
+        activeTab.classList.remove('border-transparent', 'text-textDim');
+      }
+      renderCards();
+    }
+
+    function renderCards() {
+      const container = document.getElementById('incidents-grid');
+      const filtered = currentCategory === 'all' 
+        ? allIncidents 
+        : allIncidents.filter(item => item.category === currentCategory);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-textDim font-mono text-sm">
+            No incident runbooks found for this category yet.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const isCritical = item.severity === 'CRITICAL';
+        const badgeColor = isCritical 
+          ? 'bg-criticalRed/10 border-criticalRed/40 text-criticalRed' 
+          : 'bg-terminalGreen/10 border-terminalGreen/40 text-terminalGreen';
+
+        const tagsHtml = (item.tags || []).map(t => 
+          `<span class="px-2 py-0.5 rounded bg-canvas border border-borderSubtle text-[11px] text-textDim font-mono">#${t}</span>`
+        ).join('');
+
+        return `
+          <div class="bg-panel border border-borderSubtle rounded-xl p-5 sm:p-6 flex flex-col justify-between space-y-4 hover:border-borderMuted transition-all">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2.5 py-0.5 rounded border text-xs font-mono font-bold ${badgeColor}">
+                  Severity: ${item.severity}
+                </span>
+                <span class="text-xs font-mono text-textDim uppercase">${item.category}</span>
+              </div>
+              
+              <h3 class="text-base sm:text-lg font-bold font-mono text-textLight">
+                ${item.title}
+              </h3>
+
+              <div class="bg-canvasSub border border-borderSubtle rounded p-2.5 text-xs font-mono text-textDim">
+                <span class="text-terminalGreen font-bold">Standard 6-Phase RCA:</span>
+                <p class="mt-1 text-[11px] leading-relaxed text-textDim/90">
+                  ${item.steps || 'Problem → Injection → Symptoms → Root Cause → Fix → Lesson Learned'}
+                </p>
+              </div>
+            </div>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex flex-wrap gap-1.5">
+                ${tagsHtml}
+              </div>
+              <a href="${item.github_url}" target="_blank" rel="noopener noreferrer"
+                 class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-canvasSub hover:bg-borderSubtle border border-borderSubtle hover:border-terminalGreen/50 text-textLight font-mono text-xs transition-all">
+                <span>View Markdown Runbook on GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initialize
+    loadData();
+  </script>
+</body>
+</html>

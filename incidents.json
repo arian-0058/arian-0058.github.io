@@ -1,0 +1,74 @@
+[
+  {
+    "id": "linux-01",
+    "category": "linux",
+    "title": "Unlinked Open Files & Disk Space Leak",
+    "severity": "HIGH",
+    "tags": ["lsof", "procfs", "systemd", "disk-leak"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+  },
+  {
+    "id": "linux-02",
+    "category": "linux",
+    "title": "Inode Table Exhaustion with Free Disk Storage",
+    "severity": "HIGH",
+    "tags": ["df -i", "inodes", "kernel", "cleanup"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+  },
+  {
+    "id": "net-01",
+    "category": "networking",
+    "title": "Nginx 403 Forbidden Caused by Traversal Permissions",
+    "severity": "CRITICAL",
+    "tags": ["nginx", "permissions", "www-data", "chmod"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+  },
+  {
+    "id": "net-02",
+    "category": "networking",
+    "title": "Port Collision & Daemon Locking on 80/443",
+    "severity": "MEDIUM",
+    "tags": ["ss", "lsof", "fuser", "systemd"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+  },
+  {
+    "id": "docker-01",
+    "category": "docker",
+    "title": "Container Instant Crash: PID 1 Premature Termination",
+    "severity": "CRITICAL",
+    "tags": ["docker", "pid-1", "entrypoint", "restart-loop"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+  },
+  {
+    "id": "docker-02",
+    "category": "docker",
+    "title": "Docker Host-Container Bind Mount Permission Mismatch",
+    "severity": "HIGH",
+    "tags": ["bind-mount", "chown", "uid-gid", "security"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+  },
+  {
+    "id": "cicd-01",
+    "category": "cicd",
+    "title": "Runner Isolation: Untracked Test Directory Failure",
+    "severity": "HIGH",
+    "tags": ["github-actions", "pytest", "flake8", "git-status"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+  },
+  {
+    "id": "cicd-02",
+    "category": "cicd",
+    "title": "Multi-stage Docker Build Context Duplication",
+    "severity": "MEDIUM",
+    "tags": ["hadolint", "buildx", "layer-caching"],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+  }
+]
