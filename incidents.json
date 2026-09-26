@@ -2,73 +2,454 @@
   {
     "id": "linux-01",
     "category": "linux",
-    "title": "Unlinked Open Files & Disk Space Leak",
+    "title": "۱: پر شدن فضای دیسک به دلیل فایل حجیم در مسیر لاگ (Disk Space Exhaustion)",
     "severity": "HIGH",
-    "tags": ["lsof", "procfs", "systemd", "disk-leak"],
+    "tags": [
+      "disk",
+      "full",
+      "dummy",
+      "fill"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/01-disk-full-dummy-fill.md"
   },
   {
     "id": "linux-02",
     "category": "linux",
-    "title": "Inode Table Exhaustion with Free Disk Storage",
+    "title": "۲: باقی ماندن فضای دیسک پس از حذف فایل به‌دلیل هندل باز پروسه (Deleted Inode / File Descriptor Leak)",
     "severity": "HIGH",
-    "tags": ["df -i", "inodes", "kernel", "cleanup"],
+    "tags": [
+      "deleted",
+      "inode",
+      "leak"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/01-linux-system-troubleshooting"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/02-deleted-inode-leak.md"
   },
   {
-    "id": "net-01",
-    "category": "networking",
-    "title": "Nginx 403 Forbidden Caused by Traversal Permissions",
+    "id": "linux-03",
+    "category": "linux",
+    "title": "۳: اتمام ظرفیت Inode علی‌رغم وجود فضای خالی (Inode Exhaustion)",
     "severity": "CRITICAL",
-    "tags": ["nginx", "permissions", "www-data", "chmod"],
+    "tags": [
+      "inode",
+      "exhaustion"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/03-inode-exhaustion.md"
   },
   {
-    "id": "net-02",
+    "id": "linux-04",
+    "category": "linux",
+    "title": "۴: خرابی بالا آمدن سرویس سیستمی به‌دلیل نوع نادرست Type در Systemd",
+    "severity": "MEDIUM",
+    "tags": [
+      "systemd",
+      "type",
+      "forking",
+      "mismatch"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/04-systemd-type-forking-mismatch.md"
+  },
+  {
+    "id": "linux-05",
+    "category": "linux",
+    "title": "۵: قفل شدن پورت سرویس توسط یک پروسه بی‌نام در پس‌زمینه (Zombie / Detached Process Socket Lock)",
+    "severity": "HIGH",
+    "tags": [
+      "zombie",
+      "process",
+      "port",
+      "lock"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/05-zombie-process-port-lock.md"
+  },
+  {
+    "id": "linux-06",
+    "category": "linux",
+    "title": "۶: محدودیت تعداد فایل‌های باز کاربر و کرش تحت بار (ulimit / Too Many Open Files)",
+    "severity": "HIGH",
+    "tags": [
+      "ulimit",
+      "open",
+      "files",
+      "exhaustion"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/06-ulimit-open-files-exhaustion.md"
+  },
+  {
+    "id": "linux-07",
+    "category": "linux",
+    "title": "۷: خرابی چرخه روت لاگ‌ها به‌دلیل خطای پرمیشن دایرکتوری (Logrotate Insecure Permissions)",
+    "severity": "MEDIUM",
+    "tags": [
+      "logrotate",
+      "permission",
+      "failure"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/07-logrotate-permission-failure.md"
+  },
+  {
+    "id": "networking-08",
     "category": "networking",
-    "title": "Port Collision & Daemon Locking on 80/443",
-    "severity": "MEDIUM",
-    "tags": ["ss", "lsof", "fuser", "systemd"],
+    "title": "۱: عدم دسترسی به وب‌سایت به دلیل خطای مجوز فایل‌ها (403 Forbidden)",
+    "severity": "HIGH",
+    "tags": [
+      "nginx",
+      "permission",
+      "chmod"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/02-networking-and-web"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/01-nginx-403-permission-chmod.md"
   },
   {
-    "id": "docker-01",
-    "category": "docker",
-    "title": "Container Instant Crash: PID 1 Premature Termination",
+    "id": "networking-09",
+    "category": "networking",
+    "title": "۲: اشغال بودن پورت ۸۰ توسط پردازه ناشناس (Port Conflict)",
+    "severity": "HIGH",
+    "tags": [
+      "port",
+      "python",
+      "http",
+      "server"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/02-port-80-python-http-server.md"
+  },
+  {
+    "id": "networking-10",
+    "category": "networking",
+    "title": "۳: مسدود شدن ترافیک وب توسط فایروال محلی (UFW / iptables)",
+    "severity": "HIGH",
+    "tags": [
+      "ufw",
+      "firewall",
+      "blocking",
+      "web"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/03-ufw-firewall-blocking-web.md"
+  },
+  {
+    "id": "networking-11",
+    "category": "networking",
+    "title": "۴: اختلال در تفکیک نام دامنه (DNS Resolution Failure)",
+    "severity": "HIGH",
+    "tags": [
+      "dns",
+      "resolution",
+      "failure"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/04-dns-resolution-failure.md"
+  },
+  {
+    "id": "networking-12",
+    "category": "networking",
+    "title": "۵: خطای سینتکس در کانفیگ Nginx و شکست Reload سرویس",
+    "severity": "HIGH",
+    "tags": [
+      "nginx",
+      "syntax",
+      "error",
+      "reload"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/05-nginx-syntax-error-reload.md"
+  },
+  {
+    "id": "networking-13",
+    "category": "networking",
+    "title": "۶: شکست احراز هویت کلید SSH به‌دلیل ناامنی مجوزهای دسترسی (StrictModes)",
     "severity": "CRITICAL",
-    "tags": ["docker", "pid-1", "entrypoint", "restart-loop"],
+    "tags": [
+      "ssh",
+      "strictmodes",
+      "auth",
+      "failure"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/06-ssh-strictmodes-auth-failure.md"
   },
   {
-    "id": "docker-02",
+    "id": "docker-14",
     "category": "docker",
-    "title": "Docker Host-Container Bind Mount Permission Mismatch",
+    "title": "۱: عدم دسترسی سرویس‌ها به دیتابیس داکر به دلیل نامعتبر بودن Docker Network",
     "severity": "HIGH",
-    "tags": ["bind-mount", "chown", "uid-gid", "security"],
+    "tags": [
+      "docker",
+      "network",
+      "isolation"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/03-docker-containers"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/01-docker-network-isolation.md"
   },
   {
-    "id": "cicd-01",
-    "category": "cicd",
-    "title": "Runner Isolation: Untracked Test Directory Failure",
+    "id": "docker-15",
+    "category": "docker",
+    "title": "۲: اشغال بودن پورت لوکال‌هاست روی WSL و توقف اجرای کانتینر وب",
     "severity": "HIGH",
-    "tags": ["github-actions", "pytest", "flake8", "git-status"],
+    "tags": [
+      "docker",
+      "port",
+      "conflict"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/02-docker-port-8080-conflict.md"
   },
   {
-    "id": "cicd-02",
+    "id": "docker-16",
+    "category": "docker",
+    "title": "۳: خرابی CrashLoopBackOff کانتینر به دلیل بسته شدن پروسه اصلی (Exit 0)",
+    "severity": "HIGH",
+    "tags": [
+      "docker",
+      "crashloop",
+      "exit"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/03-docker-crashloop-exit-0.md"
+  },
+  {
+    "id": "docker-17",
+    "category": "docker",
+    "title": "۴: بروز خطای مجوزی داخل کانتینر به دلیل اشتباه در Mount Volume",
+    "severity": "HIGH",
+    "tags": [
+      "docker",
+      "bind",
+      "mount",
+      "permission"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/04-docker-bind-mount-permission.md"
+  },
+  {
+    "id": "docker-18",
+    "category": "docker",
+    "title": "۵: گیر افتادن پروسه بیلد به دلیل نبود فایل در Build Context",
+    "severity": "HIGH",
+    "tags": [
+      "docker",
+      "build",
+      "context",
+      "cache"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/05-docker-build-context-cache-key.md"
+  },
+  {
+    "id": "docker-19",
+    "category": "docker",
+    "title": "۶: پر شدن دیسک مجازی WSL/Docker و خطای No Space Left On Device",
+    "severity": "HIGH",
+    "tags": [
+      "docker",
+      "disk",
+      "space",
+      "dangling"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/06-docker-disk-space-dangling-prune.md"
+  },
+  {
+    "id": "cicd-20",
     "category": "cicd",
-    "title": "Multi-stage Docker Build Context Duplication",
+    "title": "۱: عدم دسترسی جاب‌های بعدی پایپ‌لاین به فایل‌های جاب‌های قبلی (Artifact Sharing)",
+    "severity": "HIGH",
+    "tags": [
+      "artifact",
+      "not",
+      "shared",
+      "between"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/01-artifact-not-shared-between-jobs.md"
+  },
+  {
+    "id": "cicd-21",
+    "category": "cicd",
+    "title": "۲: توقف پایپ‌لاین و عدم آپلود گزارش تست در صورت شکست تست (تمرین ۴)",
+    "severity": "HIGH",
+    "tags": [
+      "test",
+      "failure",
+      "skips",
+      "report"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/02-test-failure-skips-report-upload.md"
+  },
+  {
+    "id": "cicd-22",
+    "category": "cicd",
+    "title": "۳: نشت فضای دیسک سرور در استقرار مداوم (تمرین ۵: SSH Continuous Deployment)",
+    "severity": "HIGH",
+    "tags": [
+      "disk",
+      "leak",
+      "repeated",
+      "deploy"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/03-cd-disk-leak-repeated-deploy.md"
+  },
+  {
+    "id": "cicd-23",
+    "category": "cicd",
+    "title": "۴: افزایش غیرعادی زمان بیلد در رانرها و کندی فرآیند تحویل (OPS-402)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "build",
+      "time",
+      "caching"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/04-cicd-build-time-caching-ops402.md"
+  },
+  {
+    "id": "cicd-24",
+    "category": "cicd",
+    "title": "۵: گزارش قطعی بعد از انتشار و عدم امکان بازگشت سریع (OPS-403)",
+    "severity": "CRITICAL",
+    "tags": [
+      "cicd",
+      "rollback",
+      "tagging",
+      "smoketest"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/05-cicd-rollback-tagging-smoketest-ops403.md"
+  },
+  {
+    "id": "cicd-25",
+    "category": "cicd",
+    "title": "۶: تکمیل ظرفیت دیسک سرورهای بیلد ناشی از انباشت لایه‌ها (OPS-404)",
     "severity": "MEDIUM",
-    "tags": ["hadolint", "buildx", "layer-caching"],
+    "tags": [
+      "cicd",
+      "runner",
+      "disk",
+      "cleanup"
+    ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/tree/main/04-cicd-and-automation"
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/06-cicd-runner-disk-cleanup-ops404.md"
+  },
+  {
+    "id": "cicd-26",
+    "category": "cicd",
+    "title": "۷: نفوذ ایمیج‌های آسیب‌پذیر به محیط‌های عملیاتی (OPS-405)",
+    "severity": "CRITICAL",
+    "tags": [
+      "cicd",
+      "image",
+      "vulnerability",
+      "scan"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/07-cicd-image-vulnerability-scan-ops405.md"
+  },
+  {
+    "id": "cicd-27",
+    "category": "cicd",
+    "title": "۸: استقرار کدهای تاییدنشده و بی‌نظمی در پروموشن محیط‌ها (OPS-406)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "environment",
+      "promotion",
+      "gate"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/08-cicd-environment-promotion-gate-ops406.md"
+  },
+  {
+    "id": "cicd-28",
+    "category": "cicd",
+    "title": "۹: اجرای موازی ناهماهنگ و تداخل مایگریشن‌های دیتابیس (OPS-407)",
+    "severity": "CRITICAL",
+    "tags": [
+      "cicd",
+      "migration",
+      "concurrency",
+      "lock"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/09-cicd-migration-concurrency-lock-ops407.md"
+  },
+  {
+    "id": "cicd-29",
+    "category": "cicd",
+    "title": "۱۰: انتشار بدون قطعی و پیاده‌سازی استراتژی آبی-سبز/قناری (OPS-408)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "bluegreen",
+      "zero",
+      "downtime"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/10-cicd-bluegreen-zero-downtime-ops408.md"
+  },
+  {
+    "id": "cicd-30",
+    "category": "cicd",
+    "title": "۱۱: نشت کلیدها و اسرار محرمانه در لاگ‌ها و ایمیج‌ها (OPS-409)",
+    "severity": "CRITICAL",
+    "tags": [
+      "cicd",
+      "secrets",
+      "leak",
+      "buildkit"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/11-cicd-secrets-leak-buildkit-ops409.md"
+  },
+  {
+    "id": "cicd-31",
+    "category": "cicd",
+    "title": "۱۲: بیلد ناموفق ناشی از خطای نرخ مجاز ریپازیتوری‌ها (Docker Hub Rate Limiting) (OPS-410)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "dockerhub",
+      "rate",
+      "limit"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/12-cicd-dockerhub-rate-limit-mirror-ops410.md"
+  },
+  {
+    "id": "cicd-32",
+    "category": "cicd",
+    "title": "۱۳: وابستگی سمی و خرابی بیلد به علت عدم قفل‌گذاری پکیج‌ها (Flaky Builds) (OPS-411)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "flaky",
+      "build",
+      "lockfile"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/13-cicd-flaky-build-lockfile-ops411.md"
+  },
+  {
+    "id": "cicd-33",
+    "category": "cicd",
+    "title": "۱۴: فلج شدن رانرها به علت تست‌های یکپارچگی سنگین و ناپایدار (OPS-413)",
+    "severity": "HIGH",
+    "tags": [
+      "cicd",
+      "test",
+      "isolation",
+      "sharding"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/14-cicd-test-isolation-sharding-ops413.md"
   }
 ]
