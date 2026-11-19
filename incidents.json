@@ -378,7 +378,34 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/08-docker-loopback-connection-reset.md"
   },
   {
-    "id": "cicd-29",
+    "id": "docker-29",
+    "category": "docker",
+    "title": "سناریو: اختلال دسترسی به سرویس Core پس از دیپلوی شبانه (Nginx Upstream DNS Caching)",
+    "severity": "CRITICAL",
+    "tags": [
+      "nginx",
+      "docker",
+      "dns",
+      "cache"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/09-nginx-docker-dns-cache-502.md"
+  },
+  {
+    "id": "docker-30",
+    "category": "docker",
+    "title": "سناریو: خطاهای مقطعی ۵۰۲ در درگاه API هنگام بار ترافیکی (Ephemeral Port Exhaustion & TIME_WAIT)",
+    "severity": "HIGH",
+    "tags": [
+      "ephemeral",
+      "port",
+      "exhaustion"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/10-ephemeral-port-exhaustion-502.md"
+  },
+  {
+    "id": "cicd-31",
     "category": "cicd",
     "title": "۱: عدم دسترسی جاب‌های بعدی پایپ‌لاین به فایل‌های جاب‌های قبلی (Artifact Sharing)",
     "severity": "HIGH",
@@ -392,7 +419,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/01-artifact-not-shared-between-jobs.md"
   },
   {
-    "id": "cicd-30",
+    "id": "cicd-32",
     "category": "cicd",
     "title": "۲: توقف پایپ‌لاین و عدم آپلود گزارش تست در صورت شکست تست (تمرین ۴)",
     "severity": "HIGH",
@@ -406,7 +433,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/02-test-failure-skips-report-upload.md"
   },
   {
-    "id": "cicd-31",
+    "id": "cicd-33",
     "category": "cicd",
     "title": "۳: نشت فضای دیسک سرور در استقرار مداوم (تمرین ۵: SSH Continuous Deployment)",
     "severity": "HIGH",
@@ -420,7 +447,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/03-cd-disk-leak-repeated-deploy.md"
   },
   {
-    "id": "cicd-32",
+    "id": "cicd-34",
     "category": "cicd",
     "title": "۴: افزایش غیرعادی زمان بیلد در رانرها و کندی فرآیند تحویل (OPS-402)",
     "severity": "HIGH",
@@ -434,7 +461,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/04-cicd-build-time-caching-ops402.md"
   },
   {
-    "id": "cicd-33",
+    "id": "cicd-35",
     "category": "cicd",
     "title": "۵: گزارش قطعی بعد از انتشار و عدم امکان بازگشت سریع (OPS-403)",
     "severity": "CRITICAL",
@@ -448,7 +475,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/05-cicd-rollback-tagging-smoketest-ops403.md"
   },
   {
-    "id": "cicd-34",
+    "id": "cicd-36",
     "category": "cicd",
     "title": "۶: تکمیل ظرفیت دیسک سرورهای بیلد ناشی از انباشت لایه‌ها (OPS-404)",
     "severity": "MEDIUM",
@@ -462,7 +489,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/06-cicd-runner-disk-cleanup-ops404.md"
   },
   {
-    "id": "cicd-35",
+    "id": "cicd-37",
     "category": "cicd",
     "title": "۷: نفوذ ایمیج‌های آسیب‌پذیر به محیط‌های عملیاتی (OPS-405)",
     "severity": "CRITICAL",
@@ -476,7 +503,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/07-cicd-image-vulnerability-scan-ops405.md"
   },
   {
-    "id": "cicd-36",
+    "id": "cicd-38",
     "category": "cicd",
     "title": "۸: استقرار کدهای تاییدنشده و بی‌نظمی در پروموشن محیط‌ها (OPS-406)",
     "severity": "HIGH",
@@ -490,7 +517,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/08-cicd-environment-promotion-gate-ops406.md"
   },
   {
-    "id": "cicd-37",
+    "id": "cicd-39",
     "category": "cicd",
     "title": "۹: اجرای موازی ناهماهنگ و تداخل مایگریشن‌های دیتابیس (OPS-407)",
     "severity": "CRITICAL",
@@ -504,7 +531,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/09-cicd-migration-concurrency-lock-ops407.md"
   },
   {
-    "id": "cicd-38",
+    "id": "cicd-40",
     "category": "cicd",
     "title": "۱۰: انتشار بدون قطعی و پیاده‌سازی استراتژی آبی-سبز/قناری (OPS-408)",
     "severity": "HIGH",
@@ -518,7 +545,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/10-cicd-bluegreen-zero-downtime-ops408.md"
   },
   {
-    "id": "cicd-39",
+    "id": "cicd-41",
     "category": "cicd",
     "title": "۱۱: نشت کلیدها و اسرار محرمانه در لاگ‌ها و ایمیج‌ها (OPS-409)",
     "severity": "CRITICAL",
@@ -532,7 +559,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/11-cicd-secrets-leak-buildkit-ops409.md"
   },
   {
-    "id": "cicd-40",
+    "id": "cicd-42",
     "category": "cicd",
     "title": "۱۲: بیلد ناموفق ناشی از خطای نرخ مجاز ریپازیتوری‌ها (Docker Hub Rate Limiting) (OPS-410)",
     "severity": "HIGH",
@@ -546,7 +573,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/12-cicd-dockerhub-rate-limit-mirror-ops410.md"
   },
   {
-    "id": "cicd-41",
+    "id": "cicd-43",
     "category": "cicd",
     "title": "۱۳: وابستگی سمی و خرابی بیلد به علت عدم قفل‌گذاری پکیج‌ها (Flaky Builds) (OPS-411)",
     "severity": "HIGH",
@@ -560,7 +587,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/13-cicd-flaky-build-lockfile-ops411.md"
   },
   {
-    "id": "cicd-42",
+    "id": "cicd-44",
     "category": "cicd",
     "title": "۱۴: فلج شدن رانرها به علت تست‌های یکپارچگی سنگین و ناپایدار (OPS-413)",
     "severity": "HIGH",
@@ -574,7 +601,7 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/14-cicd-test-isolation-sharding-ops413.md"
   },
   {
-    "id": "cicd-43",
+    "id": "cicd-45",
     "category": "cicd",
     "title": "سناریوی 15: تصادم نام آرتیفکت‌ها و Race Condition در استراتژی ماتریسی (Matrix Jobs)",
     "severity": "HIGH",
