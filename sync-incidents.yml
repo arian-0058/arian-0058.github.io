@@ -1,0 +1,108 @@
+name: Sync Incidents from Troubleshooting Repo
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-incidents]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Portfolio Repo
+        uses: actions/checkout@v4
+
+      - name: Checkout Scenarios Repo
+        uses: actions/checkout@v4
+        with:
+          repository: arian-0058/devops-troubleshooting-scenario
+          path: scenarios-repo
+
+      - name: Generate incidents.json dynamically
+        run: |
+          python3 - << 'EOF'
+          import os
+          import re
+          import json
+
+          REPO_DIR = "scenarios-repo"
+          BASE_URL = "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main"
+
+          incidents = []
+          counter = 1
+
+          dirs = sorted([
+              d for d in os.listdir(REPO_DIR)
+              if os.path.isdir(os.path.join(REPO_DIR, d)) and not d.startswith(".")
+          ])
+
+          for idx, folder in enumerate(dirs, start=1):
+              clean_slug = re.sub(r'^\d+[-_]?', '', folder).lower()
+              category = clean_slug or folder.lower()
+              pretty_name = re.sub(r'[-_]+', ' ', clean_slug).title()
+              category_label = f"{idx}. {pretty_name}"
+
+              folder_path = os.path.join(REPO_DIR, folder)
+              md_files = sorted([
+                  f for f in os.listdir(folder_path)
+                  if f.lower().endswith(".md") and f.lower() != "readme.md"
+              ])
+
+              for filename in md_files:
+                  filepath = os.path.join(folder_path, filename)
+                  with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                      content = f.read()
+
+                  title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+                  if title_match:
+                      title = title_match.group(1).strip()
+                  else:
+                      title = os.path.splitext(filename)[0].replace("-", " ").title()
+
+                  upper_content = content.upper()
+                  if "CRITICAL" in upper_content:
+                      severity = "CRITICAL"
+                  elif "MEDIUM" in upper_content:
+                      severity = "MEDIUM"
+                  else:
+                      severity = "HIGH"
+
+                  name_no_ext = os.path.splitext(filename)[0]
+                  raw_parts = re.sub(r'^\d+[-_]?', '', name_no_ext).split('-')
+                  tags = [p.lower() for p in raw_parts if len(p) > 2 and not p.isdigit()][:4]
+
+                  incidents.append({
+                      "id": f"inc-{counter:02d}",
+                      "category": category,
+                      "category_label": category_label,
+                      "title": title,
+                      "severity": severity,
+                      "tags": tags,
+                      "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+                      "github_url": f"{BASE_URL}/{folder}/{filename}"
+                  })
+                  counter += 1
+
+          with open("incidents.json", "w", encoding="utf-8") as out:
+              json.dump(incidents, out, ensure_ascii=False, indent=2)
+
+          print(f"Synced {len(incidents)} scenarios across {len(dirs)} folders.")
+          EOF
+
+      - name: Commit and Push if changed
+        run: |
+          rm -rf scenarios-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add incidents.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(data): auto-sync incidents from devops-troubleshooting-scenario"
+            git push
+          fi
