@@ -1,6 +1,9 @@
 name: Sync Incidents from Troubleshooting Repo
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
@@ -24,11 +27,12 @@ jobs:
           path: scenarios-repo
 
       - name: Generate incidents.json dynamically
+        shell: python3 {0}
         run: |
-          python3 - << 'EOF'
           import os
           import re
           import json
+          from urllib.parse import quote
 
           REPO_DIR = "scenarios-repo"
           BASE_URL = "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main"
@@ -42,23 +46,27 @@ jobs:
           ])
 
           for idx, folder in enumerate(dirs, start=1):
-              clean_slug = re.sub(r'^\d+[-_]?', '', folder).lower()
-              category = clean_slug or folder.lower()
-              pretty_name = re.sub(r'[-_]+', ' ', clean_slug).title()
+              clean_slug = re.sub(r'^\d+[-_\s]*', '', folder).strip()
+              category = re.sub(r'[^a-z0-9]+', '-', clean_slug.lower()).strip('-') or f"module-{idx}"
+              pretty_name = re.sub(r'[-_]+', ' ', clean_slug or folder).title()
               category_label = f"{idx}. {pretty_name}"
 
               folder_path = os.path.join(REPO_DIR, folder)
-              md_files = sorted([
-                  f for f in os.listdir(folder_path)
-                  if f.lower().endswith(".md") and f.lower() != "readme.md"
-              ])
+              md_files = []
+              for root, subdirs, files in os.walk(folder_path):
+                  subdirs[:] = sorted([s for s in subdirs if not s.startswith(".")])
+                  for fname in sorted(files):
+                      if fname.lower().endswith(".md") and fname.lower() != "readme.md":
+                          md_files.append(os.path.join(root, fname))
 
-              for filename in md_files:
-                  filepath = os.path.join(folder_path, filename)
+              for filepath in md_files:
+                  filename = os.path.basename(filepath)
+                  rel_path = os.path.relpath(filepath, REPO_DIR).replace(os.sep, "/")
+
                   with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
                       content = f.read()
 
-                  title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+                  title_match = re.search(r'^#+\s+(.+)$', content, re.MULTILINE)
                   if title_match:
                       title = title_match.group(1).strip()
                   else:
@@ -84,15 +92,14 @@ jobs:
                       "severity": severity,
                       "tags": tags,
                       "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
-                      "github_url": f"{BASE_URL}/{folder}/{filename}"
+                      "github_url": f"{BASE_URL}/{quote(rel_path)}"
                   })
                   counter += 1
 
           with open("incidents.json", "w", encoding="utf-8") as out:
               json.dump(incidents, out, ensure_ascii=False, indent=2)
 
-          print(f"Synced {len(incidents)} scenarios across {len(dirs)} folders.")
-          EOF
+          print(f"Synced {len(incidents)} scenarios across {len(dirs)} folders: {dirs}")
 
       - name: Commit and Push if changed
         run: |
