@@ -1,7 +1,8 @@
 [
   {
-    "id": "linux-01",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-01",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۱: پر شدن فضای دیسک به دلیل فایل حجیم در مسیر لاگ (Disk Space Exhaustion)",
     "severity": "HIGH",
     "tags": [
@@ -14,8 +15,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/01-disk-full-dummy-fill.md"
   },
   {
-    "id": "linux-02",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-02",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۲: باقی ماندن فضای دیسک پس از حذف فایل به‌دلیل هندل باز پروسه (Deleted Inode / File Descriptor Leak)",
     "severity": "HIGH",
     "tags": [
@@ -27,8 +29,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/02-deleted-inode-leak.md"
   },
   {
-    "id": "linux-03",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-03",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۳: اتمام ظرفیت Inode علی‌رغم وجود فضای خالی (Inode Exhaustion)",
     "severity": "CRITICAL",
     "tags": [
@@ -39,8 +42,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/03-inode-exhaustion.md"
   },
   {
-    "id": "linux-04",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-04",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۴: خرابی بالا آمدن سرویس سیستمی به‌دلیل نوع نادرست Type در Systemd",
     "severity": "MEDIUM",
     "tags": [
@@ -53,8 +57,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/04-systemd-type-forking-mismatch.md"
   },
   {
-    "id": "linux-05",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-05",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۵: قفل شدن پورت سرویس توسط یک پروسه بی‌نام در پس‌زمینه (Zombie / Detached Process Socket Lock)",
     "severity": "HIGH",
     "tags": [
@@ -67,8 +72,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/05-zombie-process-port-lock.md"
   },
   {
-    "id": "linux-06",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-06",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۶: محدودیت تعداد فایل‌های باز کاربر و کرش تحت بار (ulimit / Too Many Open Files)",
     "severity": "HIGH",
     "tags": [
@@ -81,8 +87,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/06-ulimit-open-files-exhaustion.md"
   },
   {
-    "id": "linux-07",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-07",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "۷: خرابی چرخه روت لاگ‌ها به‌دلیل خطای پرمیشن دایرکتوری (Logrotate Insecure Permissions)",
     "severity": "MEDIUM",
     "tags": [
@@ -94,8 +101,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/07-logrotate-permission-failure.md"
   },
   {
-    "id": "linux-08",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-08",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "سناریوی 08: کرش مکرر سرویس Systemd ناشی از خطای منابع و دسترسی در EnvironmentFile",
     "severity": "CRITICAL",
     "tags": [
@@ -107,8 +115,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/08-systemd-environmentfile-crash.md"
   },
   {
-    "id": "linux-09",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-09",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "سناریوی 09: اختلال در دسترسی و نوشتن در دایرکتوری اشتراکی تیمی (SGID و umask)",
     "severity": "HIGH",
     "tags": [
@@ -121,8 +130,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/09-sgid-umask-shared-directory.md"
   },
   {
-    "id": "linux-10",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-10",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "سناریوی ۰۷: کرش پروسه تحت بار سنگین به دلیل نادیده گرفته شدن تنظیمات Limits توسط Systemd",
     "severity": "CRITICAL",
     "tags": [
@@ -134,8 +144,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/10-systemd-limits-ignored.md"
   },
   {
-    "id": "linux-11",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-11",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "**🚨 سناریو ۰۸: نادیده گرفته شدن رکوردهای محلی در تفکیک نام دامنه (NSSwitch Hosts Resolution)**",
     "severity": "CRITICAL",
     "tags": [
@@ -148,8 +159,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/11-nsswitch-hosts-resolution-ignored.md"
   },
   {
-    "id": "linux-12",
-    "category": "linux",
+    "id": "linux-system-troubleshooting-12",
+    "category": "linux-system-troubleshooting",
+    "category_label": "1. Linux System Troubleshooting",
     "title": "**🚨 سناریو ۰۹: قفل شدن تغییرات پیکربندی حتی برای کاربر Root (Immutable File Attribute)**",
     "severity": "HIGH",
     "tags": [
@@ -162,8 +174,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/01-linux-system-troubleshooting/12-immutable-file-attribute-lock.md"
   },
   {
-    "id": "networking-13",
-    "category": "networking",
+    "id": "networking-and-web-13",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۱: عدم دسترسی به وب‌سایت به دلیل خطای مجوز فایل‌ها (403 Forbidden)",
     "severity": "HIGH",
     "tags": [
@@ -175,8 +188,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/01-nginx-403-permission-chmod.md"
   },
   {
-    "id": "networking-14",
-    "category": "networking",
+    "id": "networking-and-web-14",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۲: اشغال بودن پورت ۸۰ توسط پردازه ناشناس (Port Conflict)",
     "severity": "HIGH",
     "tags": [
@@ -189,8 +203,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/02-port-80-python-http-server.md"
   },
   {
-    "id": "networking-15",
-    "category": "networking",
+    "id": "networking-and-web-15",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۳: مسدود شدن ترافیک وب توسط فایروال محلی (UFW / iptables)",
     "severity": "HIGH",
     "tags": [
@@ -203,8 +218,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/03-ufw-firewall-blocking-web.md"
   },
   {
-    "id": "networking-16",
-    "category": "networking",
+    "id": "networking-and-web-16",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۴: اختلال در تفکیک نام دامنه (DNS Resolution Failure)",
     "severity": "HIGH",
     "tags": [
@@ -216,8 +232,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/04-dns-resolution-failure.md"
   },
   {
-    "id": "networking-17",
-    "category": "networking",
+    "id": "networking-and-web-17",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۵: خطای سینتکس در کانفیگ Nginx و شکست Reload سرویس",
     "severity": "HIGH",
     "tags": [
@@ -230,8 +247,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/05-nginx-syntax-error-reload.md"
   },
   {
-    "id": "networking-18",
-    "category": "networking",
+    "id": "networking-and-web-18",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "۶: شکست احراز هویت کلید SSH به‌دلیل ناامنی مجوزهای دسترسی (StrictModes)",
     "severity": "CRITICAL",
     "tags": [
@@ -244,8 +262,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/06-ssh-strictmodes-auth-failure.md"
   },
   {
-    "id": "networking-19",
-    "category": "networking",
+    "id": "networking-and-web-19",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "سناریوی ۰۷: کرش پروسه تحت بار سنگین به دلیل نادیده گرفته شدن تنظیمات Limits توسط Systemd",
     "severity": "CRITICAL",
     "tags": [
@@ -257,8 +276,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/07-systemd-limits-ignored.md"
   },
   {
-    "id": "networking-20",
-    "category": "networking",
+    "id": "networking-and-web-20",
+    "category": "networking-and-web",
+    "category_label": "2. Networking And Web",
     "title": "**🚨 سناریو ۰۸: ناتوانی سرویس در نوشتن فایل و خطای عجیب دیسک (Inode Exhaustion)**",
     "severity": "HIGH",
     "tags": [
@@ -270,8 +290,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/02-networking-and-web/08-filesystem-inode-exhaustion.md"
   },
   {
-    "id": "docker-21",
-    "category": "docker",
+    "id": "docker-containers-21",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۱: عدم دسترسی سرویس‌ها به دیتابیس داکر به دلیل نامعتبر بودن Docker Network",
     "severity": "HIGH",
     "tags": [
@@ -283,8 +304,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/01-docker-network-isolation.md"
   },
   {
-    "id": "docker-22",
-    "category": "docker",
+    "id": "docker-containers-22",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۲: اشغال بودن پورت لوکال‌هاست روی WSL و توقف اجرای کانتینر وب",
     "severity": "HIGH",
     "tags": [
@@ -296,8 +318,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/02-docker-port-8080-conflict.md"
   },
   {
-    "id": "docker-23",
-    "category": "docker",
+    "id": "docker-containers-23",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۳: خرابی CrashLoopBackOff کانتینر به دلیل بسته شدن پروسه اصلی (Exit 0)",
     "severity": "HIGH",
     "tags": [
@@ -309,8 +332,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/03-docker-crashloop-exit-0.md"
   },
   {
-    "id": "docker-24",
-    "category": "docker",
+    "id": "docker-containers-24",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۴: بروز خطای مجوزی داخل کانتینر به دلیل اشتباه در Mount Volume",
     "severity": "HIGH",
     "tags": [
@@ -323,8 +347,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/04-docker-bind-mount-permission.md"
   },
   {
-    "id": "docker-25",
-    "category": "docker",
+    "id": "docker-containers-25",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۵: گیر افتادن پروسه بیلد به دلیل نبود فایل در Build Context",
     "severity": "HIGH",
     "tags": [
@@ -337,8 +362,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/05-docker-build-context-cache-key.md"
   },
   {
-    "id": "docker-26",
-    "category": "docker",
+    "id": "docker-containers-26",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "۶: پر شدن دیسک مجازی WSL/Docker و خطای No Space Left On Device",
     "severity": "HIGH",
     "tags": [
@@ -351,8 +377,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/06-docker-disk-space-dangling-prune.md"
   },
   {
-    "id": "docker-27",
-    "category": "docker",
+    "id": "docker-containers-27",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "سناریوی 07: بن‌بست استارت سرویس‌ها در Docker Compose بر اثر Healthcheck ناموفق در ایمیج Minimal",
     "severity": "HIGH",
     "tags": [
@@ -364,8 +391,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/07-healthcheck-docker-compose.md"
   },
   {
-    "id": "docker-28",
-    "category": "docker",
+    "id": "docker-containers-28",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "سناریوی 08: بن‌بست ارتباطی و خطای Connection Reset ناشی از بایند شدن اپلیکیشن به لوپ‌بک کانتینر",
     "severity": "HIGH",
     "tags": [
@@ -378,8 +406,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/08-docker-loopback-connection-reset.md"
   },
   {
-    "id": "docker-29",
-    "category": "docker",
+    "id": "docker-containers-29",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "سناریو: اختلال دسترسی به سرویس Core پس از دیپلوی شبانه (Nginx Upstream DNS Caching)",
     "severity": "CRITICAL",
     "tags": [
@@ -392,8 +421,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/09-nginx-docker-dns-cache-502.md"
   },
   {
-    "id": "docker-30",
-    "category": "docker",
+    "id": "docker-containers-30",
+    "category": "docker-containers",
+    "category_label": "3. Docker Containers",
     "title": "سناریو: خطاهای مقطعی ۵۰۲ در درگاه API هنگام بار ترافیکی (Ephemeral Port Exhaustion & TIME_WAIT)",
     "severity": "HIGH",
     "tags": [
@@ -405,8 +435,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/03-docker-containers/10-ephemeral-port-exhaustion-502.md"
   },
   {
-    "id": "cicd-31",
-    "category": "cicd",
+    "id": "cicd-and-automation-31",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱: عدم دسترسی جاب‌های بعدی پایپ‌لاین به فایل‌های جاب‌های قبلی (Artifact Sharing)",
     "severity": "HIGH",
     "tags": [
@@ -419,8 +450,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/01-artifact-not-shared-between-jobs.md"
   },
   {
-    "id": "cicd-32",
-    "category": "cicd",
+    "id": "cicd-and-automation-32",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۲: توقف پایپ‌لاین و عدم آپلود گزارش تست در صورت شکست تست (تمرین ۴)",
     "severity": "HIGH",
     "tags": [
@@ -433,8 +465,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/02-test-failure-skips-report-upload.md"
   },
   {
-    "id": "cicd-33",
-    "category": "cicd",
+    "id": "cicd-and-automation-33",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۳: نشت فضای دیسک سرور در استقرار مداوم (تمرین ۵: SSH Continuous Deployment)",
     "severity": "HIGH",
     "tags": [
@@ -447,8 +480,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/03-cd-disk-leak-repeated-deploy.md"
   },
   {
-    "id": "cicd-34",
-    "category": "cicd",
+    "id": "cicd-and-automation-34",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۴: افزایش غیرعادی زمان بیلد در رانرها و کندی فرآیند تحویل (OPS-402)",
     "severity": "HIGH",
     "tags": [
@@ -461,8 +495,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/04-cicd-build-time-caching-ops402.md"
   },
   {
-    "id": "cicd-35",
-    "category": "cicd",
+    "id": "cicd-and-automation-35",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۵: گزارش قطعی بعد از انتشار و عدم امکان بازگشت سریع (OPS-403)",
     "severity": "CRITICAL",
     "tags": [
@@ -475,8 +510,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/05-cicd-rollback-tagging-smoketest-ops403.md"
   },
   {
-    "id": "cicd-36",
-    "category": "cicd",
+    "id": "cicd-and-automation-36",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۶: تکمیل ظرفیت دیسک سرورهای بیلد ناشی از انباشت لایه‌ها (OPS-404)",
     "severity": "MEDIUM",
     "tags": [
@@ -489,8 +525,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/06-cicd-runner-disk-cleanup-ops404.md"
   },
   {
-    "id": "cicd-37",
-    "category": "cicd",
+    "id": "cicd-and-automation-37",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۷: نفوذ ایمیج‌های آسیب‌پذیر به محیط‌های عملیاتی (OPS-405)",
     "severity": "CRITICAL",
     "tags": [
@@ -503,8 +540,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/07-cicd-image-vulnerability-scan-ops405.md"
   },
   {
-    "id": "cicd-38",
-    "category": "cicd",
+    "id": "cicd-and-automation-38",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۸: استقرار کدهای تاییدنشده و بی‌نظمی در پروموشن محیط‌ها (OPS-406)",
     "severity": "HIGH",
     "tags": [
@@ -517,8 +555,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/08-cicd-environment-promotion-gate-ops406.md"
   },
   {
-    "id": "cicd-39",
-    "category": "cicd",
+    "id": "cicd-and-automation-39",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۹: اجرای موازی ناهماهنگ و تداخل مایگریشن‌های دیتابیس (OPS-407)",
     "severity": "CRITICAL",
     "tags": [
@@ -531,8 +570,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/09-cicd-migration-concurrency-lock-ops407.md"
   },
   {
-    "id": "cicd-40",
-    "category": "cicd",
+    "id": "cicd-and-automation-40",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱۰: انتشار بدون قطعی و پیاده‌سازی استراتژی آبی-سبز/قناری (OPS-408)",
     "severity": "HIGH",
     "tags": [
@@ -545,8 +585,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/10-cicd-bluegreen-zero-downtime-ops408.md"
   },
   {
-    "id": "cicd-41",
-    "category": "cicd",
+    "id": "cicd-and-automation-41",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱۱: نشت کلیدها و اسرار محرمانه در لاگ‌ها و ایمیج‌ها (OPS-409)",
     "severity": "CRITICAL",
     "tags": [
@@ -559,8 +600,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/11-cicd-secrets-leak-buildkit-ops409.md"
   },
   {
-    "id": "cicd-42",
-    "category": "cicd",
+    "id": "cicd-and-automation-42",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱۲: بیلد ناموفق ناشی از خطای نرخ مجاز ریپازیتوری‌ها (Docker Hub Rate Limiting) (OPS-410)",
     "severity": "HIGH",
     "tags": [
@@ -573,8 +615,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/12-cicd-dockerhub-rate-limit-mirror-ops410.md"
   },
   {
-    "id": "cicd-43",
-    "category": "cicd",
+    "id": "cicd-and-automation-43",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱۳: وابستگی سمی و خرابی بیلد به علت عدم قفل‌گذاری پکیج‌ها (Flaky Builds) (OPS-411)",
     "severity": "HIGH",
     "tags": [
@@ -587,8 +630,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/13-cicd-flaky-build-lockfile-ops411.md"
   },
   {
-    "id": "cicd-44",
-    "category": "cicd",
+    "id": "cicd-and-automation-44",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "۱۴: فلج شدن رانرها به علت تست‌های یکپارچگی سنگین و ناپایدار (OPS-413)",
     "severity": "HIGH",
     "tags": [
@@ -601,8 +645,9 @@
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/14-cicd-test-isolation-sharding-ops413.md"
   },
   {
-    "id": "cicd-45",
-    "category": "cicd",
+    "id": "cicd-and-automation-45",
+    "category": "cicd-and-automation",
+    "category_label": "4. Cicd And Automation",
     "title": "سناریوی 15: تصادم نام آرتیفکت‌ها و Race Condition در استراتژی ماتریسی (Matrix Jobs)",
     "severity": "HIGH",
     "tags": [
@@ -612,5 +657,95 @@
     ],
     "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
     "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/04-cicd-and-automation/15-cicd-code-artifact.md"
+  },
+  {
+    "id": "ansible-configuration-management-46",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۱: خطای اتصال SSH در مدیریت لوکال Ansible و کشف مفسر پایتون (Inventory & Ad-Hoc Connection)",
+    "severity": "MEDIUM",
+    "tags": [
+      "ansible",
+      "inventory",
+      "and",
+      "adhoc"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/01-ansible-inventory-and-adhoc-connection.md"
+  },
+  {
+    "id": "ansible-configuration-management-47",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۲: انحراف پیکربندی (Configuration Drift) و نقض اصل تکرارپذیری در Playbookها (Idempotence)",
+    "severity": "MEDIUM",
+    "tags": [
+      "ansible",
+      "playbook",
+      "idempotence",
+      "drift"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/02-ansible-playbook-idempotence-drift.md"
+  },
+  {
+    "id": "ansible-configuration-management-48",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۳: پیکربندی پویا با Jinja2، تریگر شرطی Handlerها و رفع تداخل پورت Nginx",
+    "severity": "HIGH",
+    "tags": [
+      "ansible",
+      "jinja2",
+      "template",
+      "handler"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/03-ansible-jinja2-template-handler-conflict.md"
+  },
+  {
+    "id": "ansible-configuration-management-49",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۴: ماژولارسازی با Ansible Roles، بهینه‌سازی با Loop و رفع خطای Dry-Run (`--check`)",
+    "severity": "MEDIUM",
+    "tags": [
+      "ansible",
+      "roles",
+      "loops",
+      "become"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/04-ansible-roles-loops-become-privilege.md"
+  },
+  {
+    "id": "ansible-configuration-management-50",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۵: سخت‌سازی امنیتی SSH با `lineinfile` و شکست اعتبارسنجی `sshd -t` به دلیل نبود `/run/sshd`",
+    "severity": "CRITICAL",
+    "tags": [
+      "ansible",
+      "ssh",
+      "hardening",
+      "lineinfile"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/05-ansible-ssh-hardening-lineinfile-validation.md"
+  },
+  {
+    "id": "ansible-configuration-management-51",
+    "category": "ansible-configuration-management",
+    "category_label": "5. Ansible Configuration Management",
+    "title": "سناریو ۰۶: مدیریت امن اسرار با Ansible Vault، جلوگیری از نشت لاگ (`no_log`) و استقرار کانتینر Docker",
+    "severity": "CRITICAL",
+    "tags": [
+      "ansible",
+      "vault",
+      "secrets",
+      "and"
+    ],
+    "steps": "Problem -> Failure Injection -> Symptoms -> RCA -> Fix -> Lesson Learned",
+    "github_url": "https://github.com/arian-0058/devops-troubleshooting-scenario/blob/main/05-ansible-configuration-management/06-ansible-vault-secrets-and-docker-container.md"
   }
 ]
