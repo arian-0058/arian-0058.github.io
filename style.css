@@ -1,0 +1,968 @@
+:root {
+  --bg: #050507;
+  --window-bg: rgba(6, 6, 9, 0.64);
+  --surface: rgba(12, 12, 16, 0.52);
+  --surface-alt: rgba(20, 20, 26, 0.62);
+  --border: #9da3ac;
+  --border-strong: #b8bec7;
+  --border-dim: rgba(157, 163, 172, 0.34);
+  --text: #d8dce2;
+  --text-muted: #8f96a0;
+  --accent: #da70d6;
+  --accent-deep: #9370db;
+  --critical: #da70d6;
+  --critical-bg: rgba(218, 112, 214, 0.14);
+  --sidebar-width: 310px;
+  --neo-rail-width: 112px;
+  --rule: 1px;
+  --window-rule: 2px;
+  --page-max-width: 70rem;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-fa: 'Vazirmatn', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  background-image: url('./background.jfif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  padding-left: var(--neo-rail-width);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* لایه خیلی ظریف CRT */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 900;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.018) 2px,
+    rgba(255, 255, 255, 0.018) 3px
+  );
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0d10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* -------------------------------------------------------------- *
+ * نوار ثابت سمت چپ (made-in-neo.png)
+ * -------------------------------------------------------------- */
+.neo-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--neo-rail-width);
+  z-index: 40;
+  background: #000000;
+  border-right: var(--window-rule) solid var(--border);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.neo-rail img {
+  display: block;
+  width: 112%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+  image-rendering: pixelated;
+  filter: contrast(1.06) brightness(0.92);
+}
+
+/* -------------------------------------------------------------- *
+ * پنجره اصلی و قالب wriorango + nolove
+ * -------------------------------------------------------------- */
+.page-wrap {
+  padding: 2.25rem 2rem;
+  min-height: 100vh;
+}
+
+.window-frame {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  border: var(--window-rule) solid var(--border);
+  background: var(--window-bg);
+  backdrop-filter: blur(1.5px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8), 0 0 32px rgba(0, 0, 0, 0.65);
+}
+
+.title-bar {
+  background: var(--border-strong);
+  color: var(--bg);
+  padding: 5px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: var(--window-rule) solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  user-select: none;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.title-bar-btn {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--bg);
+  background: var(--bg);
+  color: var(--border-strong);
+  font-size: 10px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout {
+  display: flex;
+  direction: ltr;
+  min-height: calc(100vh - 7rem);
+}
+
+/* -------------------------------------------------------------- *
+ * سایدبار چسبان
+ * -------------------------------------------------------------- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  flex: 0 0 var(--sidebar-width);
+  width: var(--sidebar-width);
+  max-height: 100vh;
+  overflow-y: auto;
+  background: transparent;
+  border-right: var(--rule) solid var(--border);
+  padding: 1.4rem 1.2rem;
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: var(--rule) solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.site-title {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.site-title:hover {
+  background: var(--border-strong);
+  color: var(--bg);
+  padding: 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* باکس پروفایل + اسکی‌آرت اول */
+.profile {
+  border: 1px solid var(--border);
+  border-top: 8px solid var(--border);
+  background: var(--surface);
+  padding: 10px;
+  margin-bottom: 18px;
+}
+
+.ascii-box {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-dim);
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ascii-pre {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  text-align: left;
+  font-family: 'Courier New', 'DejaVu Sans Mono', monospace;
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: pre;
+  color: #cfd4dc;
+  user-select: none;
+  display: block;
+}
+
+.profile-status {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-dim);
+  font-size: 10px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  line-height: 1.45;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  margin-top: 4px;
+  flex-shrink: 0;
+  background: var(--accent);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulseDot 2.2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* منوی سایدبار */
+.menu-section-label {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu-link {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 5px 9px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.3;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-link:hover {
+  background: var(--border-strong);
+  color: var(--bg);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 10px rgba(218, 112, 214, 0.32);
+}
+
+.menu-link.active {
+  background: var(--border-strong);
+  color: var(--bg);
+  border-color: var(--border-strong);
+  font-weight: 700;
+}
+
+.menu-link.accent-link {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.menu-link.accent-link:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.menu-link svg,
+.menu-link i {
+  width: 13px;
+  height: 13px;
+  font-size: 13px;
+  flex-shrink: 0;
+  color: currentColor;
+  fill: currentColor;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 34px;
+  height: 30px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* -------------------------------------------------------------- *
+ * بخش اصلی و گرید ۶ ستونه
+ * -------------------------------------------------------------- */
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  gap: 0;
+  flex: 1;
+}
+
+.card {
+  background: transparent;
+  border-right: var(--rule) solid var(--border);
+  border-bottom: var(--rule) solid var(--border);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.card--wide {
+  grid-column: 1 / -1;
+  border-right: none;
+}
+
+.card--half {
+  grid-column: span 3;
+}
+
+.card--large {
+  grid-column: span 4;
+}
+
+.card--small {
+  grid-column: span 2;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--border-strong);
+  color: var(--bg);
+  padding: 5px 9px;
+  font-family: var(--font-mono);
+}
+
+.card-header b {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.card-header small {
+  font-size: 10px;
+  color: #2b2e34;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fa-text {
+  font-family: var(--font-fa);
+  direction: rtl;
+  text-align: right;
+}
+
+/* بخش معرفی */
+.terminal-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-dim);
+  background: var(--surface-alt);
+  font-size: 11px;
+  align-self: flex-start;
+}
+
+.terminal-prompt .host {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.intro-copy {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+/* -------------------------------------------------------------- *
+ * بخش مهارت‌ها (۲۱ مهارت با آیکون تک‌رنگ هم‌رنگ تم + تولتیپ)
+ * -------------------------------------------------------------- */
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  direction: ltr;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border-dim);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: help;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-chip:hover,
+.skill-chip:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(24, 12, 24, 0.85);
+  color: var(--accent);
+  box-shadow: 0 0 10px rgba(218, 112, 214, 0.28);
+}
+
+.skill-chip i,
+.skill-chip .skill-svg {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  color: currentColor !important;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------- *
+ * بخش سناریوها در صفحه اصلی
+ * -------------------------------------------------------------- */
+.scenarios-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  direction: rtl;
+}
+
+.scenarios-label {
+  font-family: var(--font-fa);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.scenarios-icon-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scenarios-icon-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 12px rgba(218, 112, 214, 0.5);
+}
+
+.scenarios-icon-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+.scenarios-ascii-wrap {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* -------------------------------------------------------------- *
+ * بخش پروژه‌ها (فقط تایتل قابل کلیک)
+ * -------------------------------------------------------------- */
+.repo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+}
+
+.repo-list li {
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.repo-list li:last-child {
+  border-bottom: none;
+}
+
+.repo-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.repo-link::before {
+  content: '///';
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 11px;
+}
+
+.repo-link-title {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.repo-link-arrow {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.repo-link:hover {
+  background: var(--border-strong);
+  color: var(--bg);
+}
+
+.repo-link:hover::before,
+.repo-link:hover .repo-link-arrow {
+  color: var(--bg);
+}
+
+/* -------------------------------------------------------------- *
+ * صفحه آزمایشگاه سناریوها (incidents.html)
+ * -------------------------------------------------------------- */
+.lab-top-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lab-badge {
+  display: inline-block;
+  padding: 4px 9px;
+  border: 1px solid var(--accent);
+  background: var(--critical-bg);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.lab-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--text);
+}
+
+.lab-desc {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 72ch;
+}
+
+.tabs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.category-tab {
+  border: none;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-dim);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 9px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.category-tab:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.category-tab.is-active {
+  background: var(--border-strong);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.incidents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.incident-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.incident-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px rgba(218, 112, 214, 0.22);
+}
+
+.incident-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.sev-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: rgba(5, 5, 7, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.sev-badge.is-critical {
+  border-color: var(--critical);
+  color: var(--critical);
+  background: var(--critical-bg);
+}
+
+.incident-cat {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.incident-title {
+  margin: 0;
+  font-family: var(--font-fa);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.incident-rca {
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid var(--border-dim);
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.incident-rca strong {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 3px;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+}
+
+.incident-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.incident-tag {
+  padding: 2px 6px;
+  border: 1px solid var(--border-dim);
+  background: rgba(5, 5, 7, 0.6);
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.incident-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  background: rgba(5, 5, 7, 0.65);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.incident-btn:hover {
+  background: var(--border-strong);
+  border-color: var(--border-strong);
+  color: var(--bg);
+}
+
+.incident-status-msg {
+  grid-column: 1 / -1;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-dim);
+}
+
+.incident-status-msg.is-error {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* -------------------------------------------------------------- *
+ * فوتر
+ * -------------------------------------------------------------- */
+.site-footer {
+  padding: 0.9rem 1.25rem;
+  border-top: var(--rule) solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--font-mono);
+}
+
+.footer-links a {
+  border-bottom: 1px solid var(--border-dim);
+  padding-bottom: 1px;
+}
+
+.footer-links a:hover {
+  background: var(--border-strong);
+  color: var(--bg);
+  border-bottom-color: var(--border-strong);
+  padding: 1px 4px;
+}
+
+/* -------------------------------------------------------------- *
+ * تولتیپ شناور سبک nolove
+ * -------------------------------------------------------------- */
+#js-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 280px;
+  background: rgba(5, 5, 7, 0.94);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 10px;
+  font-family: var(--font-fa);
+  font-size: 11px;
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  box-shadow: 0 0 14px rgba(218, 112, 214, 0.45), inset 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* -------------------------------------------------------------- *
+ * ریسپانسیو
+ * -------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --neo-rail-width: 84px;
+    --sidebar-width: 270px;
+  }
+
+  .incidents-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  body {
+    padding-left: 0;
+  }
+
+  .neo-rail {
+    display: none;
+  }
+
+  .page-wrap {
+    padding: 0;
+  }
+
+  .window-frame {
+    border-left: none;
+    border-right: none;
+    min-height: 100vh;
+    background: rgba(6, 6, 9, 0.72);
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    flex: none;
+    max-height: none;
+    border-right: none;
+    border-bottom: var(--rule) solid var(--border);
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .menu-collapse {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .menu-collapse.open {
+    display: block;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .card--wide,
+  .card--half,
+  .card--large,
+  .card--small {
+    grid-column: 1 / -1;
+    border-right: none;
+  }
+}

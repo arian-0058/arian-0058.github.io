@@ -1,88 +1,206 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Incident &amp; Troubleshooting Runbooks | Arian</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            canvas: '#090a0f',
-            canvasSub: '#0d1117',
-            panel: '#161b22',
-            borderSubtle: '#30363d',
-            borderMuted: '#484f58',
-            textLight: '#f0f6fc',
-            textDim: '#8b949e',
-            terminalGreen: '#10b981',
-            terminalGreenGlow: '#22c55e',
-            criticalRed: '#ef4444'
-          },
-          fontFamily: {
-            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body class="bg-canvas text-textLight font-sans antialiased min-h-screen selection:bg-terminalGreen selection:text-canvas">
+<body>
 
-  <!-- Top Navigation Bar -->
-  <header class="border-b border-borderSubtle bg-canvasSub/90 backdrop-blur sticky top-0 z-50 px-4 py-3">
-    <div class="max-w-6xl mx-auto flex items-center justify-between font-mono text-xs">
-      <a href="./index.html" class="flex items-center space-x-2 text-textDim hover:text-textLight transition-colors">
-        <span>←</span>
-        <span>Back to Main Terminal</span>
-      </a>
-      <div class="flex items-center space-x-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-terminalGreen"></span>
-        <span class="text-textLight font-bold">INCIDENT_LAB_VIEWER</span>
+  <!-- نوار ثابت سمت چپ -->
+  <div class="neo-rail" aria-hidden="true">
+    <img src="./made-in-neo.png" alt="" />
+  </div>
+
+  <div class="page-wrap">
+    <div class="window-frame">
+
+      <!-- نوار پنجره سبک nolove -->
+      <div class="title-bar" dir="ltr">
+        <span>INCIDENT_LAB_VIEWER.exe // PRODUCTION_RCA_ARCHIVE</span>
+        <div class="title-bar-controls" aria-hidden="true">
+          <span class="title-bar-btn">_</span>
+          <span class="title-bar-btn">□</span>
+          <span class="title-bar-btn">X</span>
+        </div>
       </div>
-      <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" 
-         class="text-terminalGreen hover:underline hidden sm:inline">
-        View Repo on GitHub ↗
-      </a>
-    </div>
-  </header>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+      <div class="layout">
 
-    <!-- Hero / Title -->
-    <div class="space-y-3">
-      <div id="module-count-badge" class="inline-block px-2.5 py-1 rounded bg-canvasSub border border-borderSubtle text-xs font-mono text-terminalGreen">
-        RUNBOOK_INDEX: Loading Modules...
+        <!-- سایدبار مشترک -->
+        <aside class="sidebar">
+          <div class="sidebar-top">
+            <a href="./index.html" class="site-title">Arian Nourani</a>
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-collapse">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+          <p class="subtitle">Junior DevOps &amp; Infrastructure Engineer</p>
+
+          <div class="profile">
+            <div class="ascii-box">
+              <pre class="ascii-pre" data-autofit="true" aria-label="ASCII profile emblem">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠉⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⣀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⡿⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠉⠙⠻⢿⣿⣿⣿⣿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⢹⣿⡿⠋⠀⠀⠀⠀⣀⣠⣤⣤⣤⣄⣀⠀⠀⠀⠀⠙⢿⣿⡏⠀⠀⠈⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⣠⣶⣿⠋⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠙⣿⣶⣄⡀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⢀⣴⣿⣿⣿⠃⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠘⣿⣿⣿⣦⡀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⢀⣶⣿⣿⣿⣿⡏⠀⠀⠀⣾⣿⣿⣿⣿⠛⠁⠀⠀⠀⠈⠙⣿⣿⣿⣿⣷⠀⠀⠀⢹⣿⣿⣿⣿⣷⣄⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⢀⢰⣿⣿⣿⣿⣿⣿⠃⠀⠀⢰⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⡇⠀⠀⠈⣿⣿⣿⣿⣿⣿⡆⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⡀⠀⠀⢸⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀⠀⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠈⢻⣿⣿⣿⣿⣿⡇⠀⠀⠈⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⠃⠀⠀⢰⣿⣿⣿⣿⣿⡿⠁⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠙⠻⣿⣿⣿⣿⡀⠀⠀⠸⣿⣿⣿⣿⣿⣶⣤⣤⣤⣶⣿⣿⣿⣿⣿⠇⠀⠀⠀⣾⣿⣿⣿⠟⠋⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠈⠛⢿⣿⣧⡀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⢀⣼⣿⡿⠟⠁⠀⠀⣀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⢿⣷⣄⡀⠀⠀⠉⣿⣿⣄⠀⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⠟⠛⠁⠀⠀⢀⣰⣾⣿⠋⠀⠀⠀⣠⣶⡿⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⡀⣸⣿⣿⣿⣶⣤⣤⣿⣿⣿⣷⣦⣀⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠀⣀⣾⣿⣿⣿⣿⣦⣤⣴⣿⣿⣿⣇⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⣿⣿⣿⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠊⠈⠻⣿⣿⣿⣿⣿⡿⠀⠀⠀⣿⣿⣿⠀⠀⠀⢻⣿⣿⣿⣿⣿⠟⠁⠈⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠈⠙⠻⠿⠛⠁⠀⢀⣴⣿⣿⣿⣧⠀⠀⠈⠛⠿⠟⠛⠁⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⣀⠀⠀⢠⣤⣾⣿⣿⣿⣿⣿⣿⣷⣧⣀⡀⠀⠀⣄⣰⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</pre>
+            </div>
+            <div class="profile-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>INCIDENT_LAB_VIEWER // LIVE JSON SYNC</span>
+            </div>
+          </div>
+
+          <div class="menu-collapse" id="menu-collapse">
+            <p class="menu-section-label">/// Navigation &amp; Links</p>
+            <nav class="menu" aria-label="Main links">
+              <a href="./index.html" class="menu-link">← Main Terminal</a>
+              <a href="./incidents.html" class="menu-link active" aria-current="page">Incidents</a>
+              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="menu-link accent-link">
+                <i class="devicon-github-original" aria-hidden="true"></i>
+                <span>Scenarios Repo ↗</span>
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- محتوای اصلی سناریوها -->
+        <div class="main">
+          <div class="content-grid">
+
+            <!-- هدر صفحه سناریوها -->
+            <section class="card card--wide">
+              <div class="lab-top-meta">
+                <div id="module-count-badge" class="lab-badge">
+                  RUNBOOK_INDEX: Loading Modules...
+                </div>
+                <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="menu-link">
+                  View Repo on GitHub ↗
+                </a>
+              </div>
+
+              <h1 class="lab-title">DevOps Incident &amp; Troubleshooting Lab</h1>
+              <p class="lab-desc">
+                Curated real-world failure injections, root cause investigations (RCA), and remediation runbooks. Filter through categories below to inspect each technical report.
+              </p>
+
+              <!-- تب‌های داینامیک دسته‌بندی -->
+              <div id="category-tabs" class="tabs-bar"></div>
+            </section>
+
+            <!-- گرید کارت‌های سناریو -->
+            <section class="card card--wide">
+              <div id="incidents-grid" class="incidents-grid">
+                <div class="incident-status-msg">
+                  Loading incident database...
+                </div>
+              </div>
+            </section>
+
+            <!-- اسکی‌آرت دوم در انتهای بخش سناریوها -->
+            <section class="card card--wide">
+              <div class="ascii-box">
+                <pre class="ascii-pre" data-autofit="true" aria-label="ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢎⠻⣿⣿⣿⣶⣔⡄⠀⠀⠀⠄⠐⠄⠀⣾⠇⠀⠀⠀⠀⠀⠠⠂⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢾⣽⣿⣿⣿⣿⡂⠀⠀⠀⠀⠀⢺⡎⢀⣠⣆⣆⣠⣄⠤⣲⣞⣭⡕⢖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠲⣽⣿⣿⣿⣿⣿⣷⠄⠐⠀⡠⣿⣵⣿⣿⣿⠿⠋⠁⠀⢗⣿⡿⠟⣛⢣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣓⣺⣿⣿⡿⣿⣿⣿⣷⣥⢤⣼⣿⠟⠋⠛⠁⠀⠀⠀⠀⠀⠙⢠⢖⡂⠭⢹⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⠟⠁⠀⠈⠉⠉⠙⠚⠛⠁⠀⠀⠀⠀⢠⣤⣤⡀⠀⠀⠘⢟⠗⠫⠥⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⠀⠀⠀⠀⠈⡜⢉⡩⣾⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡀⠀⠀⠀⠀⠀⠀⠀⡄⠀⡴⠃⠀⣀⡤⣶⣢⡤⠀⠀⠸⠺⢜⢾⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⠋⠛⠷⠶⣦⣄⣐⣮⠃⡤⢂⡵⡎⢿⣿⣠⢽⠇⠀⠀⠀⠀⢿⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⢠⢿⣿⡯⡽⢟⢳⠀⠣⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⢡⠀⠐⠶⢶⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣳⠀⠀⠀⠀⠁⠀⢨⠀⠀⠰⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠉⠋⣸⠒⠢⠤⣄⠉⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣠⠀⣀⣼⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⢸⠒⠚⠁⠀⠀⠀⠀⠈⠓⡆⠈⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠴⡪⠙⠋⠀⠈⣽⡄⠀⠀⠀⠀⠀⡜⠀⠀⠀⢀⡐⡄⠀⠀⠀⠀⠀⠀⡿⠀⢀⡇⠀⠀⠀⠀⢀⡴⠋⠁⣠⠞⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣨⣤⠴⠀⢀⣠⣶⣿⣿⠿⠳⡀⠀⠀⠀⠀⠷⣤⠤⠞⠙⠓⠁⠀⠀⠀⠀⠀⣸⠀⠀⢸⡇⠀⢀⠞⠁⠀⣠⠎⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣀⢄⣵⡟⠋⠁⣠⣴⣾⣿⣿⠟⠋⠁⠀⠀⠈⡶⣤⡀⠀⠀⠀⣄⡂⠀⠀⠀⠀⠀⠀⠀⠀⠊⠀⠀⡎⢣⢸⠀⠀⡴⠊⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⡸⢶⡻⠚⠉⣠⣶⣿⣿⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠹⡄⠀⡠⠒⠖⠊⠉⣉⣉⠝⠺⠀⠀⠀⠀⠀⣘⠀⠸⡆⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣼⣾⠀⠀⣼⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢄⢵⡐⠒⠊⢉⣠⠴⠋⠀⠀⠀⠀⠀⢰⠏⠀⠀⡇⠀⢸⠉⠹⠀⠀⠀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠹⢿⣤⠀⢻⣿⣿⣿⣧⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢎⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⠀⢸⠀⠀⡇⠀⢡⠀⠀⠀⠀⠀⣿⠒⠧⡤⣤⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢪⢉⢶⡀⢤⣄⠉⠈⢢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠞⣡⠳⡀⠀⠀⠀⠀⠀⠀⠀⡰⠋⠀⢰⠀⠀⠀⢸⠀⠀⡇⠀⡇⠀⠀⡠⠊⠀⠀⠀⡇⡇⠅⠏⠂⣄⠀
+⠀⠀⠀⠀⠀⠀⠀⠑⡄⣙⢦⣍⠳⣄⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⠀⢰⠁⠀⠙⠦⣀⣀⡀⠤⠞⠁⠀⡠⠁⠀⠀⠀⠀⡇⠀⢸⡞⠀⡠⠃⠀⠀⢀⠔⡡⠊⡨⡨⠀⠀⠀⠈⠳
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⣌⢻⣷⣄⣀⣀⣀⣀⣀⣰⣟⣀⣀⣀⣌⣀⣀⣀⣀⣀⣈⣙⣒⣘⣁⣠⣎⣀⣀⣀⣳⠀⣀⣧⠞⣀⣄⣀⣸⣰⣁⣀⣧⣇⡠⣠⣀⣀⣀⣩⣇⠀</pre>
+              </div>
+            </section>
+
+          </div>
+
+          <footer class="site-footer" dir="ltr">
+            <span>INCIDENT_LAB // AUTO-SYNCED VIA GITHUB ACTIONS</span>
+            <div class="footer-links">
+              <a href="./index.html">← Main Terminal</a>
+              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
+            </div>
+          </footer>
+        </div>
+
       </div>
-      <h1 class="text-3xl font-bold font-mono tracking-tight text-textLight">
-        DevOps Incident &amp; Troubleshooting Lab
-      </h1>
-      <p class="text-textDim text-sm sm:text-base max-w-3xl leading-relaxed">
-        Curated real-world failure injections, root cause investigations (RCA), and remediation runbooks. Filter through categories below to inspect each technical report.
-      </p>
     </div>
-
-    <!-- Category Tabs (Generated Dynamically) -->
-    <div id="category-tabs" class="border-b border-borderSubtle flex space-x-2 overflow-x-auto pb-px font-mono text-xs sm:text-sm">
-      <!-- Tabs will be injected via JS -->
-    </div>
-
-    <!-- Runbooks Container -->
-    <div id="incidents-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Cards will be injected via JS -->
-      <div class="col-span-full py-12 text-center text-textDim font-mono text-sm">
-        Loading incident database...
-      </div>
-    </div>
-
-  </main>
+  </div>
 
   <script>
+    // منوی موبایل سایدبار
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuCollapse = document.getElementById('menu-collapse');
+    if (menuToggle && menuCollapse) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuCollapse.classList.toggle('open');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // تنظیم خودکار سایز اسکی‌آرت‌ها متناسب با عرض کادر
+    function fitAsciiBlocks() {
+      document.querySelectorAll('pre[data-autofit="true"]').forEach((pre) => {
+        const box = pre.parentElement;
+        if (!box) return;
+        const avail = box.clientWidth - 14;
+        if (avail <= 0) return;
+        pre.style.fontSize = '10px';
+        const natural = pre.scrollWidth;
+        if (natural > 0) {
+          const fitted = Math.max(2.6, Math.min(10, (avail / natural) * 10));
+          pre.style.fontSize = fitted.toFixed(2) + 'px';
+        }
+      });
+    }
+
+    window.addEventListener('load', fitAsciiBlocks);
+    window.addEventListener('resize', fitAsciiBlocks);
+    fitAsciiBlocks();
+
+    // منطق اصلی بارگذاری و فیلتر سناریوها (۱۰۰٪ حفظ‌شده)
     let allIncidents = [];
     let currentCategory = 'all';
 
@@ -115,9 +233,7 @@
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.dataset.category = cat;
-        btn.className = isActive
-          ? 'category-tab px-4 py-2.5 border-b-2 border-terminalGreen text-terminalGreen font-bold transition-all whitespace-nowrap'
-          : 'category-tab px-4 py-2.5 border-b-2 border-transparent text-textDim hover:text-textLight transition-all whitespace-nowrap';
+        btn.className = isActive ? 'category-tab is-active' : 'category-tab';
         btn.textContent = label;
         btn.addEventListener('click', () => switchCategory(cat));
         return btn;
@@ -139,10 +255,10 @@
         renderTabs();
         renderCards();
       } catch (err) {
-        console.error("Failed to load incidents.json:", err);
+        console.error('Failed to load incidents.json:', err);
         document.getElementById('module-count-badge').textContent = 'RUNBOOK_INDEX: Offline';
         container.innerHTML = `
-          <div class="col-span-full py-12 text-center text-criticalRed font-mono text-sm">
+          <div class="incident-status-msg is-error">
             Failed to load incidents.json. Please try again later.
           </div>
         `;
@@ -152,25 +268,20 @@
     function switchCategory(category) {
       currentCategory = category;
       document.querySelectorAll('.category-tab').forEach(tab => {
-        const isActive = tab.dataset.category === category;
-        tab.classList.toggle('border-terminalGreen', isActive);
-        tab.classList.toggle('text-terminalGreen', isActive);
-        tab.classList.toggle('font-bold', isActive);
-        tab.classList.toggle('border-transparent', !isActive);
-        tab.classList.toggle('text-textDim', !isActive);
+        tab.classList.toggle('is-active', tab.dataset.category === category);
       });
       renderCards();
     }
 
     function renderCards() {
       const container = document.getElementById('incidents-grid');
-      const filtered = currentCategory === 'all' 
-        ? allIncidents 
+      const filtered = currentCategory === 'all'
+        ? allIncidents
         : allIncidents.filter(item => item.category === currentCategory);
 
       if (filtered.length === 0) {
         container.innerHTML = `
-          <div class="col-span-full py-12 text-center text-textDim font-mono text-sm">
+          <div class="incident-status-msg">
             No incident runbooks found for this category yet.
           </div>
         `;
@@ -179,47 +290,36 @@
 
       container.innerHTML = filtered.map(item => {
         const isCritical = item.severity === 'CRITICAL';
-        const badgeColor = isCritical 
-          ? 'bg-criticalRed/10 border-criticalRed/40 text-criticalRed' 
-          : 'bg-terminalGreen/10 border-terminalGreen/40 text-terminalGreen';
+        const sevClass = isCritical ? 'sev-badge is-critical' : 'sev-badge';
 
-        const tagsHtml = (item.tags || []).map(t => 
-          `<span class="px-2 py-0.5 rounded bg-canvas border border-borderSubtle text-[11px] text-textDim font-mono">#${t}</span>`
+        const tagsHtml = (item.tags || []).map(t =>
+          `<span class="incident-tag">#${t}</span>`
         ).join('');
 
         return `
-          <div class="bg-panel border border-borderSubtle rounded-xl p-5 sm:p-6 flex flex-col justify-between space-y-4 hover:border-borderMuted transition-all">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between gap-2">
-                <span class="px-2.5 py-0.5 rounded border text-xs font-mono font-bold ${badgeColor}">
-                  Severity: ${item.severity}
-                </span>
-                <span class="text-xs font-mono text-textDim uppercase">${item.category}</span>
+          <article class="incident-card">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div class="incident-head">
+                <span class="${sevClass}">Severity: ${item.severity}</span>
+                <span class="incident-cat">${item.category}</span>
               </div>
-              
-              <h3 class="text-base sm:text-lg font-bold font-mono text-textLight">
-                ${item.title}
-              </h3>
 
-              <div class="bg-canvasSub border border-borderSubtle rounded p-2.5 text-xs font-mono text-textDim">
-                <span class="text-terminalGreen font-bold">Standard 6-Phase RCA:</span>
-                <p class="mt-1 text-[11px] leading-relaxed text-textDim/90">
-                  ${item.steps || 'Problem → Injection → Symptoms → Root Cause → Fix → Lesson Learned'}
-                </p>
+              <h3 class="incident-title" dir="auto">${item.title}</h3>
+
+              <div class="incident-rca">
+                <strong>Standard 6-Phase RCA:</strong>
+                <span>${item.steps || 'Problem → Injection → Symptoms → Root Cause → Fix → Lesson Learned'}</span>
               </div>
             </div>
 
-            <div class="space-y-3 pt-2">
-              <div class="flex flex-wrap gap-1.5">
-                ${tagsHtml}
-              </div>
-              <a href="${item.github_url}" target="_blank" rel="noopener noreferrer"
-                 class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-canvasSub hover:bg-borderSubtle border border-borderSubtle hover:border-terminalGreen/50 text-textLight font-mono text-xs transition-all">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div class="incident-tags">${tagsHtml}</div>
+              <a href="${item.github_url}" target="_blank" rel="noopener noreferrer" class="incident-btn">
                 <span>View Markdown Runbook on GitHub</span>
                 <span>↗</span>
               </a>
             </div>
-          </div>
+          </article>
         `;
       }).join('');
     }

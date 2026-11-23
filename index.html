@@ -1,484 +1,343 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="dark">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arian Nourani | Junior DevOps &amp; Infrastructure Engineer</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Vazirmatn & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            canvas: '#07090e',
-            canvasSub: '#0d1117',
-            panel: '#121721',
-            steelBorder: '#30363d',
-            steelLight: '#8b949e',
-            silverChrome: '#cbd5e1',
-            silverBright: '#f0f6fc',
-            terminalGreen: '#10b981',
-            terminalGreenGlow: '#22c55e',
-          },
-          fontFamily: {
-            sans: ['Vazirmatn', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Devicon for developer icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-  <style>
-    .metallic-card {
-      background: linear-gradient(145deg, #151b23 0%, #0d1117 100%);
-      border: 1px solid #30363d;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-      transition: all 0.25s ease;
-    }
-    .metallic-card:hover {
-      border-color: #64748b;
-      box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
-    }
-    .metallic-btn {
-      background: linear-gradient(180deg, #1f242c 0%, #12161d 100%);
-      border: 1px solid #38424d;
-      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-      transition: all 0.2s ease;
-    }
-    .metallic-btn:hover {
-      background: linear-gradient(180deg, #2d333b 0%, #1f242c 100%);
-      border-color: #94a3b8;
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-    .lab-card {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(13, 17, 23, 0.95) 100%);
-      border: 1.5px solid rgba(16, 185, 129, 0.4);
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
-    }
-    .lab-card:hover {
-      border-color: rgba(16, 185, 129, 0.8);
-      box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.3);
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body class="bg-canvas text-silverBright font-sans antialiased min-h-screen selection:bg-terminalGreen selection:text-canvas">
+<body>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+  <!-- نوار ثابت سمت چپ -->
+  <div class="neo-rail" aria-hidden="true">
+    <img src="./made-in-neo.png" alt="" />
+  </div>
 
-    <!-- ۱. هدر و معرفی -->
-    <header class="metallic-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-      <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/40 to-transparent"></div>
-      
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <div class="space-y-3">
-          <div dir="ltr" class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-canvas border border-steelBorder text-xs font-mono text-terminalGreen">
-            <span>root@infra-node-01:~#</span>
-            <span class="text-silverChrome font-semibold">whoami</span>
+  <div class="page-wrap">
+    <div class="window-frame">
+
+      <!-- نوار پنجره سبک nolove -->
+      <div class="title-bar" dir="ltr">
+        <span>ARIAN_NOURANI.exe // DEVOPS_INFRA_NODE</span>
+        <div class="title-bar-controls" aria-hidden="true">
+          <span class="title-bar-btn">_</span>
+          <span class="title-bar-btn">□</span>
+          <span class="title-bar-btn">X</span>
+        </div>
+      </div>
+
+      <div class="layout">
+
+        <!-- سایدبار قالب wriorango -->
+        <aside class="sidebar">
+          <div class="sidebar-top">
+            <a href="./index.html" class="site-title">Arian Nourani</a>
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-collapse">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
-          
-          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white font-mono" dir="ltr">
-            Arian Nourani
-          </h1>
 
-          <div class="text-terminalGreen font-mono text-sm sm:text-base font-semibold tracking-wide" dir="ltr">
-            Junior DevOps &amp; Infrastructure Engineer
-          </div>
+          <p class="subtitle">Junior DevOps &amp; Infrastructure Engineer</p>
 
-          <p class="text-silverChrome text-sm sm:text-base leading-relaxed pt-1">
-            سلام من آرینم . علاقه‌مند به DevOps، لینوکس (Linux) و زیرساخت‌های ابری (Cloud Infrastructure)
-          </p>
-
-          <div class="pt-1">
-            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-xs font-mono text-silverBright" dir="ltr">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminalGreen opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-terminalGreen"></span>
-              </span>
+          <!-- باکس پروفایل با اسکی‌آرت اول به جای عکس -->
+          <div class="profile">
+            <div class="ascii-box">
+              <pre class="ascii-pre" data-autofit="true" aria-label="ASCII profile emblem">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠉⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⣀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⡿⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠉⠙⠻⢿⣿⣿⣿⣿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⢹⣿⡿⠋⠀⠀⠀⠀⣀⣠⣤⣤⣤⣄⣀⠀⠀⠀⠀⠙⢿⣿⡏⠀⠀⠈⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⣠⣶⣿⠋⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠙⣿⣶⣄⡀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⢀⣴⣿⣿⣿⠃⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠘⣿⣿⣿⣦⡀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⢀⣶⣿⣿⣿⣿⡏⠀⠀⠀⣾⣿⣿⣿⣿⠛⠁⠀⠀⠀⠈⠙⣿⣿⣿⣿⣷⠀⠀⠀⢹⣿⣿⣿⣿⣷⣄⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⢀⢰⣿⣿⣿⣿⣿⣿⠃⠀⠀⢰⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⡇⠀⠀⠈⣿⣿⣿⣿⣿⣿⡆⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⡀⠀⠀⢸⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀⠀⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠈⢻⣿⣿⣿⣿⣿⡇⠀⠀⠈⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⠃⠀⠀⢰⣿⣿⣿⣿⣿⡿⠁⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠙⠻⣿⣿⣿⣿⡀⠀⠀⠸⣿⣿⣿⣿⣿⣶⣤⣤⣤⣶⣿⣿⣿⣿⣿⠇⠀⠀⠀⣾⣿⣿⣿⠟⠋⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠈⠛⢿⣿⣧⡀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⢀⣼⣿⡿⠟⠁⠀⠀⣀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⢿⣷⣄⡀⠀⠀⠉⣿⣿⣄⠀⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⠟⠛⠁⠀⠀⢀⣰⣾⣿⠋⠀⠀⠀⣠⣶⡿⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⡀⣸⣿⣿⣿⣶⣤⣤⣿⣿⣿⣷⣦⣀⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠀⣀⣾⣿⣿⣿⣿⣦⣤⣴⣿⣿⣿⣇⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⣿⣿⣿⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠊⠈⠻⣿⣿⣿⣿⣿⡿⠀⠀⠀⣿⣿⣿⠀⠀⠀⢻⣿⣿⣿⣿⣿⠟⠁⠈⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠈⠙⠻⠿⠛⠁⠀⢀⣴⣿⣿⣿⣧⠀⠀⠈⠛⠿⠟⠛⠁⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⣀⠀⠀⢠⣤⣾⣿⣿⣿⣿⣿⣿⣷⣧⣀⡀⠀⠀⣄⣰⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</pre>
+            </div>
+            <div class="profile-status">
+              <span class="status-dot" aria-hidden="true"></span>
               <span>Open to: Remote · Full-time · Part-time · Internship</span>
             </div>
           </div>
-        </div>
 
-        <!-- لینک‌های ارتباطی و دانلود رزومه -->
-        <div class="flex flex-wrap gap-2.5 font-mono text-xs self-start lg:self-center" dir="ltr">
-          <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" 
-             class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
-            <i class="devicon-github-original text-base text-white"></i>
-            <span>GitHub</span>
-          </a>
-
-          <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" 
-             class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright">
-            <svg class="w-4 h-4 text-[#229ED9] fill-current" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-            </svg>
-            <span>Telegram</span>
-          </a>
-
-          <!-- دکمه دانلود هر دو فایل رزومه -->
-          <button onclick="downloadResumes()" type="button"
-             class="metallic-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg text-silverBright cursor-pointer">
-            <svg class="w-4 h-4 text-terminalGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-            </svg>
-            <span>Resume (EN &amp; FR)</span>
-          </button>
-
-          <a href="mailto:arian.nourani.2005@gmail.com" 
-             class="flex items-center space-x-2 px-4 py-2.5 rounded-lg bg-terminalGreen/15 hover:bg-terminalGreen/25 border border-terminalGreen/50 text-terminalGreen font-bold transition-all">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-            <span>Email</span>
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- ۲. بخش مهارت‌ها (Skills) -->
-    <section class="space-y-5">
-      <div class="border-b border-steelBorder/80 pb-3 flex items-center justify-between">
-        <h2 class="text-xl font-bold font-mono text-white flex items-center space-x-2 space-x-reverse">
-          <span class="text-terminalGreen text-2xl">#</span>
-          <span class="tracking-wider">Skills</span>
-        </h2>
-        <span class="text-xs font-mono text-steelLight hidden sm:inline" dir="ltr">Core Systems &amp; Tooling</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" dir="ltr">
-        
-        <!-- کارت ۱: Containers & Databases -->
-        <div class="metallic-card rounded-xl p-5 space-y-3.5">
-          <div class="flex items-center justify-between border-b border-steelBorder/60 pb-2">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-silverBright font-bold flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-terminalGreen"></span>
-              <span>Containers, Web &amp; Databases</span>
-            </h3>
-            <span class="text-[10px] font-mono text-steelLight">Runtime</span>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-docker-plain text-base text-[#2496ed]"></i>
-              <span>Docker &amp; Multi-stage</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-docker-plain text-base text-[#2496ed]"></i>
-              <span>Docker Compose</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-nginx-original text-base text-[#009639]"></i>
-              <span>Nginx Reverse Proxy</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-postgresql-plain text-base text-[#4169e1]"></i>
-              <span>PostgreSQL</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-mysql-plain text-base text-[#4479a1]"></i>
-              <span>MySQL / MariaDB</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-redis-plain text-base text-[#dc382d]"></i>
-              <span>Redis Cache</span>
-            </span>
-          </div>
-        </div>
-
-        <!-- کارت ۲: Linux, Python & Automation -->
-        <div class="metallic-card rounded-xl p-5 space-y-3.5">
-          <div class="flex items-center justify-between border-b border-steelBorder/60 pb-2">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-silverBright font-bold flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-terminalGreen"></span>
-              <span>OS, Programming &amp; Scripting</span>
-            </h3>
-            <span class="text-[10px] font-mono text-steelLight">Core Systems</span>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-linux-plain text-base text-[#fcc624]"></i>
-              <span>Linux Hardening &amp; Systemd</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-ansible-plain text-base text-[#ee0000]"></i>
-              <span>Ansible Automation</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-python-plain text-base text-[#3776ab]"></i>
-              <span>Python Automation</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-bash-plain text-base text-terminalGreen"></i>
-              <span>Bash Shell Scripting</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-git-plain text-base text-[#f05032]"></i>
-              <span>Git VCS &amp; GitOps</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-ssh-original text-base text-white"></i>
-              <span>SSH Keys &amp; Security</span>
-            </span>
-          </div>
-        </div>
-
-        <!-- کارت ۳: CI/CD & DevSecOps -->
-        <div class="metallic-card rounded-xl p-5 space-y-3.5">
-          <div class="flex items-center justify-between border-b border-steelBorder/60 pb-2">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-silverBright font-bold flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-terminalGreen"></span>
-              <span>CI/CD, DevSecOps &amp; Security</span>
-            </h3>
-            <span class="text-[10px] font-mono text-steelLight">Pipelines</span>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-githubactions-plain text-base text-[#2088ff]"></i>
-              <span>GitHub Actions</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-gitlab-plain text-base text-[#fc6d26]"></i>
-              <span>GitLab CI</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <span class="text-terminalGreen">🛡️</span>
-              <span>Trivy Vulnerability Scan</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-docker-plain text-base text-sky-400"></i>
-              <span>Hadolint Linting</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <i class="devicon-pytest-plain text-base text-[#0a9edc]"></i>
-              <span>Pytest Smoke Testing</span>
-            </span>
-          </div>
-        </div>
-
-        <!-- کارت ۴: Networking & Traffic Security -->
-        <div class="metallic-card rounded-xl p-5 space-y-3.5">
-          <div class="flex items-center justify-between border-b border-steelBorder/60 pb-2">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-silverBright font-bold flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-terminalGreen"></span>
-              <span>Networking &amp; Infrastructure</span>
-            </h3>
-            <span class="text-[10px] font-mono text-steelLight">Connectivity</span>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <span>🌐</span>
-              <span>VLSM Subnet Design</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <span>🔍</span>
-              <span>TCP/IP &amp; Packet Flow Analysis</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <span>🔒</span>
-              <span>UFW &amp; iptables Firewall</span>
-            </span>
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-canvasSub border border-steelBorder text-silverBright hover:border-silverChrome transition-colors">
-              <span>📡</span>
-              <span>DNS Diagnostics &amp; Dig/Nslookup</span>
-            </span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ۳. بخش آزمایشگاه سناریوها (بالای پروژه‌ها) -->
-    <section class="lab-card rounded-2xl p-6 sm:p-9 relative overflow-hidden transition-all">
-      <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-terminalGreen to-transparent"></div>
-      
-      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-        <div class="space-y-4 max-w-3xl">
-          <div class="inline-flex items-center space-x-2 space-x-reverse text-xs font-mono px-3 py-1 rounded-full bg-terminalGreen/10 border border-terminalGreen/30 text-terminalGreen">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-terminalGreen shadow-[0_0_8px_#10b981]"></span>
-            <span class="font-bold tracking-wider uppercase">Production Engineering &amp; SRE</span>
-          </div>
-          
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-            سناریوهای تمرینی و آزمایشگاه حوادث پروداکشن (Incident Lab)
-          </h2>
-          
-          <p class="text-silverChrome text-sm sm:text-base leading-relaxed font-light text-justify">
-            مجموعه شبیه‌سازی‌های عملیاتی برای رخدادهای بحرانی زیرساخت، تزریق عمدی خرابی (<span class="font-mono text-terminalGreen text-xs">Failure Injection</span>)، تحلیل ریشه‌ای خطا با متدولوژی استاندارد <span class="font-mono text-white text-xs font-bold px-1.5 py-0.5 bg-canvasSub border border-steelBorder rounded">RCA (۶ مرحله‌ای)</span> و پلی‌بوک‌های بازگردانی پایداری در لایه‌های کرنل لینوکس، شبکه، کانتینرهای داکر و پایپ‌لاین‌های CI/CD.
-          </p>
-          
-          <div class="pt-1 flex flex-wrap gap-2.5 text-xs font-mono" dir="ltr">
-            <span id="dynamic-modules-count" class="border border-steelBorder/80 bg-canvas/80 px-3 py-1.5 rounded-md text-silverBright">⚡ ... Core Engineering Modules</span>
-            <span id="dynamic-runbooks-count" class="border border-steelBorder/80 bg-canvas/80 px-3 py-1.5 rounded-md text-silverBright">🛡️ ... Production Runbooks</span>
-            <span class="border border-steelBorder/80 bg-canvas/80 px-3 py-1.5 rounded-md text-terminalGreen font-semibold">🔄 Auto Revert Scripts</span>
-          </div>
-        </div>
-
-        <a href="./incidents.html" 
-           class="inline-flex items-center justify-center space-x-3 space-x-reverse px-8 py-4 rounded-xl bg-terminalGreen hover:bg-terminalGreenGlow text-canvas font-mono font-bold text-sm sm:text-base transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:shadow-[0_0_35px_rgba(16,185,129,0.55)] hover:scale-[1.03] whitespace-nowrap self-stretch sm:self-start lg:self-center text-center">
-          <span>ورود به آزمایشگاه سناریوها</span>
-          <span class="text-lg">←</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ۴. بخش پروژه‌ها -->
-    <section class="space-y-6">
-      <div class="border-b border-steelBorder/80 pb-3 flex items-center justify-between">
-        <h2 class="text-xl font-bold font-mono text-white flex items-center space-x-2 space-x-reverse">
-          <span class="text-terminalGreen text-2xl">#</span>
-          <span>پروژه‌ها</span>
-        </h2>
-        <span class="text-xs font-mono text-steelLight hidden sm:inline" dir="ltr">Production Repositories</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- پروژه ۱: CI/CD Pipeline -->
-        <div class="metallic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 relative">
-          <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/30 to-transparent"></div>
-          
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between" dir="ltr">
-              <span class="text-xs font-mono text-terminalGreen font-bold tracking-wide">CI/CD &amp; DevSecOps Pipeline</span>
-              <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <div class="menu-collapse" id="menu-collapse">
+            <p class="menu-section-label">/// Navigation &amp; Links</p>
+            <nav class="menu" aria-label="Main links">
+              <a href="./index.html" class="menu-link active" aria-current="page">Home</a>
+              <a href="./incidents.html" class="menu-link">Incidents</a>
+              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="menu-link">
+                <i class="devicon-github-original" aria-hidden="true"></i>
+                <span>GitHub</span>
               </a>
+              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="menu-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>Telegram</span>
+              </a>
+              <button type="button" onclick="downloadResumes()" class="menu-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="square" d="M4 17v3h16v-3M12 3v12m0 0l-4-4m4 4l4-4"/></svg>
+                <span>Resume (EN &amp; FR)</span>
+              </button>
+              <a href="mailto:arian.nourani.2005@gmail.com" class="menu-link accent-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Email</span>
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- محتوای اصلی -->
+        <div class="main">
+          <div class="content-grid">
+
+            <!-- ۱. معرفی -->
+            <section class="card card--wide">
+              <div class="terminal-prompt" dir="ltr">
+                <span class="host">root@infra-node-01:~#</span>
+                <span>whoami</span>
+              </div>
+              <p class="intro-copy fa-text">
+                سلام من آرینم . علاقه‌مند به DevOps، لینوکس (Linux) و زیرساخت‌های ابری (Cloud Infrastructure)
+              </p>
+            </section>
+
+            <!-- ۲. مهارت‌ها: کانتینر، وب و دیتابیس -->
+            <section class="card card--half">
+              <header class="card-header">
+                <b>Containers, Web &amp; DB</b>
+                <small>Runtime</small>
+              </header>
+              <div class="skills-wrap">
+                <span class="skill-chip" tabindex="0" data-tooltip="ساخت ایمیج‌های سبک و امن با Multi-stage Build و بهینه‌سازی Layer Caching">
+                  <i class="devicon-docker-plain" aria-hidden="true"></i>
+                  <span>Docker &amp; Multi-stage</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="ارکستراسیون استک‌های چندکانتینری با شبکه ایزوله و Volumeهای ماندگار">
+                  <i class="devicon-docker-plain" aria-hidden="true"></i>
+                  <span>Docker Compose</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="راه‌اندازی پروکسی معکوس، مدیریت ترافیک HTTP و عیب‌یابی کانفیگ وب‌سرور">
+                  <i class="devicon-nginx-original" aria-hidden="true"></i>
+                  <span>Nginx Reverse Proxy</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="مدیریت پایگاه‌داده رابطه‌ای، استقرار کانتینری و نگهداری سرویس‌های داده">
+                  <i class="devicon-postgresql-plain" aria-hidden="true"></i>
+                  <span>PostgreSQL</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="پیکربندی دیتابیس، مدیریت دسترسی‌ها و زمان‌بندی بک‌آپ خودکار دوره‌ای">
+                  <i class="devicon-mysql-plain" aria-hidden="true"></i>
+                  <span>MySQL / MariaDB</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="پیاده‌سازی حافظه کش In-Memory در معماری‌های چندلایه وب">
+                  <i class="devicon-redis-plain" aria-hidden="true"></i>
+                  <span>Redis Cache</span>
+                </span>
+              </div>
+            </section>
+
+            <!-- ۳. مهارت‌ها: سیستم‌عامل، برنامه‌نویسی و اتوماسیون -->
+            <section class="card card--half" style="border-right: none;">
+              <header class="card-header">
+                <b>OS, Code &amp; Scripting</b>
+                <small>Core Systems</small>
+              </header>
+              <div class="skills-wrap">
+                <span class="skill-chip" tabindex="0" data-tooltip="سخت‌سازی سرور لینوکس، مدیریت سرویس‌های Systemd و عیب‌یابی منابع کرنل">
+                  <i class="devicon-linux-plain" aria-hidden="true"></i>
+                  <span>Linux Hardening &amp; Systemd</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="اتوماسیون پیکربندی Agentless با Roles، قالب‌های Jinja2 و اصل Idempotence">
+                  <i class="devicon-ansible-plain" aria-hidden="true"></i>
+                  <span>Ansible Automation</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="اسکریپت‌نویسی خودکارسازی تسک‌های زیرساخت، ابزارسازی و پایپ‌لاین‌های تست">
+                  <i class="devicon-python-plain" aria-hidden="true"></i>
+                  <span>Python Automation</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="نوشتن اسکریپت‌های شل برای نگهداری سرور، مانیتورینگ، بک‌آپ و تزریق خرابی">
+                  <i class="devicon-bash-plain" aria-hidden="true"></i>
+                  <span>Bash Shell Scripting</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="مدیریت نسخه‌بندی کد، تگ‌گذاری با Git SHA و جریان‌های کاری خودکار">
+                  <i class="devicon-git-plain" aria-hidden="true"></i>
+                  <span>Git VCS &amp; GitOps</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="احراز هویت کلیدمحور، غیرفعال‌سازی لاگین پسورد، StrictModes و محدودسازی Root">
+                  <i class="devicon-ssh-original" aria-hidden="true"></i>
+                  <span>SSH Keys &amp; Security</span>
+                </span>
+              </div>
+            </section>
+
+            <!-- ۴. مهارت‌ها: CI/CD و DevSecOps -->
+            <section class="card card--half">
+              <header class="card-header">
+                <b>CI/CD &amp; DevSecOps</b>
+                <small>Pipelines</small>
+              </header>
+              <div class="skills-wrap">
+                <span class="skill-chip" tabindex="0" data-tooltip="طراحی پایپ‌لاین‌های چندمرحله‌ای تست، بیلد، اسکن امنیتی و همگام‌سازی خودکار">
+                  <i class="devicon-githubactions-plain" aria-hidden="true"></i>
+                  <span>GitHub Actions</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="تعریف استیج‌ها، جاب‌ها و آرتیفکت‌ها برای یکپارچه‌سازی و استقرار مداوم">
+                  <i class="devicon-gitlab-plain" aria-hidden="true"></i>
+                  <span>GitLab CI</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="اسکن خودکار لایه‌های ایمیج داکر برای کشف آسیب‌پذیری‌های CRITICAL و HIGH">
+                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+                  <span>Trivy Vulnerability Scan</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="بررسی استاتیک سینتکس و رعایت Best Practiceهای امنیتی در نگارش Dockerfile">
+                  <i class="devicon-docker-plain" aria-hidden="true"></i>
+                  <span>Hadolint Linting</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="اجرای تست‌های واحد و تست دود خودکار اندپوینت‌ها پیش از انتشار سرویس">
+                  <i class="devicon-pytest-plain" aria-hidden="true"></i>
+                  <span>Pytest Smoke Testing</span>
+                </span>
+              </div>
+            </section>
+
+            <!-- ۵. مهارت‌ها: شبکه و زیرساخت -->
+            <section class="card card--half" style="border-right: none;">
+              <header class="card-header">
+                <b>Networking &amp; Infra</b>
+                <small>Connectivity</small>
+              </header>
+              <div class="skills-wrap">
+                <span class="skill-chip" tabindex="0" data-tooltip="طراحی بهینه زیرشبکه‌های IPv4 بر اساس نیاز دپارتمان‌ها و کاهش هدررفت آدرس">
+                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
+                  <span>VLSM Subnet Design</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="تحلیل جریان بسته‌های شبکه، پورت‌ها و عیب‌یابی ارتباطات لایه انتقال">
+                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+                  <span>TCP/IP &amp; Packet Flow Analysis</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="پیکربندی قوانین فایروال محلی، محدودسازی پورت‌ها و محافظت با Fail2ban">
+                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+                  <span>UFW &amp; iptables Firewall</span>
+                </span>
+                <span class="skill-chip" tabindex="0" data-tooltip="عیب‌یابی تفکیک نام دامنه، بررسی رکوردها و تحلیل اختلالات NSSwitch/DNS">
+                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 000 8.4M16.2 7.8a6 6 0 010 8.4M4.9 4.9a10 10 0 000 14.2M19.1 4.9a10 10 0 010 14.2"/></svg>
+                  <span>DNS Diagnostics &amp; Dig/Nslookup</span>
+                </span>
+              </div>
+            </section>
+
+            <!-- ۶. بخش پروژه‌ها (فقط تایتل قابل کلیک) -->
+            <section class="card card--half">
+              <header class="card-header">
+                <b>Repositories</b>
+                <small>GitHub</small>
+              </header>
+              <ul class="repo-list">
+                <li>
+                  <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="repo-link">
+                    <span class="repo-link-title">automated-ci-cd-pipeline</span>
+                    <span class="repo-link-arrow">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="repo-link">
+                    <span class="repo-link-title">devops-troubleshooting-scenario</span>
+                    <span class="repo-link-arrow">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/arian-0058/ansible-server-provisioner" target="_blank" rel="noopener noreferrer" class="repo-link">
+                    <span class="repo-link-title">ansible-server-provisioner</span>
+                    <span class="repo-link-arrow">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="repo-link">
+                    <span class="repo-link-title">cloud_projects_and_practice</span>
+                    <span class="repo-link-arrow">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <!-- ۷. بخش سناریوها (متن ساده + دکمه کوچک بدون متن + اسکی‌آرت دوم در پایین) -->
+            <section class="card card--half" style="border-right: none;">
+              <header class="card-header">
+                <b>Incident Lab</b>
+                <small>Runbooks</small>
+              </header>
+
+              <div class="scenarios-row">
+                <p class="scenarios-label">سناریوها</p>
+                <a href="./incidents.html" class="scenarios-icon-btn" aria-label="ورود به آزمایشگاه سناریوها" title="ورود به آزمایشگاه سناریوها">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <path d="M7 17L17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="scenarios-ascii-wrap">
+                <div class="ascii-box">
+                  <pre class="ascii-pre" data-autofit="true" aria-label="ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢎⠻⣿⣿⣿⣶⣔⡄⠀⠀⠀⠄⠐⠄⠀⣾⠇⠀⠀⠀⠀⠀⠠⠂⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢾⣽⣿⣿⣿⣿⡂⠀⠀⠀⠀⠀⢺⡎⢀⣠⣆⣆⣠⣄⠤⣲⣞⣭⡕⢖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠲⣽⣿⣿⣿⣿⣿⣷⠄⠐⠀⡠⣿⣵⣿⣿⣿⠿⠋⠁⠀⢗⣿⡿⠟⣛⢣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣓⣺⣿⣿⡿⣿⣿⣿⣷⣥⢤⣼⣿⠟⠋⠛⠁⠀⠀⠀⠀⠀⠙⢠⢖⡂⠭⢹⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⠟⠁⠀⠈⠉⠉⠙⠚⠛⠁⠀⠀⠀⠀⢠⣤⣤⡀⠀⠀⠘⢟⠗⠫⠥⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⠀⠀⠀⠀⠈⡜⢉⡩⣾⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡀⠀⠀⠀⠀⠀⠀⠀⡄⠀⡴⠃⠀⣀⡤⣶⣢⡤⠀⠀⠸⠺⢜⢾⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⠋⠛⠷⠶⣦⣄⣐⣮⠃⡤⢂⡵⡎⢿⣿⣠⢽⠇⠀⠀⠀⠀⢿⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⢠⢿⣿⡯⡽⢟⢳⠀⠣⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⢡⠀⠐⠶⢶⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣳⠀⠀⠀⠀⠁⠀⢨⠀⠀⠰⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠉⠋⣸⠒⠢⠤⣄⠉⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣠⠀⣀⣼⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⢸⠒⠚⠁⠀⠀⠀⠀⠈⠓⡆⠈⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠴⡪⠙⠋⠀⠈⣽⡄⠀⠀⠀⠀⠀⡜⠀⠀⠀⢀⡐⡄⠀⠀⠀⠀⠀⠀⡿⠀⢀⡇⠀⠀⠀⠀⢀⡴⠋⠁⣠⠞⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣨⣤⠴⠀⢀⣠⣶⣿⣿⠿⠳⡀⠀⠀⠀⠀⠷⣤⠤⠞⠙⠓⠁⠀⠀⠀⠀⠀⣸⠀⠀⢸⡇⠀⢀⠞⠁⠀⣠⠎⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣀⢄⣵⡟⠋⠁⣠⣴⣾⣿⣿⠟⠋⠁⠀⠀⠈⡶⣤⡀⠀⠀⠀⣄⡂⠀⠀⠀⠀⠀⠀⠀⠀⠊⠀⠀⡎⢣⢸⠀⠀⡴⠊⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⡸⢶⡻⠚⠉⣠⣶⣿⣿⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠹⡄⠀⡠⠒⠖⠊⠉⣉⣉⠝⠺⠀⠀⠀⠀⠀⣘⠀⠸⡆⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣼⣾⠀⠀⣼⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢄⢵⡐⠒⠊⢉⣠⠴⠋⠀⠀⠀⠀⠀⢰⠏⠀⠀⡇⠀⢸⠉⠹⠀⠀⠀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠹⢿⣤⠀⢻⣿⣿⣿⣧⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢎⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⠀⢸⠀⠀⡇⠀⢡⠀⠀⠀⠀⠀⣿⠒⠧⡤⣤⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢪⢉⢶⡀⢤⣄⠉⠈⢢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠞⣡⠳⡀⠀⠀⠀⠀⠀⠀⠀⡰⠋⠀⢰⠀⠀⠀⢸⠀⠀⡇⠀⡇⠀⠀⡠⠊⠀⠀⠀⡇⡇⠅⠏⠂⣄⠀
+⠀⠀⠀⠀⠀⠀⠀⠑⡄⣙⢦⣍⠳⣄⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⠀⢰⠁⠀⠙⠦⣀⣀⡀⠤⠞⠁⠀⡠⠁⠀⠀⠀⠀⡇⠀⢸⡞⠀⡠⠃⠀⠀⢀⠔⡡⠊⡨⡨⠀⠀⠀⠈⠳
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⣌⢻⣷⣄⣀⣀⣀⣀⣀⣰⣟⣀⣀⣀⣌⣀⣀⣀⣀⣀⣈⣙⣒⣘⣁⣠⣎⣀⣀⣀⣳⠀⣀⣧⠞⣀⣄⣀⣸⣰⣁⣀⣧⣇⡠⣠⣀⣀⣀⣩⣇⠀</pre>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+    <!-- فوتر -->
+          <footer class="site-footer" dir="ltr">
+            <span>ARIAN NOURANI // INFRA NODE</span>
+            <div class="footer-links">
+              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="./incidents.html">Scenarios</a>
             </div>
-
-            <h3 class="text-lg font-bold font-mono text-white" dir="ltr">
-              <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen transition-colors">
-                automated-ci-cd-pipeline
-              </a>
-            </h3>
-
-            <p class="text-silverChrome/90 text-sm leading-relaxed font-light text-justify">
-              پایپ‌لاین ۴ مرحله‌ای در GitHub Actions شامل ارزیابی کدهای پایتون با Flake8/Pytest، لینت داکرفایل با Hadolint، اسکن امنیتی ایمیج با اسکنر Trivy، بیلد کانتینر چندمرحله‌ای با تگ‌گذاری هش کامیت (<span class="font-mono text-xs">git SHA</span>) و تست دود استقرار استک کانتینری (Nginx + Flask + Redis).
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-steelBorder/70 flex flex-wrap gap-2 text-[11px] font-mono" dir="ltr">
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Nginx + Flask + Redis</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Multi-stage Docker</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Trivy Security Scan</span>
-          </div>
-        </div>
-
-        <!-- پروژه ۲: سناریوهای ترابل‌شوتینگ -->
-        <div class="metallic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 relative">
-          <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/30 to-transparent"></div>
-          
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between" dir="ltr">
-              <span class="text-xs font-mono text-terminalGreen font-bold tracking-wide">SRE &amp; Incident Lab</span>
-              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-
-            <h3 class="text-lg font-bold font-mono text-white" dir="ltr">
-              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen transition-colors">
-                devops-troubleshooting-scenario
-              </a>
-            </h3>
-
-            <p class="text-silverChrome/90 text-sm leading-relaxed font-light text-justify">
-              مجموعه سناریوهای بازتولید حوادث لینوکس، اختلالات شبکه، خطاهای کانتینرها و پایپ‌لاین‌های انتشار همراه با راهکارهای رفع ریشه‌ای (RCA)، پلی‌بوک‌های بازگردانی و مکانیزم‌های بازیابی خودکار.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-steelBorder/70 flex flex-wrap gap-2 text-[11px] font-mono" dir="ltr">
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Failure Injection</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Root Cause Analysis</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">SRE Runbooks</span>
-          </div>
-        </div>
-
-        <!-- پروژه ۳: اتوماسیون پیکربندی سرور با Ansible -->
-        <div class="metallic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 relative">
-          <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/30 to-transparent"></div>
-          
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between" dir="ltr">
-              <span class="text-xs font-mono text-terminalGreen font-bold tracking-wide">Configuration Management &amp; IaC</span>
-              <a href="https://github.com/arian-0058/ansible-server-provisioner" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-
-            <h3 class="text-lg font-bold font-mono text-white" dir="ltr">
-              <a href="https://github.com/arian-0058/ansible-server-provisioner" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen transition-colors">
-                ansible-server-provisioner
-              </a>
-            </h3>
-
-            <p class="text-silverChrome/90 text-sm leading-relaxed font-light text-justify">
-              اتوماسیون کامل پیکربندی، سخت‌سازی امنیتی (Hardening) و آماده‌سازی بستر اجرای کانتینر روی سرورهای خام اوبونتو با معماری Agentless و نقش‌های ماژولار (<span class="font-mono text-xs">base_security</span> و <span class="font-mono text-xs">docker_engine</span>)، قالب‌های پویا با Jinja2، فایروال UFW/Fail2ban و تضمین اصل Idempotence.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-steelBorder/70 flex flex-wrap gap-2 text-[11px] font-mono" dir="ltr">
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Ansible Roles &amp; Jinja2</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Agentless Hardening</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Docker &amp; Nginx</span>
-          </div>
-        </div>
-
-        <!-- پروژه ۴: تمرینات زیرساخت و شبکه -->
-        <div class="metallic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 relative">
-          <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-silverChrome/30 to-transparent"></div>
-          
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between" dir="ltr">
-              <span class="text-xs font-mono text-terminalGreen font-bold tracking-wide">Systems, Networks &amp; Storage</span>
-              <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-
-            <h3 class="text-lg font-bold font-mono text-white" dir="ltr">
-              <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="hover:text-terminalGreen transition-colors">
-                cloud_projects_and_practice
-              </a>
-            </h3>
-
-            <p class="text-silverChrome/90 text-sm leading-relaxed font-light text-justify">
-              پیاده‌سازی ماژولار مفاهیم زیرساخت: امن‌سازی سرور لینوکس (Hardening)، ساب‌نتینگ بهینه شبکه با VLSM، تحلیل بسته‌های ترافیکی TCP/IP و DNS، پروکسی معکوس Nginx، اسکریپت‌های اتوماسیون شل و بک‌آپ دوره‌ای پایگاه‌های داده.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-steelBorder/70 flex flex-wrap gap-2 text-[11px] font-mono" dir="ltr">
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Hardened Linux Server</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">VLSM Network Design</span>
-            <span class="px-2.5 py-1 rounded bg-canvas border border-steelBorder text-silverChrome">Multi-Container Stack</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ۵. فوتر -->
-    <footer class="border-t border-steelBorder/80 pt-8 pb-12 flex items-center justify-center gap-6 font-sans text-xs">
-      <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">گیت‌هاب</a>
-      <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="text-silverChrome hover:text-white transition-colors">تلگرام</a>
-      <a href="./incidents.html" class="text-terminalGreen hover:underline font-bold">آزمایشگاه سناریوها</a>
-    </footer>
-
-  </main>
+          </footer>
+  <!-- تولتیپ شناور مهارت‌ها -->
+  <div id="js-tooltip" role="tooltip"></div>
 
   <script>
+    // حفظ کامل تابع دانلود هر دو رزومه
     function downloadResumes() {
       const files = [
         'Arian_Nourani_Resume_(EN).pdf',
@@ -496,14 +355,95 @@
       });
     }
 
-    fetch('./incidents.json?v=' + Date.now(), { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        const modulesCount = new Set(data.map(item => item.category)).size;
-        document.getElementById('dynamic-modules-count').textContent = `⚡ ${modulesCount} Core Engineering Modules`;
-        document.getElementById('dynamic-runbooks-count').textContent = `🛡️ ${data.length} Production Runbooks`;
-      })
-      .catch(() => {});
+    // منوی موبایل سایدبار
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuCollapse = document.getElementById('menu-collapse');
+    if (menuToggle && menuCollapse) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuCollapse.classList.toggle('open');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // تنظیم خودکار سایز اسکی‌آرت‌ها متناسب با عرض کادر بدون شکستن خطوط
+    function fitAsciiBlocks() {
+      document.querySelectorAll('pre[data-autofit="true"]').forEach((pre) => {
+        const box = pre.parentElement;
+        if (!box) return;
+        const avail = box.clientWidth - 14;
+        if (avail <= 0) return;
+        pre.style.fontSize = '10px';
+        const natural = pre.scrollWidth;
+        if (natural > 0) {
+          const fitted = Math.max(2.6, Math.min(9.5, (avail / natural) * 10));
+          pre.style.fontSize = fitted.toFixed(2) + 'px';
+        }
+      });
+    }
+
+    window.addEventListener('load', fitAsciiBlocks);
+    window.addEventListener('resize', fitAsciiBlocks);
+    fitAsciiBlocks();
+
+    // سیستم تولتیپ مهارت‌ها (سبک nolove با پشتیبانی از موس و کیبورد)
+    (function initSkillTooltips() {
+      const tip = document.getElementById('js-tooltip');
+      if (!tip) return;
+      let activeEl = null;
+
+      function positionTooltip(clientX, clientY) {
+        const pad = 12;
+        const w = tip.offsetWidth || 240;
+        const h = tip.offsetHeight || 40;
+        let x = clientX + 14;
+        let y = clientY - h - 12;
+
+        if (x + w + pad > window.innerWidth) {
+          x = clientX - w - 14;
+        }
+        if (x < pad) x = pad;
+        if (y < pad) y = clientY + 18;
+
+        tip.style.left = x + 'px';
+        tip.style.top = y + 'px';
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        if (activeEl) positionTooltip(e.clientX, e.clientY);
+      });
+
+      document.querySelectorAll('[data-tooltip]').forEach((el) => {
+        el.addEventListener('mouseenter', (e) => {
+          const msg = el.getAttribute('data-tooltip');
+          if (!msg) return;
+          tip.textContent = msg;
+          tip.style.opacity = '1';
+          activeEl = el;
+          positionTooltip(e.clientX, e.clientY);
+        });
+
+        el.addEventListener('mouseleave', () => {
+          tip.style.opacity = '0';
+          activeEl = null;
+        });
+
+        el.addEventListener('focus', () => {
+          const msg = el.getAttribute('data-tooltip');
+          if (!msg) return;
+          const rect = el.getBoundingClientRect();
+          tip.textContent = msg;
+          tip.style.opacity = '1';
+          activeEl = el;
+          positionTooltip(rect.left + rect.width / 2, rect.top);
+        });
+
+        el.addEventListener('blur', () => {
+          tip.style.opacity = '0';
+          activeEl = null;
+        });
+      });
+    })();
   </script>
 </body>
 </html>
