@@ -1,0 +1,66 @@
+name: Sync Music Playlist
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'music/**'
+      - '!music/playlist.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-music:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Portfolio Repo
+        uses: actions/checkout@v4
+
+      - name: Generate music/playlist.json
+        shell: python3 {0}
+        run: |
+          import os
+          import re
+          import json
+          from urllib.parse import quote
+
+          MUSIC_DIR = "music"
+          AUDIO_EXTS = {".mp3", ".ogg", ".wav", ".m4a", ".flac", ".webm"}
+          tracks = []
+
+          if os.path.isdir(MUSIC_DIR):
+              for root, subdirs, files in os.walk(MUSIC_DIR):
+                  subdirs[:] = sorted([s for s in subdirs if not s.startswith(".")])
+                  for fname in sorted(files):
+                      ext = os.path.splitext(fname)[1].lower()
+                      if ext in AUDIO_EXTS:
+                          full_path = os.path.join(root, fname)
+                          rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
+                          raw_name = os.path.splitext(fname)[0].replace("_", " ")
+                          title = re.sub(r"\s+", " ", raw_name).strip()
+                          tracks.append({
+                              "title": title,
+                              "src": "./" + quote(rel_path, safe="/")
+                          })
+
+          os.makedirs(MUSIC_DIR, exist_ok=True)
+          out_path = os.path.join(MUSIC_DIR, "playlist.json")
+          with open(out_path, "w", encoding="utf-8") as f:
+              json.dump(tracks, f, ensure_ascii=False, indent=2)
+
+          print(f"Generated {out_path} with {len(tracks)} track(s).")
+
+      - name: Commit and Push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add music/playlist.json
+          if git diff --staged --quiet; then
+            echo "No playlist changes to commit."
+          else
+            git commit -m "chore(music): auto-sync playlist.json from music folder"
+            git push
+          fi
