@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Incident &amp; Troubleshooting Runbooks | Arian</title>
+  <title>Incident Lab, Repos &amp; Skills | Arian</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,6 +13,11 @@
 </head>
 <body>
 
+  <!-- نوار سراسری بالای صفحه (Canvas 60fps) -->
+  <div class="top-telemetry" dir="ltr" aria-hidden="true">
+    <canvas class="top-telemetry-canvas" id="top-telemetry-canvas"></canvas>
+  </div>
+
   <!-- نوار ثابت سمت چپ -->
   <div class="neo-rail" aria-hidden="true">
     <img src="./made-in-neo.png" alt="" />
@@ -21,9 +26,9 @@
   <div class="page-wrap">
     <div class="window-frame">
 
-      <!-- نوار پنجره سبک nolove -->
+      <!-- نوار پنجره -->
       <div class="title-bar" dir="ltr">
-        <span>INCIDENT_LAB_VIEWER.exe // PRODUCTION_RCA_ARCHIVE</span>
+        <span>INCIDENT_LAB_VIEWER.exe // SCENARIOS · REPOS · SKILLS</span>
         <div class="title-bar-controls" aria-hidden="true">
           <span class="title-bar-btn">_</span>
           <span class="title-bar-btn">□</span>
@@ -33,15 +38,10 @@
 
       <div class="layout">
 
-        <!-- سایدبار مشترک -->
+        <!-- پنل سمت چپ (پروفایل + سوییچر Scenarios / Repos / Skills + ناوبری) -->
         <aside class="sidebar">
           <div class="sidebar-top">
             <a href="./index.html" class="site-title">Arian Nourani</a>
-            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-collapse">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
           </div>
 
           <p class="subtitle">Junior DevOps &amp; Infrastructure Engineer</p>
@@ -80,56 +80,172 @@
             </div>
           </div>
 
-          <div class="menu-collapse" id="menu-collapse">
-            <p class="menu-section-label">/// Navigation &amp; Links</p>
+          <!-- پنل انتخاب بخش (Scenarios / Repos / Skills) -->
+          <div class="menu-block">
+            <p class="menu-section-label">/// Sections</p>
+            <div class="section-switcher" role="tablist" aria-label="Workspace sections">
+              <button type="button" class="section-btn is-active" role="tab" aria-selected="true" data-view="scenarios">
+                <span class="section-btn-label">Scenarios</span>
+              </button>
+              <button type="button" class="section-btn" role="tab" aria-selected="false" data-view="repos">
+                <span class="section-btn-label">Repos</span>
+              </button>
+              <button type="button" class="section-btn" role="tab" aria-selected="false" data-view="skills">
+                <span class="section-btn-label">Skills</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- لینک‌های همیشه باز -->
+          <div class="menu-block">
+            <p class="menu-section-label">/// Navigation</p>
             <nav class="menu" aria-label="Main links">
               <a href="./index.html" class="menu-link">← Main Terminal</a>
-              <a href="./incidents.html" class="menu-link active" aria-current="page">Incidents</a>
-              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="menu-link accent-link">
+              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer" class="menu-link">
                 <i class="devicon-github-original" aria-hidden="true"></i>
-                <span>Scenarios Repo ↗</span>
+                <span>GitHub</span>
+              </a>
+              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer" class="menu-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>Telegram</span>
+              </a>
+              <button type="button" onclick="downloadResumes()" class="menu-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="square" d="M4 17v3h16v-3M12 3v12m0 0l-4-4m4 4l4-4"/></svg>
+                <span>Resume (EN &amp; FR)</span>
+              </button>
+              <a href="mailto:arian.nourani.2005@gmail.com" class="menu-link accent-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Email</span>
               </a>
             </nav>
           </div>
         </aside>
 
-        <!-- محتوای اصلی سناریوها -->
+        <!-- محتوای سمت راست (بر اساس انتخاب پنل سمت چپ تغییر می‌کند) -->
         <div class="main">
           <div class="content-grid">
 
-            <!-- هدر صفحه سناریوها -->
-            <section class="card card--wide">
-              <div class="lab-top-meta">
-                <div id="module-count-badge" class="lab-badge">
-                  RUNBOOK_INDEX: Loading Modules...
+            <!-- ۱. نمای Scenarios -->
+            <div class="view-panel" id="view-scenarios" role="tabpanel">
+              <section class="card card--wide">
+                <div class="lab-top-meta">
+                  <div id="module-count-badge" class="lab-badge">
+                    RUNBOOK_INDEX: Loading Modules...
+                  </div>
+                  <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="menu-link">
+                    View Repo on GitHub ↗
+                  </a>
                 </div>
-                <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="menu-link">
-                  View Repo on GitHub ↗
-                </a>
-              </div>
 
-              <h1 class="lab-title">DevOps Incident &amp; Troubleshooting Lab</h1>
-              <p class="lab-desc">
-                Curated real-world failure injections, root cause investigations (RCA), and remediation runbooks. Filter through categories below to inspect each technical report.
-              </p>
-
-              <!-- تب‌های داینامیک دسته‌بندی -->
-              <div id="category-tabs" class="tabs-bar"></div>
-            </section>
-
-            <!-- گرید کارت‌های سناریو -->
-            <section class="card card--wide">
-              <div id="incidents-grid" class="incidents-grid">
-                <div class="incident-status-msg">
-                  Loading incident database...
+                <!-- بنر تایپی ASCII جایگزین تیتر -->
+                <h1 class="sr-only">SCENARIOS</h1>
+                <div class="scenarios-banner-box" id="scenarios-banner-box" dir="ltr">
+                  <div class="scenarios-banner-wrap">
+                    <pre class="scenarios-banner-pre scenarios-banner-ghost" id="scenarios-banner-ghost" aria-hidden="true"></pre>
+                    <pre class="scenarios-banner-pre scenarios-banner-typed" id="scenarios-banner-typed" aria-label="SCENARIOS"></pre>
+                  </div>
                 </div>
-              </div>
-            </section>
 
-            <!-- اسکی‌آرت دوم در انتهای بخش سناریوها -->
-            <section class="card card--wide">
-              <div class="ascii-box">
-                <pre class="ascii-pre" data-autofit="true" aria-label="ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                <p class="lab-desc">
+                  Curated real-world failure injections, root cause investigations (RCA), and remediation runbooks. Filter through categories below to inspect each technical report.
+                </p>
+
+                <!-- تب‌های داینامیک دسته‌بندی -->
+                <div id="category-tabs" class="tabs-bar"></div>
+              </section>
+
+              <section class="card card--wide">
+                <div id="incidents-grid" class="incidents-grid">
+                  <div class="incident-status-msg">
+                    Loading incident database...
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- ۲. نمای Repos -->
+            <div class="view-panel" id="view-repos" role="tabpanel" hidden>
+              <section class="card card--wide">
+                <header class="card-header">
+                  <b>Repositories</b>
+                  <small>GitHub</small>
+                </header>
+                <ul class="repo-list">
+                  <li>
+                    <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="repo-link">
+                      <span class="repo-link-title">automated-ci-cd-pipeline</span>
+                      <span class="repo-link-arrow">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="repo-link">
+                      <span class="repo-link-title">devops-troubleshooting-scenario</span>
+                      <span class="repo-link-arrow">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arian-0058/ansible-server-provisioner" target="_blank" rel="noopener noreferrer" class="repo-link">
+                      <span class="repo-link-title">ansible-server-provisioner</span>
+                      <span class="repo-link-arrow">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="repo-link">
+                      <span class="repo-link-title">cloud_projects_and_practice</span>
+                      <span class="repo-link-arrow">↗</span>
+                    </a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            <!-- ۳. نمای Skills (خلاصه و تمیز) -->
+            <div class="view-panel" id="view-skills" role="tabpanel" hidden>
+              <section class="card card--wide">
+                <header class="card-header">
+                  <b>Skills</b>
+                  <small>Core Summary</small>
+                </header>
+                <div class="skills-summary-box fa-text">
+                  <p class="skills-summary-lead"><strong>مهارت‌های فنی</strong></p>
+                  <ul class="skills-summary-list">
+                    <li>
+                      <strong dir="ltr">Linux &amp; Security:</strong>
+                      مدیریت و امن‌سازی سرورهای لینوکس، تنظیم فایروال و اسکریپت‌نویسی با Bash و Python
+                    </li>
+                    <li>
+                      <strong dir="ltr">Networking &amp; Web:</strong>
+                      راه‌اندازی وب‌سرور و Reverse Proxy با Nginx، مفاهیم شبکه، ساب‌نتینگ و تحلیل ترافیک
+                    </li>
+                    <li>
+                      <strong dir="ltr">Containers &amp; Data:</strong>
+                      ساخت Dockerfile و اجرای سرویس‌ها با Docker Compose، کار با دیتابیس‌های MySQL، PostgreSQL و Redis
+                    </li>
+                    <li>
+                      <strong dir="ltr">CI/CD &amp; Automation:</strong>
+                      پیاده‌سازی پایپ‌لاین با GitHub Actions و GitLab CI، اتوماسیون سرور با Ansible و عیب‌یابی سیستم‌ها
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- فوتر -->
+          <footer class="site-footer" dir="ltr">
+            <span>INCIDENT_LAB // AUTO-SYNCED VIA GITHUB ACTIONS</span>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <button type="button" class="footer-david-btn" id="david-toggle" aria-expanded="false" aria-controls="david-drawer">david...</button>
+            </div>
+          </footer>
+
+          <!-- بخش مخفی اسکی‌آرت زیر فوتر -->
+          <div class="david-drawer" id="david-drawer" hidden>
+            <div class="ascii-box">
+              <pre class="ascii-pre" data-autofit="true" aria-label="David ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢎⠻⣿⣿⣿⣶⣔⡄⠀⠀⠀⠄⠐⠄⠀⣾⠇⠀⠀⠀⠀⠀⠠⠂⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢾⣽⣿⣿⣿⣿⡂⠀⠀⠀⠀⠀⢺⡎⢀⣠⣆⣆⣠⣄⠤⣲⣞⣭⡕⢖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠲⣽⣿⣿⣿⣿⣿⣷⠄⠐⠀⡠⣿⣵⣿⣿⣿⠿⠋⠁⠀⢗⣿⡿⠟⣛⢣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -150,33 +266,61 @@
 ⠀⠀⠀⠀⠀⠀⢪⢉⢶⡀⢤⣄⠉⠈⢢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠞⣡⠳⡀⠀⠀⠀⠀⠀⠀⠀⡰⠋⠀⢰⠀⠀⠀⢸⠀⠀⡇⠀⡇⠀⠀⡠⠊⠀⠀⠀⡇⡇⠅⠏⠂⣄⠀
 ⠀⠀⠀⠀⠀⠀⠀⠑⡄⣙⢦⣍⠳⣄⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⠀⢰⠁⠀⠙⠦⣀⣀⡀⠤⠞⠁⠀⡠⠁⠀⠀⠀⠀⡇⠀⢸⡞⠀⡠⠃⠀⠀⢀⠔⡡⠊⡨⡨⠀⠀⠀⠈⠳
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⣌⢻⣷⣄⣀⣀⣀⣀⣀⣰⣟⣀⣀⣀⣌⣀⣀⣀⣀⣀⣈⣙⣒⣘⣁⣠⣎⣀⣀⣀⣳⠀⣀⣧⠞⣀⣄⣀⣸⣰⣁⣀⣧⣇⡠⣠⣀⣀⣀⣩⣇⠀</pre>
-              </div>
-            </section>
-
+            </div>
           </div>
 
-          <footer class="site-footer" dir="ltr">
-            <span>INCIDENT_LAB // AUTO-SYNCED VIA GITHUB ACTIONS</span>
-            <div class="footer-links">
-              <a href="./index.html">← Main Terminal</a>
-              <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
-            </div>
-          </footer>
         </div>
-
       </div>
     </div>
   </div>
 
+  <!-- سورس خام بنر ASCII بدون تداخل پارس HTML -->
+  <script type="text/plain" id="scenarios-ascii-source">
+ ____     ____   _____   _   _      _      ____    ___    ___    ____  
+/ ___|   / ___| | ____| | \ | |    / \    |  _ \  |_ _|  / _ \  / ___| 
+\___ \  | |     |  _|   |  \| |   / _ \   | |_) |  | |  | | | | \___ \ 
+ ___) | | |___  | |___  | |\  |  / ___ \  |  _ <   | |  | |_| |  ___) |
+|____/   \____| |_____| |_| \_| /_/   \_\ |_| \_\ |___|  \___/  |____/ 
+  </script>
+
   <script>
-    // منوی موبایل سایدبار
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuCollapse = document.getElementById('menu-collapse');
-    if (menuToggle && menuCollapse) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = menuCollapse.classList.toggle('open');
-        menuToggle.classList.toggle('open', isOpen);
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    function downloadResumes() {
+      const files = [
+        'Arian_Nourani_Resume_(EN).pdf',
+        'Arian_Nourani_Resume_(FR).pdf'
+      ];
+      files.forEach((file, index) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = file;
+          a.download = file;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, index * 250);
+      });
+    }
+
+    // یکسان‌سازی عرض کاراکترهای خالی بریل برای رفع شکستگی لبه راست در دسکتاپ
+    function normalizeBrailleAscii() {
+      document.querySelectorAll('pre.ascii-pre').forEach((pre) => {
+        if (pre.dataset.normalized === 'true') return;
+        const raw = pre.textContent;
+        const frag = document.createDocumentFragment();
+        const parts = raw.split('\u2800');
+        parts.forEach((part, idx) => {
+          if (part) frag.appendChild(document.createTextNode(part));
+          if (idx < parts.length - 1) {
+            const sp = document.createElement('span');
+            sp.className = 'braille-blank';
+            sp.setAttribute('aria-hidden', 'true');
+            sp.textContent = '⣿';
+            frag.appendChild(sp);
+          }
+        });
+        pre.textContent = '';
+        pre.appendChild(frag);
+        pre.dataset.normalized = 'true';
       });
     }
 
@@ -184,21 +328,222 @@
     function fitAsciiBlocks() {
       document.querySelectorAll('pre[data-autofit="true"]').forEach((pre) => {
         const box = pre.parentElement;
-        if (!box) return;
+        if (!box || box.clientWidth <= 16) return;
         const avail = box.clientWidth - 14;
-        if (avail <= 0) return;
         pre.style.fontSize = '10px';
         const natural = pre.scrollWidth;
         if (natural > 0) {
-          const fitted = Math.max(2.6, Math.min(10, (avail / natural) * 10));
+          const fitted = Math.max(2.5, Math.min(10, (avail / natural) * 10));
           pre.style.fontSize = fitted.toFixed(2) + 'px';
+        }
+      });
+      fitScenariosBanner();
+    }
+
+    // تنظیم ریسپانسیو بنر SCENARIOS و انیمیشن تایپی (با textContent ایمن)
+    function fitScenariosBanner() {
+      const box = document.getElementById('scenarios-banner-box');
+      const ghost = document.getElementById('scenarios-banner-ghost');
+      const typed = document.getElementById('scenarios-banner-typed');
+      if (!box || !ghost || !typed || box.clientWidth <= 20) return;
+
+      const avail = box.clientWidth - 22;
+      ghost.style.fontSize = '12px';
+      const natural = ghost.scrollWidth;
+      if (natural > 0) {
+        const fitted = Math.max(4.5, Math.min(15, (avail / natural) * 12));
+        const sizeStr = fitted.toFixed(2) + 'px';
+        ghost.style.fontSize = sizeStr;
+        typed.style.fontSize = sizeStr;
+      }
+    }
+
+    (function initScenariosBanner() {
+      const srcEl = document.getElementById('scenarios-ascii-source');
+      const ghost = document.getElementById('scenarios-banner-ghost');
+      const typed = document.getElementById('scenarios-banner-typed');
+      if (!srcEl || !ghost || !typed) return;
+
+      const asciiText = srcEl.textContent.replace(/^\n|\n\s*$/g, '');
+      ghost.textContent = asciiText;
+      typed.textContent = '';
+      fitScenariosBanner();
+
+      let idx = 0;
+      function typeNext() {
+        if (idx >= asciiText.length) return;
+        typed.textContent += asciiText[idx++];
+        setTimeout(typeNext, 6);
+      }
+      typeNext();
+    })();
+
+    // نوار قرمز سراسری بالای صفحه (جریان پیوسته و بدون فاصله روی Canvas 60fps)
+    (function initTopTelemetry() {
+      const canvas = document.getElementById('top-telemetry-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const glyphs = '0123456789ABCDEF0123456789XYZ0123456789';
+      const palette = [
+        '#521523', '#681c2d', '#7e2337', '#942b42',
+        '#aa334d', '#bf3b57', '#d14360', '#d94862',
+        '#e3526d', '#ec5d77', '#f46a84', '#ff7b94',
+        '#ff94a8'
+      ];
+
+      const randChar = () => glyphs[(Math.random() * glyphs.length) | 0];
+      const makeCell = () => ({
+        ch: randChar(),
+        base: 0.14 + Math.random() * 0.42,
+        flash: Math.random() < 0.06 ? 0.8 : 0
+      });
+
+      const SPEED = 150; // سرعت حرکت افقی (پیکسل بر ثانیه)
+      const FONT = '700 12px "JetBrains Mono", "Courier New", monospace';
+
+      let width = 0;
+      let height = 28;
+      let cellW = 7.4;
+      let count = 0;
+      let cells = [];
+      let head = 0;
+      let scrollOffset = 0;
+      let wavePhase = 0;
+      let mutateAccum = 0;
+      let lastTime = performance.now();
+
+      function setup() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = canvas.parentElement ? canvas.parentElement.clientHeight : 28;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.font = FONT;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
+        // عرض دقیق هر کاراکتر بدون فاصله اضافی بین حروف
+        cellW = Math.max(6.5, ctx.measureText('0').width);
+        count = Math.ceil(width / cellW) + 3;
+        cells = Array.from({ length: count }, makeCell);
+        head = 0;
+        scrollOffset = 0;
+      }
+
+      setup();
+      window.addEventListener('resize', setup);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setup);
+      }
+
+      function render(now) {
+        requestAnimationFrame(render);
+        const dt = Math.min(0.05, Math.max(0, (now - lastTime) / 1000));
+        lastTime = now;
+        if (document.hidden || count === 0) return;
+
+        scrollOffset += SPEED * dt;
+        while (scrollOffset >= cellW) {
+          scrollOffset -= cellW;
+          const entering = cells[head];
+          entering.ch = randChar();
+          entering.base = 0.14 + Math.random() * 0.42;
+          entering.flash = Math.random() < 0.05 ? 0.9 : 0;
+          head = (head + 1) % count;
+        }
+
+        wavePhase += dt * 3.2;
+        mutateAccum += dt;
+        if (mutateAccum >= 0.04) {
+          mutateAccum = 0;
+          for (let k = 0; k < 3; k++) {
+            const idx = (Math.random() * count) | 0;
+            cells[idx].ch = randChar();
+            cells[idx].flash = 1;
+          }
+        }
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.font = FONT;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        const midY = height / 2 + 0.5;
+        const maxIdx = palette.length - 1;
+
+        for (let i = 0; i < count; i++) {
+          const cell = cells[(head + i) % count];
+          if (cell.flash > 0) {
+            cell.flash = Math.max(0, cell.flash - dt * 3.6);
+          }
+          const x = i * cellW - scrollOffset;
+          const wave = (Math.sin(x * 0.011 - wavePhase) * 0.5 + 0.5) * 0.34;
+          const level = Math.min(1, cell.base + wave + cell.flash * 0.65);
+          ctx.fillStyle = palette[Math.min(maxIdx, (level * palette.length) | 0)];
+          ctx.fillText(cell.ch, x, midY);
+        }
+      }
+
+      requestAnimationFrame(render);
+    })();
+
+
+    // باز و بسته کردن بخش david... زیر فوتر
+    const davidToggle = document.getElementById('david-toggle');
+    const davidDrawer = document.getElementById('david-drawer');
+    if (davidToggle && davidDrawer) {
+      davidToggle.addEventListener('click', () => {
+        const willOpen = davidDrawer.hidden;
+        davidDrawer.hidden = !willOpen;
+        davidToggle.setAttribute('aria-expanded', String(willOpen));
+        if (willOpen) {
+          fitAsciiBlocks();
+          davidDrawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       });
     }
 
+    // سوییچ بین Scenarios / Repos / Skills از پنل سمت چپ
+    const sectionButtons = document.querySelectorAll('.section-btn[data-view]');
+    const viewPanels = {
+      scenarios: document.getElementById('view-scenarios'),
+      repos: document.getElementById('view-repos'),
+      skills: document.getElementById('view-skills')
+    };
+
+    function switchSection(viewName) {
+      if (!viewPanels[viewName]) return;
+      sectionButtons.forEach((btn) => {
+        const isActive = btn.dataset.view === viewName;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+      });
+      Object.entries(viewPanels).forEach(([key, panel]) => {
+        if (panel) panel.hidden = key !== viewName;
+      });
+      if (viewName === 'scenarios') {
+        fitScenariosBanner();
+      }
+    }
+
+    sectionButtons.forEach((btn) => {
+      btn.addEventListener('click', () => switchSection(btn.dataset.view));
+    });
+
+    const initialHash = window.location.hash.replace('#', '').toLowerCase();
+    if (viewPanels[initialHash]) {
+      switchSection(initialHash);
+    }
+
+    normalizeBrailleAscii();
+    fitAsciiBlocks();
     window.addEventListener('load', fitAsciiBlocks);
     window.addEventListener('resize', fitAsciiBlocks);
-    fitAsciiBlocks();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitAsciiBlocks);
+    }
 
     // منطق اصلی بارگذاری و فیلتر سناریوها (۱۰۰٪ حفظ‌شده)
     let allIncidents = [];

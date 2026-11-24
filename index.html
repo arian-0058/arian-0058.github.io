@@ -13,6 +13,11 @@
 </head>
 <body>
 
+  <!-- نوار سراسری بالای صفحه (Canvas 60fps) -->
+  <div class="top-telemetry" dir="ltr" aria-hidden="true">
+    <canvas class="top-telemetry-canvas" id="top-telemetry-canvas"></canvas>
+  </div>
+
   <!-- نوار ثابت سمت چپ -->
   <div class="neo-rail" aria-hidden="true">
     <img src="./made-in-neo.png" alt="" />
@@ -21,7 +26,7 @@
   <div class="page-wrap">
     <div class="window-frame">
 
-      <!-- نوار پنجره سبک nolove -->
+      <!-- نوار پنجره -->
       <div class="title-bar" dir="ltr">
         <span>ARIAN_NOURANI.exe // DEVOPS_INFRA_NODE</span>
         <div class="title-bar-controls" aria-hidden="true">
@@ -33,20 +38,15 @@
 
       <div class="layout">
 
-        <!-- سایدبار قالب wriorango -->
+        <!-- سایدبار (همیشه باز در دسکتاپ و موبایل) -->
         <aside class="sidebar">
           <div class="sidebar-top">
             <a href="./index.html" class="site-title">Arian Nourani</a>
-            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-collapse">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
           </div>
 
           <p class="subtitle">Junior DevOps &amp; Infrastructure Engineer</p>
 
-          <!-- باکس پروفایل با اسکی‌آرت اول به جای عکس -->
+          <!-- باکس پروفایل با اسکی‌آرت -->
           <div class="profile">
             <div class="ascii-box">
               <pre class="ascii-pre" data-autofit="true" aria-label="ASCII profile emblem">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -81,7 +81,7 @@
             </div>
           </div>
 
-          <div class="menu-collapse" id="menu-collapse">
+          <div class="menu-block">
             <p class="menu-section-label">/// Navigation &amp; Links</p>
             <nav class="menu" aria-label="Main links">
               <a href="./index.html" class="menu-link active" aria-current="page">Home</a>
@@ -116,174 +116,21 @@
                 <span class="host">root@infra-node-01:~#</span>
                 <span>whoami</span>
               </div>
-              <p class="intro-copy fa-text">
-                سلام من آرینم . علاقه‌مند به DevOps، لینوکس (Linux) و زیرساخت‌های ابری (Cloud Infrastructure)
-              </p>
-            </section>
-
-            <!-- ۲. مهارت‌ها: کانتینر، وب و دیتابیس -->
-            <section class="card card--half">
-              <header class="card-header">
-                <b>Containers, Web &amp; DB</b>
-                <small>Runtime</small>
-              </header>
-              <div class="skills-wrap">
-                <span class="skill-chip" tabindex="0" data-tooltip="ساخت ایمیج‌های سبک و امن با Multi-stage Build و بهینه‌سازی Layer Caching">
-                  <i class="devicon-docker-plain" aria-hidden="true"></i>
-                  <span>Docker &amp; Multi-stage</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="ارکستراسیون استک‌های چندکانتینری با شبکه ایزوله و Volumeهای ماندگار">
-                  <i class="devicon-docker-plain" aria-hidden="true"></i>
-                  <span>Docker Compose</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="راه‌اندازی پروکسی معکوس، مدیریت ترافیک HTTP و عیب‌یابی کانفیگ وب‌سرور">
-                  <i class="devicon-nginx-original" aria-hidden="true"></i>
-                  <span>Nginx Reverse Proxy</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="مدیریت پایگاه‌داده رابطه‌ای، استقرار کانتینری و نگهداری سرویس‌های داده">
-                  <i class="devicon-postgresql-plain" aria-hidden="true"></i>
-                  <span>PostgreSQL</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="پیکربندی دیتابیس، مدیریت دسترسی‌ها و زمان‌بندی بک‌آپ خودکار دوره‌ای">
-                  <i class="devicon-mysql-plain" aria-hidden="true"></i>
-                  <span>MySQL / MariaDB</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="پیاده‌سازی حافظه کش In-Memory در معماری‌های چندلایه وب">
-                  <i class="devicon-redis-plain" aria-hidden="true"></i>
-                  <span>Redis Cache</span>
-                </span>
+              <div class="intro-copy fa-text">
+                <p>سلام<br />من آرینم</p>
+                <p>به دنیای کامپیوتر علاقه دارم و تمرکزم روی یادگیری عمیق و پیشرفت در حوزه <strong class="bio-term" dir="ltr">DevOps</strong> و <strong class="bio-term" dir="ltr">Cloud Engineering</strong> هست</p>
+                <p>علاوه بر این، دنیای <strong class="bio-term" dir="ltr">OSINT</strong> هم خیلی برام جذابه و تازه وارد مسیر یادگیریش شدم</p>
+                <p>یه بخش اینجا هست به اسم <strong>سناریوها</strong> که تمرین‌ها و چالش‌های عملی دواپس که انجام دادم رو اونجا می‌ذارم؛ اگر علاقه داشتید می‌تونید واردش بشید و شما هم انجامشون بدید.</p>
+                <p>خارج از اینا به فیلم و سریال و انیمه هم علاقه دارم</p>
+                <p>اگر به این حوزه‌ها علاقه‌مندید، ایده‌ای برای همکاری دارید یا صرفاً دوست دارید گپ بزنیم، خوشحال می‌شم پیام بدید!</p>
               </div>
             </section>
 
-            <!-- ۳. مهارت‌ها: سیستم‌عامل، برنامه‌نویسی و اتوماسیون -->
-            <section class="card card--half" style="border-right: none;">
-              <header class="card-header">
-                <b>OS, Code &amp; Scripting</b>
-                <small>Core Systems</small>
-              </header>
-              <div class="skills-wrap">
-                <span class="skill-chip" tabindex="0" data-tooltip="سخت‌سازی سرور لینوکس، مدیریت سرویس‌های Systemd و عیب‌یابی منابع کرنل">
-                  <i class="devicon-linux-plain" aria-hidden="true"></i>
-                  <span>Linux Hardening &amp; Systemd</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="اتوماسیون پیکربندی Agentless با Roles، قالب‌های Jinja2 و اصل Idempotence">
-                  <i class="devicon-ansible-plain" aria-hidden="true"></i>
-                  <span>Ansible Automation</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="اسکریپت‌نویسی خودکارسازی تسک‌های زیرساخت، ابزارسازی و پایپ‌لاین‌های تست">
-                  <i class="devicon-python-plain" aria-hidden="true"></i>
-                  <span>Python Automation</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="نوشتن اسکریپت‌های شل برای نگهداری سرور، مانیتورینگ، بک‌آپ و تزریق خرابی">
-                  <i class="devicon-bash-plain" aria-hidden="true"></i>
-                  <span>Bash Shell Scripting</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="مدیریت نسخه‌بندی کد، تگ‌گذاری با Git SHA و جریان‌های کاری خودکار">
-                  <i class="devicon-git-plain" aria-hidden="true"></i>
-                  <span>Git VCS &amp; GitOps</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="احراز هویت کلیدمحور، غیرفعال‌سازی لاگین پسورد، StrictModes و محدودسازی Root">
-                  <i class="devicon-ssh-original" aria-hidden="true"></i>
-                  <span>SSH Keys &amp; Security</span>
-                </span>
-              </div>
-            </section>
-
-            <!-- ۴. مهارت‌ها: CI/CD و DevSecOps -->
-            <section class="card card--half">
-              <header class="card-header">
-                <b>CI/CD &amp; DevSecOps</b>
-                <small>Pipelines</small>
-              </header>
-              <div class="skills-wrap">
-                <span class="skill-chip" tabindex="0" data-tooltip="طراحی پایپ‌لاین‌های چندمرحله‌ای تست، بیلد، اسکن امنیتی و همگام‌سازی خودکار">
-                  <i class="devicon-githubactions-plain" aria-hidden="true"></i>
-                  <span>GitHub Actions</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="تعریف استیج‌ها، جاب‌ها و آرتیفکت‌ها برای یکپارچه‌سازی و استقرار مداوم">
-                  <i class="devicon-gitlab-plain" aria-hidden="true"></i>
-                  <span>GitLab CI</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="اسکن خودکار لایه‌های ایمیج داکر برای کشف آسیب‌پذیری‌های CRITICAL و HIGH">
-                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
-                  <span>Trivy Vulnerability Scan</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="بررسی استاتیک سینتکس و رعایت Best Practiceهای امنیتی در نگارش Dockerfile">
-                  <i class="devicon-docker-plain" aria-hidden="true"></i>
-                  <span>Hadolint Linting</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="اجرای تست‌های واحد و تست دود خودکار اندپوینت‌ها پیش از انتشار سرویس">
-                  <i class="devicon-pytest-plain" aria-hidden="true"></i>
-                  <span>Pytest Smoke Testing</span>
-                </span>
-              </div>
-            </section>
-
-            <!-- ۵. مهارت‌ها: شبکه و زیرساخت -->
-            <section class="card card--half" style="border-right: none;">
-              <header class="card-header">
-                <b>Networking &amp; Infra</b>
-                <small>Connectivity</small>
-              </header>
-              <div class="skills-wrap">
-                <span class="skill-chip" tabindex="0" data-tooltip="طراحی بهینه زیرشبکه‌های IPv4 بر اساس نیاز دپارتمان‌ها و کاهش هدررفت آدرس">
-                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
-                  <span>VLSM Subnet Design</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="تحلیل جریان بسته‌های شبکه، پورت‌ها و عیب‌یابی ارتباطات لایه انتقال">
-                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-                  <span>TCP/IP &amp; Packet Flow Analysis</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="پیکربندی قوانین فایروال محلی، محدودسازی پورت‌ها و محافظت با Fail2ban">
-                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
-                  <span>UFW &amp; iptables Firewall</span>
-                </span>
-                <span class="skill-chip" tabindex="0" data-tooltip="عیب‌یابی تفکیک نام دامنه، بررسی رکوردها و تحلیل اختلالات NSSwitch/DNS">
-                  <svg class="skill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 000 8.4M16.2 7.8a6 6 0 010 8.4M4.9 4.9a10 10 0 000 14.2M19.1 4.9a10 10 0 010 14.2"/></svg>
-                  <span>DNS Diagnostics &amp; Dig/Nslookup</span>
-                </span>
-              </div>
-            </section>
-
-            <!-- ۶. بخش پروژه‌ها (فقط تایتل قابل کلیک) -->
-            <section class="card card--half">
-              <header class="card-header">
-                <b>Repositories</b>
-                <small>GitHub</small>
-              </header>
-              <ul class="repo-list">
-                <li>
-                  <a href="https://github.com/arian-0058/automated-ci-cd-pipeline" target="_blank" rel="noopener noreferrer" class="repo-link">
-                    <span class="repo-link-title">automated-ci-cd-pipeline</span>
-                    <span class="repo-link-arrow">↗</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/arian-0058/devops-troubleshooting-scenario" target="_blank" rel="noopener noreferrer" class="repo-link">
-                    <span class="repo-link-title">devops-troubleshooting-scenario</span>
-                    <span class="repo-link-arrow">↗</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/arian-0058/ansible-server-provisioner" target="_blank" rel="noopener noreferrer" class="repo-link">
-                    <span class="repo-link-title">ansible-server-provisioner</span>
-                    <span class="repo-link-arrow">↗</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/arian-0058/cloud_projects_and_practice" target="_blank" rel="noopener noreferrer" class="repo-link">
-                    <span class="repo-link-title">cloud_projects_and_practice</span>
-                    <span class="repo-link-arrow">↗</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-
-            <!-- ۷. بخش سناریوها (متن ساده + دکمه کوچک بدون متن + اسکی‌آرت دوم در پایین) -->
-            <section class="card card--half" style="border-right: none;">
+            <!-- ۲. سناریوها (نیم‌عرض) -->
+            <section class="card card--half card--scenarios-half">
               <header class="card-header">
                 <b>Incident Lab</b>
-                <small>Runbooks</small>
+                <small>Scenarios · Repos · Skills</small>
               </header>
 
               <div class="scenarios-row">
@@ -294,10 +141,104 @@
                   </svg>
                 </a>
               </div>
+            </section>
 
-              <div class="scenarios-ascii-wrap">
-                <div class="ascii-box">
-                  <pre class="ascii-pre" data-autofit="true" aria-label="ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            <!-- ۳. پلیر موزیک باز و مینیمال با وایب CatX / Lain (نیم‌عرض) -->
+            <section class="card card--half card--half-end">
+              <header class="card-header">
+                <b>WIRED_AUDIO</b>
+                <small>CATX // DECK</small>
+              </header>
+
+              <div class="lain-player" id="lain-player">
+                <div class="lain-meta-line">
+                  <span><span class="lain-tag-err">LAYER:07</span> // <span id="lain-status">STANDBY</span></span>
+                  <span class="lain-tag-cyan" id="lain-glitch-tag">SIGNAL::IDLE</span>
+                </div>
+
+                <pre class="lain-ansi-viz" id="lain-ansi-viz" aria-hidden="true"></pre>
+
+                <div class="lain-track-block">
+                  <div class="lain-track-row">
+                    <span class="lain-track-name" id="lain-track-name">LOADING /music ...</span>
+                    <span class="lain-time" id="lain-time">00:00 / 00:00</span>
+                  </div>
+
+                  <div class="lain-progress" id="lain-progress" role="progressbar" aria-label="Audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="lain-progress-rail">
+                      <div class="lain-progress-fill" id="lain-progress-fill"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lain-controls">
+                  <div class="lain-transport">
+                    <button type="button" class="lain-icon-btn" id="lain-prev-btn" disabled aria-label="Previous track" title="Previous track">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                    </button>
+
+                    <button type="button" class="lain-icon-btn is-primary" id="lain-play-btn" disabled aria-label="Play" title="Play / Pause">
+                      <svg id="lain-play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+
+                    <button type="button" class="lain-icon-btn" id="lain-next-btn" disabled aria-label="Next track" title="Next track">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                    </button>
+
+                    <button type="button" class="lain-icon-btn is-active" id="lain-shuffle-btn" aria-pressed="true" aria-label="Toggle shuffle" title="Shuffle: ON">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                        <polyline points="16 3 21 3 21 8"></polyline>
+                        <line x1="4" y1="20" x2="21" y2="3"></line>
+                        <polyline points="21 16 21 21 16 21"></polyline>
+                        <line x1="15" y1="15" x2="21" y2="21"></line>
+                        <line x1="4" y1="4" x2="9" y2="9"></line>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="lain-vol-wrap">
+                    <button type="button" class="lain-icon-btn" id="lain-mute-btn" aria-label="Mute" title="Mute / Unmute">
+                      <svg id="lain-vol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      </svg>
+                    </button>
+                    <input type="range" id="lain-vol" class="lain-vol" min="0" max="1" step="0.02" value="0.7" aria-label="Volume" />
+                  </div>
+                </div>
+
+                <audio id="lain-audio" preload="metadata"></audio>
+              </div>
+            </section>
+
+            <!-- ۴. گل متحرک ASCII (کم‌ارتفاع‌تر و سریع بالای فوتر) -->
+            <section class="card card--wide">
+              <header class="card-header">
+                <b>ASCII_FLORA</b>
+                <small>INTERACTIVE // ROSE_LOOP</small>
+              </header>
+              <div class="flower-stage" id="flower-stage">
+                <pre class="flower-pre" id="flower-pre" aria-label="Animated ASCII flower"></pre>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- فوتر -->
+          <footer class="site-footer" dir="ltr">
+            <span>ARIAN NOURANI // INFRA NODE</span>
+            <div class="footer-links">
+              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="./incidents.html">Scenarios</a>
+              <button type="button" class="footer-david-btn" id="david-toggle" aria-expanded="false" aria-controls="david-drawer">david...</button>
+            </div>
+          </footer>
+
+          <!-- بخش مخفی اسکی‌آرت زیر فوتر -->
+          <div class="david-drawer" id="david-drawer" hidden>
+            <div class="ascii-box">
+              <pre class="ascii-pre" data-autofit="true" aria-label="David ASCII illustration">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢿⣿⣿⣍⡉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹⡉⠉⠉⠉⠉⠉⠉⡉⠉⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢎⠻⣿⣿⣿⣶⣔⡄⠀⠀⠀⠄⠐⠄⠀⣾⠇⠀⠀⠀⠀⠀⠠⠂⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠲⢾⣽⣿⣿⣿⣿⡂⠀⠀⠀⠀⠀⢺⡎⢀⣠⣆⣆⣠⣄⠤⣲⣞⣭⡕⢖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠲⣽⣿⣿⣿⣿⣿⣷⠄⠐⠀⡠⣿⣵⣿⣿⣿⠿⠋⠁⠀⢗⣿⡿⠟⣛⢣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -318,26 +259,15 @@
 ⠀⠀⠀⠀⠀⠀⢪⢉⢶⡀⢤⣄⠉⠈⢢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠞⣡⠳⡀⠀⠀⠀⠀⠀⠀⠀⡰⠋⠀⢰⠀⠀⠀⢸⠀⠀⡇⠀⡇⠀⠀⡠⠊⠀⠀⠀⡇⡇⠅⠏⠂⣄⠀
 ⠀⠀⠀⠀⠀⠀⠀⠑⡄⣙⢦⣍⠳⣄⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⠀⢰⠁⠀⠙⠦⣀⣀⡀⠤⠞⠁⠀⡠⠁⠀⠀⠀⠀⡇⠀⢸⡞⠀⡠⠃⠀⠀⢀⠔⡡⠊⡨⡨⠀⠀⠀⠈⠳
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⣌⢻⣷⣄⣀⣀⣀⣀⣀⣰⣟⣀⣀⣀⣌⣀⣀⣀⣀⣀⣈⣙⣒⣘⣁⣠⣎⣀⣀⣀⣳⠀⣀⣧⠞⣀⣄⣀⣸⣰⣁⣀⣧⣇⡠⣠⣀⣀⣀⣩⣇⠀</pre>
-                </div>
-              </div>
-            </section>
-
+            </div>
           </div>
 
-    <!-- فوتر -->
-          <footer class="site-footer" dir="ltr">
-            <span>ARIAN NOURANI // INFRA NODE</span>
-            <div class="footer-links">
-              <a href="https://github.com/arian-0058" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://t.me/Arian_0058" target="_blank" rel="noopener noreferrer">Telegram</a>
-              <a href="./incidents.html">Scenarios</a>
-            </div>
-          </footer>
-  <!-- تولتیپ شناور مهارت‌ها -->
-  <div id="js-tooltip" role="tooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // حفظ کامل تابع دانلود هر دو رزومه
     function downloadResumes() {
       const files = [
         'Arian_Nourani_Resume_(EN).pdf',
@@ -355,95 +285,643 @@
       });
     }
 
-    // منوی موبایل سایدبار
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuCollapse = document.getElementById('menu-collapse');
-    if (menuToggle && menuCollapse) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = menuCollapse.classList.toggle('open');
-        menuToggle.classList.toggle('open', isOpen);
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    // یکسان‌سازی عرض کاراکترهای خالی بریل برای رفع شکستگی لبه راست در دسکتاپ
+    function normalizeBrailleAscii() {
+      document.querySelectorAll('pre.ascii-pre').forEach((pre) => {
+        if (pre.dataset.normalized === 'true') return;
+        const raw = pre.textContent;
+        const frag = document.createDocumentFragment();
+        const parts = raw.split('\u2800');
+        parts.forEach((part, idx) => {
+          if (part) frag.appendChild(document.createTextNode(part));
+          if (idx < parts.length - 1) {
+            const sp = document.createElement('span');
+            sp.className = 'braille-blank';
+            sp.setAttribute('aria-hidden', 'true');
+            sp.textContent = '⣿';
+            frag.appendChild(sp);
+          }
+        });
+        pre.textContent = '';
+        pre.appendChild(frag);
+        pre.dataset.normalized = 'true';
       });
     }
 
-    // تنظیم خودکار سایز اسکی‌آرت‌ها متناسب با عرض کادر بدون شکستن خطوط
+    // تنظیم خودکار سایز اسکی‌آرت‌ها متناسب با عرض کادر
     function fitAsciiBlocks() {
       document.querySelectorAll('pre[data-autofit="true"]').forEach((pre) => {
         const box = pre.parentElement;
-        if (!box) return;
+        if (!box || box.clientWidth <= 16) return;
         const avail = box.clientWidth - 14;
-        if (avail <= 0) return;
+        const maxFont = parseFloat(pre.dataset.maxFont) || 10;
         pre.style.fontSize = '10px';
         const natural = pre.scrollWidth;
         if (natural > 0) {
-          const fitted = Math.max(2.6, Math.min(9.5, (avail / natural) * 10));
+          const fitted = Math.max(2.5, Math.min(maxFont, (avail / natural) * 10));
           pre.style.fontSize = fitted.toFixed(2) + 'px';
         }
       });
     }
 
-    window.addEventListener('load', fitAsciiBlocks);
-    window.addEventListener('resize', fitAsciiBlocks);
-    fitAsciiBlocks();
-
-    // سیستم تولتیپ مهارت‌ها (سبک nolove با پشتیبانی از موس و کیبورد)
-    (function initSkillTooltips() {
-      const tip = document.getElementById('js-tooltip');
-      if (!tip) return;
-      let activeEl = null;
-
-      function positionTooltip(clientX, clientY) {
-        const pad = 12;
-        const w = tip.offsetWidth || 240;
-        const h = tip.offsetHeight || 40;
-        let x = clientX + 14;
-        let y = clientY - h - 12;
-
-        if (x + w + pad > window.innerWidth) {
-          x = clientX - w - 14;
+    // باز و بسته کردن بخش david... زیر فوتر
+    const davidToggle = document.getElementById('david-toggle');
+    const davidDrawer = document.getElementById('david-drawer');
+    if (davidToggle && davidDrawer) {
+      davidToggle.addEventListener('click', () => {
+        const willOpen = davidDrawer.hidden;
+        davidDrawer.hidden = !willOpen;
+        davidToggle.setAttribute('aria-expanded', String(willOpen));
+        if (willOpen) {
+          fitAsciiBlocks();
+          davidDrawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-        if (x < pad) x = pad;
-        if (y < pad) y = clientY + 18;
+      });
+    }
 
-        tip.style.left = x + 'px';
-        tip.style.top = y + 'px';
+    // نوار قرمز سراسری بالای صفحه (جریان پیوسته و بدون فاصله روی Canvas 60fps)
+    (function initTopTelemetry() {
+      const canvas = document.getElementById('top-telemetry-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const glyphs = '0123456789ABCDEF0123456789XYZ0123456789';
+      const palette = [
+        '#521523', '#681c2d', '#7e2337', '#942b42',
+        '#aa334d', '#bf3b57', '#d14360', '#d94862',
+        '#e3526d', '#ec5d77', '#f46a84', '#ff7b94',
+        '#ff94a8'
+      ];
+
+      const randChar = () => glyphs[(Math.random() * glyphs.length) | 0];
+      const makeCell = () => ({
+        ch: randChar(),
+        base: 0.14 + Math.random() * 0.42,
+        flash: Math.random() < 0.06 ? 0.8 : 0
+      });
+
+      const SPEED = 150;
+      const FONT = '700 12px "JetBrains Mono", "Courier New", monospace';
+
+      let width = 0;
+      let height = 28;
+      let cellW = 7.4;
+      let count = 0;
+      let cells = [];
+      let head = 0;
+      let scrollOffset = 0;
+      let wavePhase = 0;
+      let mutateAccum = 0;
+      let lastTime = performance.now();
+
+      function setup() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth || document.documentElement.clientWidth || 1024;
+        height = (canvas.parentElement && canvas.parentElement.clientHeight) || 28;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.font = FONT;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
+        cellW = Math.max(6.5, ctx.measureText('0').width);
+        count = Math.ceil(width / cellW) + 3;
+        cells = Array.from({ length: count }, makeCell);
+        head = 0;
+        scrollOffset = 0;
       }
 
-      document.addEventListener('mousemove', (e) => {
-        if (activeEl) positionTooltip(e.clientX, e.clientY);
-      });
+      setup();
+      window.addEventListener('resize', setup);
+      window.addEventListener('load', setup);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setup);
+      }
 
-      document.querySelectorAll('[data-tooltip]').forEach((el) => {
-        el.addEventListener('mouseenter', (e) => {
-          const msg = el.getAttribute('data-tooltip');
-          if (!msg) return;
-          tip.textContent = msg;
-          tip.style.opacity = '1';
-          activeEl = el;
-          positionTooltip(e.clientX, e.clientY);
-        });
+      function render(now) {
+        requestAnimationFrame(render);
+        const dt = Math.min(0.05, Math.max(0, (now - lastTime) / 1000));
+        lastTime = now;
+        if (document.hidden || count === 0) return;
 
-        el.addEventListener('mouseleave', () => {
-          tip.style.opacity = '0';
-          activeEl = null;
-        });
+        scrollOffset += SPEED * dt;
+        while (scrollOffset >= cellW) {
+          scrollOffset -= cellW;
+          const entering = cells[head];
+          entering.ch = randChar();
+          entering.base = 0.14 + Math.random() * 0.42;
+          entering.flash = Math.random() < 0.05 ? 0.9 : 0;
+          head = (head + 1) % count;
+        }
 
-        el.addEventListener('focus', () => {
-          const msg = el.getAttribute('data-tooltip');
-          if (!msg) return;
-          const rect = el.getBoundingClientRect();
-          tip.textContent = msg;
-          tip.style.opacity = '1';
-          activeEl = el;
-          positionTooltip(rect.left + rect.width / 2, rect.top);
-        });
+        wavePhase += dt * 3.2;
+        mutateAccum += dt;
+        if (mutateAccum >= 0.04) {
+          mutateAccum = 0;
+          for (let k = 0; k < 3; k++) {
+            const idx = (Math.random() * count) | 0;
+            cells[idx].ch = randChar();
+            cells[idx].flash = 1;
+          }
+        }
 
-        el.addEventListener('blur', () => {
-          tip.style.opacity = '0';
-          activeEl = null;
-        });
-      });
+        ctx.clearRect(0, 0, width, height);
+        ctx.font = FONT;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        const midY = height / 2 + 0.5;
+        const maxIdx = palette.length - 1;
+
+        for (let i = 0; i < count; i++) {
+          const cell = cells[(head + i) % count];
+          if (cell.flash > 0) {
+            cell.flash = Math.max(0, cell.flash - dt * 3.6);
+          }
+          const x = i * cellW - scrollOffset;
+          const wave = (Math.sin(x * 0.011 - wavePhase) * 0.5 + 0.5) * 0.34;
+          const level = Math.min(1, cell.base + wave + cell.flash * 0.65);
+          ctx.fillStyle = palette[Math.min(maxIdx, (level * palette.length) | 0)];
+          ctx.fillText(cell.ch, x, midY);
+        }
+      }
+
+      requestAnimationFrame(render);
     })();
+
+    // پلیر موزیک باز و مینیمال با کنترل‌های Prev / Play / Next / Shuffle / Mute
+    (function initWiredAudioPlayer() {
+      const playerRoot = document.getElementById('lain-player');
+      const audio = document.getElementById('lain-audio');
+      const playBtn = document.getElementById('lain-play-btn');
+      const playIcon = document.getElementById('lain-play-icon');
+      const prevBtn = document.getElementById('lain-prev-btn');
+      const nextBtn = document.getElementById('lain-next-btn');
+      const shuffleBtn = document.getElementById('lain-shuffle-btn');
+      const muteBtn = document.getElementById('lain-mute-btn');
+      const volIcon = document.getElementById('lain-vol-icon');
+      const trackNameEl = document.getElementById('lain-track-name');
+      const timeEl = document.getElementById('lain-time');
+      const statusEl = document.getElementById('lain-status');
+      const glitchTagEl = document.getElementById('lain-glitch-tag');
+      const vizEl = document.getElementById('lain-ansi-viz');
+      const progressBar = document.getElementById('lain-progress');
+      const progressFill = document.getElementById('lain-progress-fill');
+      const volSlider = document.getElementById('lain-vol');
+      if (!audio || !playBtn || !vizEl) return;
+
+      let playlist = [];
+      let currentIdx = -1;
+      let shuffleOn = true;
+      let history = [];
+      let historyPos = -1;
+      let lastVol = 0.7;
+
+      let audioCtx = null;
+      let analyser = null;
+      let freqData = null;
+      let vizPhase = 0;
+
+      const COLS = 24;
+      const ROWS = 4;
+      const blocks = ['░', '▒', '▓', '█'];
+      const glitchTags = ['SIGNAL::LOCK', 'ERROR::0x07', 'WIRED::SYNC', 'NODE::ALIVE'];
+
+      const PLAY_SVG = '<path d="M8 5v14l11-7z"/>';
+      const PAUSE_SVG = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+      const VOL_ON_SVG = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+      const VOL_MUTE_SVG = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="22" y1="9" x2="16" y2="15"></line><line x1="16" y1="9" x2="22" y2="15"></line>';
+
+      audio.volume = parseFloat(volSlider.value) || 0.7;
+
+      const fmtTime = (sec) => {
+        if (!Number.isFinite(sec) || sec < 0) return '00:00';
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+      };
+
+      const renderAnsiViz = (isPlaying) => {
+        const levels = new Array(COLS).fill(0);
+
+        if (isPlaying && analyser && freqData) {
+          analyser.getByteFrequencyData(freqData);
+          const step = Math.max(1, Math.floor((freqData.length * 0.65) / COLS));
+          for (let c = 0; c < COLS; c++) {
+            const val = freqData[c * step] || 0;
+            levels[c] = Math.round((val / 255) * ROWS);
+          }
+        } else if (isPlaying) {
+          vizPhase += 0.24;
+          for (let c = 0; c < COLS; c++) {
+            const wave = Math.sin(vizPhase + c * 0.45) * 0.5 + 0.5;
+            const jitter = Math.sin(vizPhase * 1.9 - c * 0.8) * 0.5 + 0.5;
+            levels[c] = Math.max(1, Math.min(ROWS, Math.round((wave * 0.65 + jitter * 0.35) * ROWS)));
+          }
+        } else {
+          for (let c = 0; c < COLS; c++) {
+            levels[c] = (c % 5 === 0) ? 2 : 1;
+          }
+        }
+
+        let html = '';
+        for (let r = ROWS; r >= 1; r--) {
+          let line = '';
+          for (let c = 0; c < COLS; c++) {
+            const lvl = levels[c];
+            if (lvl >= r) {
+              const ch = blocks[Math.min(blocks.length - 1, lvl - r + 1)];
+              const cls = (r === ROWS && isPlaying)
+                ? 'c-c'
+                : (c % 7 === 0 && isPlaying ? 'c-v' : 'c-p');
+              line += `<span class="${cls}">${ch}</span>`;
+            } else {
+              line += '<span class="c-d">░</span>';
+            }
+          }
+          html += line + (r > 1 ? '\n' : '');
+        }
+        vizEl.innerHTML = html;
+      };
+
+      const ensureAnalyser = () => {
+        if (audioCtx) {
+          if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+          return;
+        }
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        try {
+          audioCtx = new Ctx();
+          const source = audioCtx.createMediaElementSource(audio);
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 128;
+          source.connect(analyser);
+          analyser.connect(audioCtx.destination);
+          freqData = new Uint8Array(analyser.frequencyBinCount);
+        } catch (_) {
+          audioCtx = null;
+          analyser = null;
+        }
+      };
+
+      const pickRandomIdx = (avoidIdx) => {
+        if (playlist.length <= 1) return 0;
+        let next = avoidIdx;
+        while (next === avoidIdx) {
+          next = Math.floor(Math.random() * playlist.length);
+        }
+        return next;
+      };
+
+      const loadTrack = (idx, shouldPlay, pushHistory = true) => {
+        if (!playlist[idx]) return;
+        currentIdx = idx;
+        if (pushHistory) {
+          history = history.slice(0, historyPos + 1);
+          history.push(idx);
+          historyPos = history.length - 1;
+        }
+        const track = playlist[idx];
+        audio.src = track.src;
+        trackNameEl.textContent = track.title || 'Untitled Track';
+        trackNameEl.title = track.title || '';
+        progressFill.style.width = '0%';
+        timeEl.textContent = '00:00 / 00:00';
+
+        if (shouldPlay) {
+          ensureAnalyser();
+          audio.play().catch(() => {
+            statusEl.textContent = 'READY';
+          });
+        }
+      };
+
+      const goNext = (shouldPlay = true) => {
+        if (!playlist.length) return;
+        if (historyPos < history.length - 1) {
+          historyPos += 1;
+          loadTrack(history[historyPos], shouldPlay, false);
+          return;
+        }
+        const nextIdx = shuffleOn
+          ? pickRandomIdx(currentIdx)
+          : (currentIdx + 1) % playlist.length;
+        loadTrack(nextIdx, shouldPlay, true);
+      };
+
+      const goPrev = () => {
+        if (!playlist.length) return;
+        if (audio.currentTime > 3) {
+          audio.currentTime = 0;
+          return;
+        }
+        if (historyPos > 0) {
+          historyPos -= 1;
+          loadTrack(history[historyPos], true, false);
+          return;
+        }
+        const prevIdx = shuffleOn
+          ? pickRandomIdx(currentIdx)
+          : (currentIdx - 1 + playlist.length) % playlist.length;
+        loadTrack(prevIdx, true, true);
+      };
+
+      playBtn.addEventListener('click', () => {
+        if (!playlist.length) return;
+        if (audio.paused) {
+          ensureAnalyser();
+          if (!audio.src) {
+            loadTrack(pickRandomIdx(-1), true, true);
+          } else {
+            audio.play().catch(() => {});
+          }
+        } else {
+          audio.pause();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => goNext(true));
+      prevBtn.addEventListener('click', goPrev);
+
+      shuffleBtn.addEventListener('click', () => {
+        shuffleOn = !shuffleOn;
+        shuffleBtn.classList.toggle('is-active', shuffleOn);
+        shuffleBtn.setAttribute('aria-pressed', String(shuffleOn));
+        shuffleBtn.title = shuffleOn ? 'Shuffle: ON' : 'Shuffle: OFF';
+      });
+
+      const updateVolIcon = () => {
+        const isMuted = audio.muted || audio.volume === 0;
+        volIcon.innerHTML = isMuted ? VOL_MUTE_SVG : VOL_ON_SVG;
+        muteBtn.classList.toggle('is-active', isMuted);
+      };
+
+      muteBtn.addEventListener('click', () => {
+        if (audio.muted || audio.volume === 0) {
+          audio.muted = false;
+          audio.volume = lastVol > 0 ? lastVol : 0.7;
+          volSlider.value = String(audio.volume);
+        } else {
+          lastVol = audio.volume;
+          audio.muted = true;
+          volSlider.value = '0';
+        }
+        updateVolIcon();
+      });
+
+      volSlider.addEventListener('input', () => {
+        const v = parseFloat(volSlider.value);
+        audio.muted = v === 0;
+        audio.volume = v;
+        if (v > 0) lastVol = v;
+        updateVolIcon();
+      });
+
+      progressBar.addEventListener('click', (e) => {
+        if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+        const rect = progressBar.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        audio.currentTime = ratio * audio.duration;
+      });
+
+      audio.addEventListener('play', () => {
+        playIcon.innerHTML = PAUSE_SVG;
+        playBtn.setAttribute('aria-label', 'Pause');
+        playBtn.classList.add('is-playing');
+        playerRoot.classList.add('is-playing');
+        statusEl.textContent = 'PLAYING';
+        glitchTagEl.textContent = glitchTags[Math.floor(Math.random() * glitchTags.length)];
+      });
+
+      audio.addEventListener('pause', () => {
+        playIcon.innerHTML = PLAY_SVG;
+        playBtn.setAttribute('aria-label', 'Play');
+        playBtn.classList.remove('is-playing');
+        playerRoot.classList.remove('is-playing');
+        statusEl.textContent = 'PAUSED';
+        glitchTagEl.textContent = 'SIGNAL::HOLD';
+        renderAnsiViz(false);
+      });
+
+      audio.addEventListener('loadedmetadata', () => {
+        timeEl.textContent = `${fmtTime(audio.currentTime)} / ${fmtTime(audio.duration)}`;
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        const dur = audio.duration || 0;
+        const cur = audio.currentTime || 0;
+        const pct = dur > 0 ? (cur / dur) * 100 : 0;
+        progressFill.style.width = pct.toFixed(1) + '%';
+        progressBar.setAttribute('aria-valuenow', String(Math.round(pct)));
+        timeEl.textContent = `${fmtTime(cur)} / ${fmtTime(dur)}`;
+      });
+
+      audio.addEventListener('ended', () => goNext(true));
+
+      setInterval(() => {
+        if (document.hidden || audio.paused) return;
+        renderAnsiViz(true);
+      }, 90);
+
+      renderAnsiViz(false);
+
+      fetch('./music/playlist.json?v=' + Date.now(), { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then((data) => {
+          if (!Array.isArray(data) || data.length === 0) {
+            trackNameEl.textContent = 'NO_AUDIO // add files to /music';
+            statusEl.textContent = 'EMPTY';
+            return;
+          }
+          playlist = data;
+          playBtn.disabled = false;
+          prevBtn.disabled = false;
+          nextBtn.disabled = false;
+          loadTrack(pickRandomIdx(-1), false, true);
+          statusEl.textContent = 'STANDBY';
+        })
+        .catch(() => {
+          trackNameEl.textContent = 'NO_PLAYLIST // push to /music';
+          statusEl.textContent = 'OFFLINE';
+        });
+    })();
+
+    // گل متحرک ASCII (سریع ۶۰ فریم، ارتفاع کم، مرکز دقیقاً روی موس)
+    (function initAsciiFlower() {
+      const stage = document.getElementById('flower-stage');
+      const pre = document.getElementById('flower-pre');
+      if (!stage || !pre) return;
+
+      const characters = ' .,-*:;!ioea#IOXHM8&@';
+      const TWO_PI = Math.PI * 2;
+      const PARTICLES = 3;
+      const PARTICLES_STEP = TWO_PI / PARTICLES;
+      const FRAMES = 96;
+      const RW = 1.05;
+      const RH = 0.55;
+      const D = 4;
+
+      let cols = 80;
+      let rows = 15;
+      let radius = 11;
+      let grid = [];
+      let particles = [];
+      let frameIdx = 0;
+
+      let isHovering = false;
+      let mouseX = cols / 2;
+      let mouseY = rows / 2;
+      let centerX = cols / 2;
+      let centerY = rows / 2;
+
+      function measureCharCell() {
+        const probe = document.createElement('span');
+        probe.textContent = 'MMMMMMMMMM';
+        probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;font-family:"Courier New","JetBrains Mono",monospace;line-height:1;letter-spacing:0;';
+        probe.style.fontSize = getComputedStyle(pre).fontSize;
+        stage.appendChild(probe);
+        const r = probe.getBoundingClientRect();
+        stage.removeChild(probe);
+        return {
+          cw: r.width / 10 || 6.6,
+          ch: r.height || 11
+        };
+      }
+
+      function configureGrid() {
+        const isNarrow = stage.clientWidth < 520;
+        pre.style.fontSize = isNarrow ? '9px' : '11px';
+        const { cw, ch } = measureCharCell();
+        cols = Math.max(30, Math.floor(stage.clientWidth / cw));
+        rows = Math.max(10, Math.floor(stage.clientHeight / ch));
+        radius = Math.min((rows * 0.44) / RH, (cols * 0.36) / RW);
+
+        centerX = cols / 2;
+        centerY = rows / 2;
+        mouseX = centerX;
+        mouseY = centerY;
+        grid = Array.from({ length: rows }, () => new Array(cols).fill(' '));
+        particles = [];
+      }
+
+      class Particle {
+        constructor(x, y) {
+          this.x = Math.round(x);
+          this.y = Math.round(y);
+          this.c = characters.length - 1;
+        }
+        update() {
+          this.c -= 1;
+          return this.c >= 0;
+        }
+        draw() {
+          if (this.x >= 0 && this.x < cols && this.y >= 0 && this.y < rows) {
+            grid[this.y][this.x] = characters[this.c];
+          }
+        }
+      }
+
+      function updatePointer(clientX, clientY) {
+        const rect = pre.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0) return;
+        const nx = (clientX - rect.left) / rect.width;
+        const ny = (clientY - rect.top) / rect.height;
+        mouseX = Math.max(0, Math.min(cols - 1, nx * cols));
+        mouseY = Math.max(0, Math.min(rows - 1, ny * rows));
+        isHovering = true;
+      }
+
+      stage.addEventListener('mousemove', (e) => updatePointer(e.clientX, e.clientY));
+      stage.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      stage.addEventListener('mouseleave', () => {
+        isHovering = false;
+      });
+
+      configureGrid();
+      window.addEventListener('resize', configureGrid);
+
+      let lastTime = performance.now();
+      let accum = 0;
+      const STEP_MS = 16.67;
+
+      function tick(now) {
+        requestAnimationFrame(tick);
+        if (document.hidden) {
+          lastTime = now;
+          return;
+        }
+        const elapsed = Math.min(60, now - lastTime);
+        lastTime = now;
+        accum += elapsed;
+
+        if (accum < STEP_MS) return;
+
+        while (accum >= STEP_MS) {
+          accum -= STEP_MS;
+
+          if (isHovering) {
+            centerX = mouseX;
+            centerY = mouseY;
+          } else {
+            centerX += (cols / 2 - centerX) * 0.12;
+            centerY += (rows / 2 - centerY) * 0.12;
+          }
+
+          const frameVal = (frameIdx / FRAMES) * TWO_PI;
+          for (let i = 0; i < PARTICLES; i++) {
+            const angle = (frameVal + i * PARTICLES_STEP) % TWO_PI;
+            const k = angle * D;
+            const r = radius * Math.sin(k);
+            const x = centerX + (r * RW) * Math.cos(angle);
+            const y = centerY + (r * RH) * Math.sin(angle);
+            particles.push(new Particle(x, y));
+          }
+
+          const nextParticles = [];
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            if (p.update()) {
+              nextParticles.push(p);
+            }
+          }
+          particles = nextParticles;
+          frameIdx = (frameIdx + 1) % FRAMES;
+        }
+
+        for (let y = 0; y < rows; y++) {
+          grid[y].fill(' ');
+        }
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].draw();
+        }
+
+        let output = '';
+        for (let y = 0; y < rows; y++) {
+          output += grid[y].join('') + (y < rows - 1 ? '\n' : '');
+        }
+        pre.textContent = output;
+      }
+
+      requestAnimationFrame(tick);
+    })();
+
+    normalizeBrailleAscii();
+    fitAsciiBlocks();
+    window.addEventListener('load', fitAsciiBlocks);
+    window.addEventListener('resize', fitAsciiBlocks);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitAsciiBlocks);
+    }
   </script>
 </body>
 </html>
